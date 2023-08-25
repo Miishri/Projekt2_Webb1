@@ -24,12 +24,11 @@ public class DataScraper {
         builder.delete(0, builder.length());
     }
 
-    private static void getCpus() {
+    private static ArrayList<?> getComponent(String endpoint) {
+        builderLog(new String[]{"Fetching from URL ", URL + endpoint});
+        ArrayList<String> CPULinkList = new ArrayList<>();
         try {
-            Document doc = Jsoup.connect(URL + CPU.endpoint).get();
-            builderLog(new String[]{"Fetching from URL ", URL + CPU.endpoint});
-
-            ArrayList<String> CPULinkList = new ArrayList<>();
+            Document doc = Jsoup.connect(URL + endpoint).get();
             for (Element link: doc.select("#hardware a[href]")) {
                 String href = link.attr("href");
                 if (href.contains("pc-kombo")) {
@@ -40,5 +39,7 @@ public class DataScraper {
         } catch (Exception e) {
             System.out.println("Error occurred while getting CPUs:" + e);
         }
+
+        return CPULinkList;
     }
 }
