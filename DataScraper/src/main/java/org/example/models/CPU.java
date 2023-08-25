@@ -3,8 +3,9 @@ package org.example.models;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
-@Builder
+@SuperBuilder
 @Getter
 @Setter
 public class CPU extends Component{
@@ -17,4 +18,15 @@ public class CPU extends Component{
     private String socket;
     private Integer TDP;
 
+    public CPU(String title, String image, String description, String producer,
+               Integer cores, Integer threads, Integer baseClock, Integer turboClick,
+               String socket, Integer TDP) {
+        super(title, image, description, producer);
+        this.cores = cores;
+        this.threads = threads;
+        this.baseClock = baseClock;
+        this.turboClick = turboClick;
+        this.socket = socket;
+        this.TDP = TDP;
+    }
 }

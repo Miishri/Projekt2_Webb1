@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.models.CPU;
+import org.example.models.Component;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,7 +14,8 @@ public class DataScraper {
     private static final String URL = "https://www.pc-kombo.com/us/components";
     private static final StringBuilder builder = new StringBuilder();
     public static void main(String[] args) {
-        getCpus();
+        getComponent(CPU.endpoint);
+
     }
 
     private static void builderLog(String[] buildingData) {
@@ -32,10 +34,11 @@ public class DataScraper {
             for (Element link: doc.select("#hardware a[href]")) {
                 String href = link.attr("href");
                 if (href.contains("pc-kombo")) {
-                    CPULinkList.add(href);
+                    Document hrefDoc = Jsoup.connect(href).get();
+                    System.out.println(hrefDoc);
+                    return new ArrayList<>();
                 }
             }
-            System.out.println(CPULinkList);
         } catch (Exception e) {
             System.out.println("Error occurred while getting CPUs:" + e);
         }
