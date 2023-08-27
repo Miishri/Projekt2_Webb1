@@ -29,4 +29,16 @@ public class CPU extends Component{
         this.socket = socket;
         this.TDP = TDP;
     }
+
+    @Override
+    public String toString() {
+        return "CPU{" +
+                "cores=" + cores +
+                ", threads=" + threads +
+                ", baseClock=" + baseClock +
+                ", turboClick=" + turboClick +
+                ", socket='" + socket + '\'' +
+                ", TDP=" + TDP +
+                '}';
+    }
 }
