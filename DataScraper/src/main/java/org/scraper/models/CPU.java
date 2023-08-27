@@ -1,6 +1,5 @@
-package org.example.models;
+package org.scraper.models;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;

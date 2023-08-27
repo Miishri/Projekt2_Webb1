@@ -1,8 +1,7 @@
-package org.example;
+package org.scraper;
 
-import org.example.models.CPU;
+import org.scraper.models.CPU;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class DataScraperTest {

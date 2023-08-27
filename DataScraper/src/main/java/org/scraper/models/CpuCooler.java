@@ -1,10 +1,9 @@
-package org.example.models;
+package org.scraper.models;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter

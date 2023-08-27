@@ -1,12 +1,11 @@
-package org.example;
+package org.scraper;
 
-import org.example.models.*;
+import org.scraper.models.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
