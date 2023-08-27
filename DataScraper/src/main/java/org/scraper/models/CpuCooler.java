@@ -3,13 +3,14 @@ package org.scraper.models;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.scraper.models.Component.Component;
 
 import java.util.List;
 
 @Getter
 @Setter
 @SuperBuilder
-public class CpuCooler extends Component{
+public class CpuCooler extends Component {
     public static final String endpoint = "/cpucoolers";
 
     private List<String> socketSupports;

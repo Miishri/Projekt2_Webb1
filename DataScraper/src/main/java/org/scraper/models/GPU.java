@@ -3,11 +3,12 @@ package org.scraper.models;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.scraper.models.Component.Component;
 
 @SuperBuilder
 @Getter
 @Setter
-public class GPU extends Component{
+public class GPU extends Component {
 
     public static final String endpoint = "/gpus";
 

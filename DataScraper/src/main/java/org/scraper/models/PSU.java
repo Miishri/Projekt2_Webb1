@@ -3,11 +3,12 @@ package org.scraper.models;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.scraper.models.Component.Component;
 
 @Setter
 @SuperBuilder
 @Getter
-public class PSU extends Component{
+public class PSU extends Component {
 
     public static final String endpoint = "/psus";
 

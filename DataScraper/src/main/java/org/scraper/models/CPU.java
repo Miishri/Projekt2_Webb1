@@ -3,23 +3,24 @@ package org.scraper.models;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.scraper.models.Component.Component;
 
 @SuperBuilder
 @Getter
 @Setter
-public class CPU extends Component{
+public class CPU extends Component {
     public static final String endpoint = "/cpus";
 
     private Integer cores;
     private Integer threads;
-    private Integer baseClock;
-    private Integer turboClick;
+    private String baseClock;
+    private String turboClick;
     private String socket;
-    private Integer TDP;
+    private String TDP;
 
     public CPU(String title, String image, String description, String producer, String rating,
-               Integer cores, Integer threads, Integer baseClock, Integer turboClick, String socket,
-               Integer TDP) {
+               Integer cores, Integer threads, String baseClock, String turboClick, String socket,
+               String TDP) {
         super(title, image, description, producer, rating);
         this.cores = cores;
         this.threads = threads;
@@ -32,12 +33,17 @@ public class CPU extends Component{
     @Override
     public String toString() {
         return "CPU{" +
-                "cores=" + cores +
+                "title='" + getTitle() + '\'' +
+                ", image='" + getImage() + '\'' +
+                ", description='" + getDescription() + '\'' +
+                ", producer='" + getProducer() + '\'' +
+                ", rating='" + getRating() + '\'' +
+                ", cores=" + cores +
                 ", threads=" + threads +
-                ", baseClock=" + baseClock +
-                ", turboClick=" + turboClick +
+                ", baseClock='" + baseClock + '\'' +
+                ", turboClick='" + turboClick + '\'' +
                 ", socket='" + socket + '\'' +
-                ", TDP=" + TDP +
+                ", TDP='" + TDP + '\'' +
                 '}';
     }
 }

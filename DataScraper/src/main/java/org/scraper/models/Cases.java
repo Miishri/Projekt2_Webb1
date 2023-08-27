@@ -3,11 +3,12 @@ package org.scraper.models;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.scraper.models.Component.Component;
 
 @Setter
 @Getter
 @SuperBuilder
-public class Cases extends Component{
+public class Cases extends Component {
     public static final String endpoint = "/cases";
 
     private Integer width;

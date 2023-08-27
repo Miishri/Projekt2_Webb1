@@ -3,11 +3,12 @@ package org.scraper.models;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.scraper.models.Component.Component;
 
 @Setter
 @Getter
 @SuperBuilder
-public class Monitor extends Component{
+public class Monitor extends Component {
 
     public static final String endpoint = "/displays";
 
