@@ -18,10 +18,10 @@ public class CPU extends Component{
     private String socket;
     private Integer TDP;
 
-    public CPU(String title, String image, String description, String producer,
-               Integer cores, Integer threads, Integer baseClock, Integer turboClick,
-               String socket, Integer TDP) {
-        super(title, image, description, producer);
+    public CPU(String title, String image, String description, String producer, String rating,
+               Integer cores, Integer threads, Integer baseClock, Integer turboClick, String socket,
+               Integer TDP) {
+        super(title, image, description, producer, rating);
         this.cores = cores;
         this.threads = threads;
         this.baseClock = baseClock;

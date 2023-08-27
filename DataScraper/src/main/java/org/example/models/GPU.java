@@ -10,6 +10,8 @@ import lombok.experimental.SuperBuilder;
 @Setter
 public class GPU extends Component{
 
+    public static final String endpoint = "/gpus";
+
     private Integer length;
     private Integer slots;
     private Integer eightPinConnectors;
@@ -22,11 +24,11 @@ public class GPU extends Component{
     private Integer VRAM;
     private Integer TDP;
 
-    public GPU(String title, String image, String description, String producer, Integer length,
-               Integer slots, Integer eightPinConnectors, Integer sixPinConnectors,
-               Integer HDMI, Integer DP, Integer DVI, Integer VGA, String MHZ, Integer VRAM,
-               Integer TDP) {
-        super(title, image, description, producer);
+    public GPU(String title, String image, String description, String producer,
+               String rating, Integer length, Integer slots, Integer eightPinConnectors,
+               Integer sixPinConnectors, Integer HDMI, Integer DP, Integer DVI, Integer VGA,
+               String MHZ, Integer VRAM, Integer TDP) {
+        super(title, image, description, producer, rating);
         this.length = length;
         this.slots = slots;
         this.eightPinConnectors = eightPinConnectors;

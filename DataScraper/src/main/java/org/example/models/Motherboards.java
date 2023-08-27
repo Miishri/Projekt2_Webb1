@@ -8,6 +8,8 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 public class Motherboards extends Component {
+    public static final String endpoint = "/motherboards";
+
     private String socket;
     private String chipset;
     private String memoryType;
@@ -22,11 +24,11 @@ public class Motherboards extends Component {
     private Integer DP;
     private Integer HDMI;
 
-    public Motherboards(String title, String image, String description,
-                        String producer, String socket, String chipset, String memoryType,
-                        Integer memoryCapacity, Integer ramSlots, Integer sata, Integer m2Storage,
-                        Integer pcie, Integer usbSlots, Integer VGA, Integer DVI, Integer DP, Integer HDMI) {
-        super(title, image, description, producer);
+    public Motherboards(String title, String image, String description, String producer, String rating,
+                        String socket, String chipset, String memoryType, Integer memoryCapacity, Integer ramSlots,
+                        Integer sata, Integer m2Storage, Integer pcie, Integer usbSlots, Integer VGA, Integer DVI,
+                        Integer DP, Integer HDMI) {
+        super(title, image, description, producer, rating);
         this.socket = socket;
         this.chipset = chipset;
         this.memoryType = memoryType;

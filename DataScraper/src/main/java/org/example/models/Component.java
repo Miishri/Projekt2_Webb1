@@ -15,5 +15,6 @@ public class Component {
     private String image;
     private String description;
     private String producer;
+    private String rating;
 }
 

@@ -9,6 +9,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class Ram extends Component{
 
+    public static final String endpoint = "/rams";
+
     private String ramType;
     private Integer size;
     private Integer clock;
@@ -16,9 +18,9 @@ public class Ram extends Component{
     private Integer sticks;
 
     public Ram(String title, String image, String description,
-               String producer, String ramType, Integer size, Integer clock,
-               String timings, Integer sticks) {
-        super(title, image, description, producer);
+               String producer, String rating, String ramType, Integer size,
+               Integer clock, String timings, Integer sticks) {
+        super(title, image, description, producer, rating);
         this.ramType = ramType;
         this.size = size;
         this.clock = clock;

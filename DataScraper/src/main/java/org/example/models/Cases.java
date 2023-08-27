@@ -24,12 +24,11 @@ public class Cases extends Component{
     private Boolean cableManagement;
     private Boolean noiseIsolation;
 
-    public Cases(String title, String image, String description, String producer,
-                 Integer width, Integer depth, Integer height, String motherboard,
-                 String powerSupply, Integer gpuLength, Integer supportedCpuCooler,
-                 Boolean fanSupport, Boolean radiatorSupport, Boolean window, Boolean dustFilter,
-                 Boolean cableManagement, Boolean noiseIsolation) {
-        super(title, image, description, producer);
+    public Cases(String title, String image, String description, String producer, String rating,
+                 Integer width, Integer depth, Integer height, String motherboard, String powerSupply,
+                 Integer gpuLength, Integer supportedCpuCooler, Boolean fanSupport, Boolean radiatorSupport,
+                 Boolean window, Boolean dustFilter, Boolean cableManagement, Boolean noiseIsolation) {
+        super(title, image, description, producer, rating);
         this.width = width;
         this.depth = depth;
         this.height = height;
