@@ -1,5 +1,7 @@
 package org.scraper;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.scraper.models.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -8,15 +10,24 @@ import org.jsoup.select.Elements;
 import org.scraper.models.Component.Component;
 import org.scraper.models.Component.ComponentFactory;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class DataScraper implements ComponentFactory {
     private static final String URL = "https://www.pc-kombo.com/us/components";
+    private final ObjectMapper mapper = new ObjectMapper();
+
+    public static void main(String[] args) {
+       DataScraper dataScraper = new DataScraper();
+       ArrayList<Component> comp = dataScraper.getComponent(CPU.endpoint);
+    }
 
     public ArrayList<Component> getComponent(String endpoint) {
         ArrayList<Component> CPULinkList = new ArrayList<>();
+
+
         try {
             Document domDocument = Jsoup.connect(URL + endpoint).get();
             Elements hardwareList = domDocument.select("#hardware a[href]");
@@ -24,22 +35,28 @@ public class DataScraper implements ComponentFactory {
             for (Element hardware: hardwareList) {
                 String hardwareReference = hardware.attr("href");
 
-                System.out.println("Fetching from URL: " +  hardwareReference);
-
                 if (hardwareReference.contains("pc-kombo")) {
+                    System.out.println("Fetching from URL: " +  hardwareReference);
+
                     Elements productHtml = Jsoup.connect(hardwareReference)
                             .get()
                             .select("#product");
 
-                    CPULinkList.add(componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint));
+                    Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
+                    CPULinkList.add(component);
 
-                    return CPULinkList;
+                    if (CPULinkList.size() > 10) {
+                        writeToJsonDatabase(CPULinkList, endpoint);
+                        return CPULinkList;
+                    }
                 }
             }
 
         } catch (Exception e) {
             System.out.println("Error occurred while fetching CPUs:" + e);
         }
+
+
          return CPULinkList;
     }
 
@@ -74,6 +91,14 @@ public class DataScraper implements ComponentFactory {
             case "/ssds" -> createSsd(productHtml, productSpecifications);
             default -> new Component();
         };
+    }
+    private void writeToJsonDatabase(ArrayList<Component> componentArrayList, String endpoint) {
+        try {
+            File file = new File("src/main/resources/DatabaseJSON/" + endpoint.substring(1) + "_database.json");
+            mapper.writeValue(file, componentArrayList);
+        }catch (Exception e) {
+            System.out.println("Error occurred while writing json: " + e);
+        }
     }
     @Override
     public CPU createCpu(Elements productHtml, HashMap<String, String> productSpecifications) {
@@ -132,5 +157,4 @@ public class DataScraper implements ComponentFactory {
         return null;
     }
 
-    //https://www.baeldung.com/java-serialization-approaches
 }

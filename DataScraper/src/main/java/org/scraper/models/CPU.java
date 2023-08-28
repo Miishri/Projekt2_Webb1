@@ -1,6 +1,9 @@
 package org.scraper.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.scraper.models.Component.Component;
@@ -8,28 +11,24 @@ import org.scraper.models.Component.Component;
 @SuperBuilder
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CPU extends Component {
     public static final String endpoint = "/cpus";
+    public static final String jsonDatabase = "src/main/resources/DatabaseJSON/cpus_database.json";
 
+    @JsonProperty("Cores")
     private Integer cores;
+    @JsonProperty("threads")
     private Integer threads;
+    @JsonProperty("baseClock")
     private String baseClock;
+    @JsonProperty("turboClick")
     private String turboClick;
+    @JsonProperty("socket")
     private String socket;
+    @JsonProperty("tdp")
     private String TDP;
-
-    public CPU(String title, String image, String description, String producer, String rating,
-               Integer cores, Integer threads, String baseClock, String turboClick, String socket,
-               String TDP) {
-        super(title, image, description, producer, rating);
-        this.cores = cores;
-        this.threads = threads;
-        this.baseClock = baseClock;
-        this.turboClick = turboClick;
-        this.socket = socket;
-        this.TDP = TDP;
-    }
-
     @Override
     public String toString() {
         return "CPU{" +
