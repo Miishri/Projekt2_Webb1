@@ -20,8 +20,9 @@ public class DataScraper implements ComponentFactory {
     private final ObjectMapper mapper = new ObjectMapper();
 
     public static void main(String[] args) {
-       DataScraper dataScraper = new DataScraper();
-       ArrayList<Component> comp = dataScraper.getComponent(CPU.endpoint);
+        DataScraper dataScraper = new DataScraper();
+        dataScraper.getComponent(CPU.endpoint);
+        dataScraper.getComponent(GPU.endpoint);
     }
 
     public ArrayList<Component> getComponent(String endpoint) {
@@ -44,11 +45,6 @@ public class DataScraper implements ComponentFactory {
 
                     Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
                     CPULinkList.add(component);
-
-                    if (CPULinkList.size() > 10) {
-                        writeToJsonDatabase(CPULinkList, endpoint);
-                        return CPULinkList;
-                    }
                 }
             }
 
@@ -57,6 +53,7 @@ public class DataScraper implements ComponentFactory {
         }
 
 
+        writeToJsonDatabase(CPULinkList, endpoint);
          return CPULinkList;
     }
 
