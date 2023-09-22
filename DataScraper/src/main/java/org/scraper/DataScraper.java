@@ -263,7 +263,20 @@ public class DataScraper implements ComponentFactory {
      */
     @Override
     public Ram createRam(Elements productHtml, HashMap<String, String> productSpecifications) {
-        return null;
+        return Ram.builder()
+
+                .title(productHtml.select("[itemprop=name]").text())
+                .rating(productHtml.select("[itemprop=aggregateRating]").text())
+                .producer(productSpecifications.get("Producer"))
+                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .description(productHtml.select("[itemprop=description]").text())
+
+                .ramType(productSpecifications.get("DDR4-3200"))
+                .size(productSpecifications.get("Size"))
+                .clock(Integer.parseInt(productSpecifications.get("Clock")))
+                .timings(productSpecifications.get("Timings"))
+                .sticks(Integer.valueOf(productSpecifications.get("Sticks")))
+                .build();
     }
 
     /*{Timings=16-18-18-36, EAN=0843591070478, Producer=Corsair, Year=, Ram Type=DDR4-3200, Sticks=2,
@@ -271,7 +284,15 @@ public class DataScraper implements ComponentFactory {
      */
     @Override
     public SSD createSsd(Elements productHtml, HashMap<String, String> productSpecifications) {
-        return null;
+        return SSD.builder()
+
+                .title(productHtml.select("[itemprop=name]").text())
+                .rating(productHtml.select("[itemprop=aggregateRating]").text())
+                .producer(productSpecifications.get("Producer"))
+                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .description(productHtml.select("[itemprop=description]").text())
+
+                .build();
     }
 
 }
