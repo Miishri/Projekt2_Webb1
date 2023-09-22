@@ -16,14 +16,14 @@ public class Motherboard extends Component {
     private String socket;
     private String chipset;
     private String memoryType;
-    private Integer memoryCapacity;
-    private Integer ramSlots;
-    private Integer sata;
-    private Integer m2Storage;
+    private String memoryCapacity;
+    private String ramSlots;
+    private String sata;
+    private String m2Storage;
     private Boolean pcie;
-    private Integer usbSlots;
-    private Integer VGA;
-    private Integer DVI;
-    private Integer DP;
-    private Integer HDMI;
+    private String usbSlots;
+    private String VGA;
+    private String DVI;
+    private String DP;
+    private String HDMI;
 }

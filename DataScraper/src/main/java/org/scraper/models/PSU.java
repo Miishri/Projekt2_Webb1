@@ -14,9 +14,9 @@ public class PSU extends Component {
 
     public static final String endpoint = "/psus";
 
-    private Integer watt;
+    private String watt;
     private String size;
     private String efficiencyRating;
-    private Integer pcie8;
-    private Integer pcie6;
+    private String pcie8;
+    private String pcie6;
 }

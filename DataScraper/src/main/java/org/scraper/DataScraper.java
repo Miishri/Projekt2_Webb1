@@ -43,7 +43,6 @@ public class DataScraper implements ComponentFactory {
         try {
             Document domDocument = Jsoup.connect(URL + endpoint).get();
             Elements hardwareList = domDocument.select( "#hardware a[href]");
-
             for (Element hardware: hardwareList) {
                 String hardwareReference = hardware.attr("href");
 
@@ -54,19 +53,17 @@ public class DataScraper implements ComponentFactory {
                             .get()
                             .select("#product");
 
-
                     Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
                     componentArrayList.add(component);
                 }
             }
 
         } catch (Exception e) {
-            System.out.println("Error occurred while fetching CPUs:" + e);
+            System.out.println("Error occurred while fetching:" + e);
         }
 
 
          writeToJsonDatabase(componentArrayList, endpoint);
-        System.out.println(componentArrayList);
          return componentArrayList;
     }
     private HashMap<String, String> mapSpecificationsWithKeys(Elements product) {
@@ -233,15 +230,15 @@ public class DataScraper implements ComponentFactory {
                 .socket(productSpecifications.get("Socket"))
                 .chipset(productSpecifications.get("Chipset"))
                 .memoryType(productSpecifications.get("Memory Type"))
-                .memoryCapacity(Integer.valueOf(productSpecifications.get("Memory Capacity")))
-                .ramSlots(Integer.valueOf(productSpecifications.get("Ramslots")))
-                .sata(Integer.valueOf(productSpecifications.get("SATA")))
+                .memoryCapacity(productSpecifications.get("Memory Capacity"))
+                .ramSlots(productSpecifications.get("Ramslots"))
+                .sata(productSpecifications.get("SATA"))
                 .pcie(true)
-                .usbSlots(Integer.valueOf(productSpecifications.get("USB 3 Slots")))
-                .VGA(Integer.valueOf(productSpecifications.get("VGA")))
-                .DVI(Integer.valueOf(productSpecifications.get("DVI")))
-                .DP(Integer.valueOf(productSpecifications.get("Display Port")))
-                .HDMI(Integer.valueOf(productSpecifications.get("HDMI")))
+                .usbSlots(productSpecifications.get("USB 3 Slots"))
+                .VGA(productSpecifications.get("VGA"))
+                .DVI(productSpecifications.get("DVI"))
+                .DP(productSpecifications.get("Display Port"))
+                .HDMI(productSpecifications.get("HDMI"))
 
                 .build();
     }
@@ -256,11 +253,11 @@ public class DataScraper implements ComponentFactory {
                 .image(productHtml.select("[itemprop=image]").attr("src"))
                 .description(productHtml.select("[itemprop=description]").text())
 
-                .watt(Integer.valueOf(productSpecifications.get("Watt")))
+                .watt(productSpecifications.get("Watt"))
                 .size(productSpecifications.get("Size"))
                 .efficiencyRating(productSpecifications.get("Efficiency Rating"))
-                .pcie6(Integer.valueOf(productSpecifications.get("PCI-E cables 6-pin")))
-                .pcie8(Integer.valueOf(productSpecifications.get("PCI-E cables 8-pin")))
+                .pcie6(productSpecifications.get("PCI-E cables 6-pin"))
+                .pcie8(productSpecifications.get("PCI-E cables 8-pin"))
                 .build();
     }
 
