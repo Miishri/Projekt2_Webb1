@@ -14,5 +14,5 @@ public interface ComponentFactory {
     Motherboard createMotherboard(Elements productHtml, HashMap<String, String> productSpecifications);
     PSU createPsu(Elements productHtml, HashMap<String, String> productSpecifications);
     Ram createRam(Elements productHtml, HashMap<String, String> productSpecifications);
-    SSD createSsd(Elements productHtml, HashMap<String, String> productSpecifications);
+    SSD createSSD(Elements productHtml, HashMap<String, String> productSpecifications);
 }

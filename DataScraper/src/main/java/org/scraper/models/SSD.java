@@ -14,7 +14,7 @@ public class SSD extends Component {
 
     private String formFactor;
     private String protocol;
-    private Integer size;
+    private String size;
     private String NAND;
     private String controller;
 }

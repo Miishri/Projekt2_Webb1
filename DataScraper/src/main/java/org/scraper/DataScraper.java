@@ -1,6 +1,5 @@
 package org.scraper;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.scraper.models.*;
 import org.jsoup.Jsoup;
@@ -22,7 +21,7 @@ public class DataScraper implements ComponentFactory {
 
     public static void main(String[] args) {
         DataScraper dataScraper = new DataScraper();
-        System.out.println(dataScraper.getComponent(Ram.endpoint));
+        System.out.println(dataScraper.getComponent(SSD.endpoint));
     }
 
 
@@ -91,7 +90,7 @@ public class DataScraper implements ComponentFactory {
             case "/motherboards" -> createMotherboard(productHtml, productSpecifications);
             case "/psus" -> createPsu(productHtml, productSpecifications);
             case "/rams" -> createRam(productHtml, productSpecifications);
-            case "/ssds" -> createSsd(productHtml, productSpecifications);
+            case "/ssds" -> createSSD(productHtml, productSpecifications);
             default -> new Component();
         };
     }
@@ -279,11 +278,8 @@ public class DataScraper implements ComponentFactory {
                 .build();
     }
 
-    /*{Timings=16-18-18-36, EAN=0843591070478, Producer=Corsair, Year=, Ram Type=DDR4-3200, Sticks=2,
-    Size=16 GB, UPC=, MPN=CMK16GX4M2B3200C16R, Clock=3200, Product Page=}
-     */
     @Override
-    public SSD createSsd(Elements productHtml, HashMap<String, String> productSpecifications) {
+    public SSD createSSD(Elements productHtml, HashMap<String, String> productSpecifications) {
         return SSD.builder()
 
                 .title(productHtml.select("[itemprop=name]").text())
@@ -292,6 +288,11 @@ public class DataScraper implements ComponentFactory {
                 .image(productHtml.select("[itemprop=image]").attr("src"))
                 .description(productHtml.select("[itemprop=description]").text())
 
+                .formFactor(productSpecifications.get("Form Factor"))
+                .protocol(productSpecifications.get("Protocol"))
+                .size(productSpecifications.get("Size"))
+                .NAND(productSpecifications.get("NAND"))
+                .controller(productSpecifications.get("Controller"))
                 .build();
     }
 
