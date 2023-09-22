@@ -26,14 +26,14 @@ public class DataScraper implements ComponentFactory {
 
     public void bootstrapData() {
         writeToJsonDatabase(getComponent(CPU.endpoint), CPU.endpoint);
-        writeToJsonDatabase(getComponent(GPU.endpoint), GPU.endpoint);
+        /*writeToJsonDatabase(getComponent(GPU.endpoint), GPU.endpoint);
         writeToJsonDatabase(getComponent(CpuCooler.endpoint), CpuCooler.endpoint);
         writeToJsonDatabase(getComponent(Cases.endpoint), Cases.endpoint);
         writeToJsonDatabase(getComponent(Motherboard.endpoint), Motherboard.endpoint);
         writeToJsonDatabase(getComponent(Monitor.endpoint), Monitor.endpoint);
         writeToJsonDatabase(getComponent(PSU.endpoint), PSU.endpoint);
         writeToJsonDatabase(getComponent(Ram.endpoint), Ram.endpoint);
-        writeToJsonDatabase(getComponent(SSD.endpoint), SSD.endpoint);
+        writeToJsonDatabase(getComponent(SSD.endpoint), SSD.endpoint);*/
     }
 
     public ArrayList<Component> getComponent(String endpoint) {
@@ -55,6 +55,7 @@ public class DataScraper implements ComponentFactory {
 
                     Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
                     componentArrayList.add(component);
+
                 }
             }
 
@@ -71,12 +72,8 @@ public class DataScraper implements ComponentFactory {
         ArrayList<String> descriptionTermsList = new ArrayList<>();
         ArrayList<String> descriptionDetailsList = new ArrayList<>();
         product = product.select(".card-body dl");
-        product.select("dt").forEach(listTerm -> {
-            descriptionTermsList.add(listTerm.text());
-        });
-        product.select("dd").forEach(listDetails -> {
-            descriptionDetailsList.add(listDetails.text());
-        });
+        product.select("dt").forEach(listTerm -> descriptionTermsList.add(listTerm.text()));
+        product.select("dd").forEach(listDetails -> descriptionDetailsList.add(listDetails.text()));
 
         for (int i = 0; i < descriptionTermsList.size(); i++) {
             specifications.put(descriptionTermsList.get(i), descriptionDetailsList.get(i));
@@ -106,6 +103,15 @@ public class DataScraper implements ComponentFactory {
         }
     }
 
+    private Double getPrice(Elements productHtml) {
+        try {
+            return Double.valueOf(productHtml.select("[itemprop=price]").text().split(" ")[0]);
+        }catch (Exception e) {
+            System.out.println("Error occurred inside getPrice: " + e);
+            return 0.0;
+        }
+    }
+
     @Override
     public CPU createCpu(Elements productHtml, HashMap<String, String> productSpecifications) {
         return CPU.builder()
@@ -115,6 +121,7 @@ public class DataScraper implements ComponentFactory {
                 .producer(productSpecifications.get("Producer"))
                 .image(productHtml.select("[itemprop=image]").attr("src"))
                 .description(productHtml.select("[itemprop=description]").text())
+                .price(getPrice(productHtml))
 
                 .cores(Integer.valueOf(productSpecifications.get("Cores")))
                 .threads(Integer.valueOf(productSpecifications.get("Threads")))

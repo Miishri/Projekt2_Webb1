@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.util.ArrayList;
+
 @Getter
 @Setter
 @SuperBuilder
@@ -23,6 +25,8 @@ public class Component {
     private String producer;
     @JsonProperty("rating")
     private String rating;
+    @JsonProperty
+    private Double price;
 
     @Override
     public String toString() {
