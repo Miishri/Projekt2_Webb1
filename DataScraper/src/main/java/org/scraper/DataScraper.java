@@ -21,9 +21,20 @@ public class DataScraper implements ComponentFactory {
 
     public static void main(String[] args) {
         DataScraper dataScraper = new DataScraper();
-        System.out.println(dataScraper.getComponent(SSD.endpoint));
+        dataScraper.bootstrapData();
     }
 
+    public void bootstrapData() {
+        writeToJsonDatabase(getComponent(CPU.endpoint), CPU.endpoint);
+        writeToJsonDatabase(getComponent(GPU.endpoint), GPU.endpoint);
+        writeToJsonDatabase(getComponent(CpuCooler.endpoint), CpuCooler.endpoint);
+        writeToJsonDatabase(getComponent(Cases.endpoint), Cases.endpoint);
+        writeToJsonDatabase(getComponent(Motherboard.endpoint), Motherboard.endpoint);
+        writeToJsonDatabase(getComponent(Monitor.endpoint), Monitor.endpoint);
+        writeToJsonDatabase(getComponent(PSU.endpoint), PSU.endpoint);
+        writeToJsonDatabase(getComponent(Ram.endpoint), Ram.endpoint);
+        writeToJsonDatabase(getComponent(SSD.endpoint), SSD.endpoint);
+    }
 
     public ArrayList<Component> getComponent(String endpoint) {
         ArrayList<Component> componentArrayList = new ArrayList<>();
@@ -46,8 +57,6 @@ public class DataScraper implements ComponentFactory {
 
                     Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
                     componentArrayList.add(component);
-
-                    return componentArrayList;
                 }
             }
 
@@ -56,10 +65,10 @@ public class DataScraper implements ComponentFactory {
         }
 
 
-        writeToJsonDatabase(componentArrayList, endpoint);
+         writeToJsonDatabase(componentArrayList, endpoint);
+        System.out.println(componentArrayList);
          return componentArrayList;
     }
-
     private HashMap<String, String> mapSpecificationsWithKeys(Elements product) {
         HashMap<String, String> specifications = new HashMap<>();
         ArrayList<String> descriptionTermsList = new ArrayList<>();
@@ -75,9 +84,6 @@ public class DataScraper implements ComponentFactory {
         for (int i = 0; i < descriptionTermsList.size(); i++) {
             specifications.put(descriptionTermsList.get(i), descriptionDetailsList.get(i));
         }
-
-        System.out.println(specifications);
-
         return specifications;
     }
     private Component componentCheck(Elements productHtml, HashMap<String, String> productSpecifications, String endpoint) {
@@ -102,6 +108,7 @@ public class DataScraper implements ComponentFactory {
             System.out.println("Error occurred while writing json: " + e);
         }
     }
+
     @Override
     public CPU createCpu(Elements productHtml, HashMap<String, String> productSpecifications) {
         return CPU.builder()
@@ -257,9 +264,6 @@ public class DataScraper implements ComponentFactory {
                 .build();
     }
 
-    /*{Timings=16-18-18-36, EAN=0843591070478, Producer=Corsair, Year=, Ram Type=DDR4-3200,
-    Sticks=2, Size=16 GB, UPC=, MPN=CMK16GX4M2B3200C16R, Clock=3200, Product Page=}
-     */
     @Override
     public Ram createRam(Elements productHtml, HashMap<String, String> productSpecifications) {
         return Ram.builder()
