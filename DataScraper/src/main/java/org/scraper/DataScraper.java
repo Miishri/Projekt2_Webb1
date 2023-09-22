@@ -32,7 +32,7 @@ public class DataScraper implements ComponentFactory {
 
         try {
             Document domDocument = Jsoup.connect(URL + endpoint).get();
-            Elements hardwareList = domDocument.select("#hardware a[href]");
+            Elements hardwareList = domDocument.select( "#hardware a[href]");
 
             for (Element hardware: hardwareList) {
                 String hardwareReference = hardware.attr("href");
@@ -240,12 +240,22 @@ public class DataScraper implements ComponentFactory {
                 .build();
     }
 
-    /* {EAN=4711173875703, Watt=650, Producer=Seasonic, Year=, PCI-E cables 6-pin=4, Size=ATX,
-    PCI-E cables 8-pin=, Efficiency Rating=80 PLUS Gold, UPC=, MPN=CORE-GM-650, Product Page=}
-     */
     @Override
     public PSU createPsu(Elements productHtml, HashMap<String, String> productSpecifications) {
-        return null;
+        return PSU.builder()
+
+                .title(productHtml.select("[itemprop=name]").text())
+                .rating(productHtml.select("[itemprop=aggregateRating]").text())
+                .producer(productSpecifications.get("Producer"))
+                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .description(productHtml.select("[itemprop=description]").text())
+
+                .watt(Integer.valueOf(productSpecifications.get("Watt")))
+                .size(productSpecifications.get("Size"))
+                .efficiencyRating(productSpecifications.get("Efficiency Rating"))
+                .pcie6(Integer.valueOf(productSpecifications.get("PCI-E cables 6-pin")))
+                .pcie8(Integer.valueOf(productSpecifications.get("PCI-E cables 8-pin")))
+                .build();
     }
 
     /*{Timings=16-18-18-36, EAN=0843591070478, Producer=Corsair, Year=, Ram Type=DDR4-3200,
