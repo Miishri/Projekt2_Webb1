@@ -12,6 +12,7 @@ import org.scraper.models.Component.ComponentFactory;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 
@@ -21,7 +22,7 @@ public class DataScraper implements ComponentFactory {
 
     public static void main(String[] args) {
         DataScraper dataScraper = new DataScraper();
-        System.out.println(dataScraper.getComponent(Cases.endpoint));
+        System.out.println(dataScraper.getComponent(Monitor.endpoint));
     }
 
 
@@ -171,12 +172,50 @@ public class DataScraper implements ComponentFactory {
 
     @Override
     public CpuCooler createCpuCooler(Elements productHtml, HashMap<String, String> productSpecifications) {
-        return null;
+        return CpuCooler.builder()
+
+                .title(productHtml.select("[itemprop=name]").text())
+                .rating(productHtml.select("[itemprop=aggregateRating]").text())
+                .producer(productSpecifications.get("Producer"))
+                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .description(productHtml.select("[itemprop=description]").text())
+
+                .socketSupports(Arrays.stream(productSpecifications.get("Supported Sockets").split(",")).toList())
+                .fanSupport(true)
+                .extraFanSupport(true)
+                .TDP(productSpecifications.get("TDP"))
+                .height(productSpecifications.get("Height"))
+                .build();
     }
+
+    /*{Refresh Rate=75 Hz, Size=23.8", Response Time=1, UPC=193199329202, MPN=UM.QB2AA.001,
+    Speakers=, Curved=, Panel=IPS, VGA=1, EAN=0744759158536, Adjustable Height=, Producer=Acer,
+     Year=, DisplayPort=0, DVI=0, HDMI=1, Sync=FreeSync, Product Page=, Resolution=1920 x 1080}  */
 
     @Override
     public Monitor createMonitor(Elements productHtml, HashMap<String, String> productSpecifications) {
-        return null;
+        return Monitor.builder()
+
+                .title(productHtml.select("[itemprop=name]").text())
+                .rating(productHtml.select("[itemprop=aggregateRating]").text())
+                .producer(productSpecifications.get("Producer"))
+                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .description(productHtml.select("[itemprop=description]").text())
+
+                .resolution(productSpecifications.get("Resolution"))
+                .refreshRate(productSpecifications.get("Refresh Rate"))
+                .size(productSpecifications.get("Size"))
+                .panelType(productSpecifications.get("Panel"))
+                .responseMS(productSpecifications.get("Response Time") + " ms")
+                .HDMI(Integer.valueOf(productSpecifications.get("HDMI")))
+                .DP(Integer.valueOf(productSpecifications.get("DisplayPort")))
+                .DVI(Integer.valueOf(productSpecifications.get("DVI")))
+                .VGA(Integer.valueOf(productSpecifications.get("VGA")))
+                .speakers(productSpecifications.get("Speakers").isBlank())
+                .curved(productSpecifications.get("Curved").isBlank())
+                .adjustableHeight(productSpecifications.get("Adjustable Height").isBlank())
+                .sync(productSpecifications.get("Sync"))
+                .build();
     }
 
     @Override
