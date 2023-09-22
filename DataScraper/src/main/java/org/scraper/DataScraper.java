@@ -21,8 +21,7 @@ public class DataScraper implements ComponentFactory {
 
     public static void main(String[] args) {
         DataScraper dataScraper = new DataScraper();
-        System.out.println(dataScraper.getComponent(GPU.endpoint));
-        System.out.println();
+        System.out.println(dataScraper.getComponent(Cases.endpoint));
     }
 
 
@@ -48,9 +47,7 @@ public class DataScraper implements ComponentFactory {
                     Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
                     componentArrayList.add(component);
 
-                    if (componentArrayList.size() == 10) {
-                        return componentArrayList;
-                    }
+                    return componentArrayList;
                 }
             }
 
@@ -147,10 +144,29 @@ public class DataScraper implements ComponentFactory {
                 .TDP(productSpecifications.get("TDP"))
                 .build();
     }
-
-    @Override
+        @Override
     public Cases createCases(Elements productHtml, HashMap<String, String> productSpecifications) {
-        return null;
+        return Cases.builder()
+                .title(productHtml.select("[itemprop=name]").text())
+                .rating(productHtml.select("[itemprop=aggregateRating]").text())
+                .producer(productSpecifications.get("Producer"))
+                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .description(productHtml.select("[itemprop=description]").text())
+
+                .width(productSpecifications.get("Width"))
+                .depth(productSpecifications.get("Depth"))
+                .height(productSpecifications.get("Height"))
+                .motherboard(productSpecifications.get("Motherboard"))
+                .powerSupply(productSpecifications.get("Power Supply"))
+                .supportedGpuLength(productSpecifications.get("Supported GPU length"))
+                .supportedCpuCooler(productSpecifications.get("Supported CPU cooler"))
+                .fanSupport(true)
+                .radiatorSupport(true)
+                .window(true)
+                .dustFilter(true)
+                .cableManagement(true)
+                .noiseIsolation(true)
+                .build();
     }
 
     @Override
