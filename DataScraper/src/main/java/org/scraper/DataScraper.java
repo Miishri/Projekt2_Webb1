@@ -21,12 +21,13 @@ public class DataScraper implements ComponentFactory {
 
     public static void main(String[] args) {
         DataScraper dataScraper = new DataScraper();
-        dataScraper.getComponent(CPU.endpoint);
-        dataScraper.getComponent(GPU.endpoint);
+        System.out.println(dataScraper.getComponent(GPU.endpoint));
+        System.out.println();
     }
 
+
     public ArrayList<Component> getComponent(String endpoint) {
-        ArrayList<Component> CPULinkList = new ArrayList<>();
+        ArrayList<Component> componentArrayList = new ArrayList<>();
 
 
         try {
@@ -43,8 +44,13 @@ public class DataScraper implements ComponentFactory {
                             .get()
                             .select("#product");
 
+
                     Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
-                    CPULinkList.add(component);
+                    componentArrayList.add(component);
+
+                    if (componentArrayList.size() == 10) {
+                        return componentArrayList;
+                    }
                 }
             }
 
@@ -53,8 +59,8 @@ public class DataScraper implements ComponentFactory {
         }
 
 
-        writeToJsonDatabase(CPULinkList, endpoint);
-         return CPULinkList;
+        writeToJsonDatabase(componentArrayList, endpoint);
+         return componentArrayList;
     }
 
     private HashMap<String, String> mapSpecificationsWithKeys(Elements product) {
@@ -72,6 +78,8 @@ public class DataScraper implements ComponentFactory {
         for (int i = 0; i < descriptionTermsList.size(); i++) {
             specifications.put(descriptionTermsList.get(i), descriptionDetailsList.get(i));
         }
+
+        System.out.println(specifications);
 
         return specifications;
     }
@@ -100,11 +108,13 @@ public class DataScraper implements ComponentFactory {
     @Override
     public CPU createCpu(Elements productHtml, HashMap<String, String> productSpecifications) {
         return CPU.builder()
+
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
                 .image(productHtml.select("[itemprop=image]").attr("src"))
                 .description(productHtml.select("[itemprop=description]").text())
+
                 .cores(Integer.valueOf(productSpecifications.get("Cores")))
                 .threads(Integer.valueOf(productSpecifications.get("Threads")))
                 .baseClock(productSpecifications.get("Base Clock"))
@@ -116,7 +126,26 @@ public class DataScraper implements ComponentFactory {
 
     @Override
     public GPU createGpu(Elements productHtml, HashMap<String, String> productSpecifications) {
-        return null;
+        return GPU.builder()
+
+                .title(productHtml.select("[itemprop=name]").text())
+                .rating(productHtml.select("[itemprop=aggregateRating]").text())
+                .producer(productSpecifications.get("Producer"))
+                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .description(productHtml.select("[itemprop=description]").text())
+
+                .length(productSpecifications.get("Length"))
+                .slots(Double.valueOf(productSpecifications.get("Slots")))
+                .eightPinConnectors(Integer.valueOf(productSpecifications.get("6-pin connectors")))
+                .sixPinConnectors(Integer.valueOf(productSpecifications.get("8-pin connectors")))
+                .HDMI(Integer.valueOf(productSpecifications.get("HDMI")))
+                .DP(Integer.valueOf(productSpecifications.get("DisplayPort")))
+                .DVI(Integer.valueOf(productSpecifications.get("DVI")))
+                .VGA(Integer.valueOf(productSpecifications.get("VGA")))
+                .MHZ(productSpecifications.get("Memory_Clock"))
+                .VRAM(productSpecifications.get("Vram"))
+                .TDP(productSpecifications.get("TDP"))
+                .build();
     }
 
     @Override
