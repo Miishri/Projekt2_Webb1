@@ -22,7 +22,7 @@ public class DataScraper implements ComponentFactory {
 
     public static void main(String[] args) {
         DataScraper dataScraper = new DataScraper();
-        System.out.println(dataScraper.getComponent(Monitor.endpoint));
+        System.out.println(dataScraper.getComponent(Ram.endpoint));
     }
 
 
@@ -188,10 +188,6 @@ public class DataScraper implements ComponentFactory {
                 .build();
     }
 
-    /*{Refresh Rate=75 Hz, Size=23.8", Response Time=1, UPC=193199329202, MPN=UM.QB2AA.001,
-    Speakers=, Curved=, Panel=IPS, VGA=1, EAN=0744759158536, Adjustable Height=, Producer=Acer,
-     Year=, DisplayPort=0, DVI=0, HDMI=1, Sync=FreeSync, Product Page=, Resolution=1920 x 1080}  */
-
     @Override
     public Monitor createMonitor(Elements productHtml, HashMap<String, String> productSpecifications) {
         return Monitor.builder()
@@ -220,19 +216,49 @@ public class DataScraper implements ComponentFactory {
 
     @Override
     public Motherboard createMotherboard(Elements productHtml, HashMap<String, String> productSpecifications) {
-        return null;
+        return Motherboard.builder()
+
+                .title(productHtml.select("[itemprop=name]").text())
+                .rating(productHtml.select("[itemprop=aggregateRating]").text())
+                .producer(productSpecifications.get("Producer"))
+                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .description(productHtml.select("[itemprop=description]").text())
+
+                .socket(productSpecifications.get("Socket"))
+                .chipset(productSpecifications.get("Chipset"))
+                .memoryType(productSpecifications.get("Memory Type"))
+                .memoryCapacity(Integer.valueOf(productSpecifications.get("Memory Capacity")))
+                .ramSlots(Integer.valueOf(productSpecifications.get("Ramslots")))
+                .sata(Integer.valueOf(productSpecifications.get("SATA")))
+                .pcie(true)
+                .usbSlots(Integer.valueOf(productSpecifications.get("USB 3 Slots")))
+                .VGA(Integer.valueOf(productSpecifications.get("VGA")))
+                .DVI(Integer.valueOf(productSpecifications.get("DVI")))
+                .DP(Integer.valueOf(productSpecifications.get("Display Port")))
+                .HDMI(Integer.valueOf(productSpecifications.get("HDMI")))
+
+                .build();
     }
 
+    /* {EAN=4711173875703, Watt=650, Producer=Seasonic, Year=, PCI-E cables 6-pin=4, Size=ATX,
+    PCI-E cables 8-pin=, Efficiency Rating=80 PLUS Gold, UPC=, MPN=CORE-GM-650, Product Page=}
+     */
     @Override
     public PSU createPsu(Elements productHtml, HashMap<String, String> productSpecifications) {
         return null;
     }
 
+    /*{Timings=16-18-18-36, EAN=0843591070478, Producer=Corsair, Year=, Ram Type=DDR4-3200,
+    Sticks=2, Size=16 GB, UPC=, MPN=CMK16GX4M2B3200C16R, Clock=3200, Product Page=}
+     */
     @Override
     public Ram createRam(Elements productHtml, HashMap<String, String> productSpecifications) {
         return null;
     }
 
+    /*{Timings=16-18-18-36, EAN=0843591070478, Producer=Corsair, Year=, Ram Type=DDR4-3200, Sticks=2,
+    Size=16 GB, UPC=, MPN=CMK16GX4M2B3200C16R, Clock=3200, Product Page=}
+     */
     @Override
     public SSD createSsd(Elements productHtml, HashMap<String, String> productSpecifications) {
         return null;
