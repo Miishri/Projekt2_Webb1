@@ -55,10 +55,6 @@ public class DataScraper implements ComponentFactory {
                         Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
                         componentArrayList.add(component);
                     }
-
-                    if (componentArrayList.size() == 10) {
-                        return componentArrayList;
-                    }
                 }
             }
 
