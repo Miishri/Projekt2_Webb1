@@ -26,7 +26,7 @@ public class Component {
     @JsonProperty("rating")
     private String rating;
     @JsonProperty
-    private Double price;
+    private String price;
 
     @Override
     public String toString() {

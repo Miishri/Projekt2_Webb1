@@ -19,11 +19,8 @@ public class Cases extends Component {
     private String motherboard;
     private String powerSupply;
     private String supportedGpuLength;
-    private String supportedCpuCooler;
     private Boolean fanSupport;
-    private Boolean radiatorSupport;
     private Boolean window;
     private Boolean dustFilter;
     private Boolean cableManagement;
-    private Boolean noiseIsolation;
 }

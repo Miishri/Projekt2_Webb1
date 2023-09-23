@@ -19,7 +19,6 @@ public class Motherboard extends Component {
     private String memoryCapacity;
     private String ramSlots;
     private String sata;
-    private String m2Storage;
     private Boolean pcie;
     private String usbSlots;
     private String VGA;

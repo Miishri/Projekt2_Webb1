@@ -26,20 +26,18 @@ public class DataScraper implements ComponentFactory {
 
     public void bootstrapData() {
         writeToJsonDatabase(getComponent(CPU.endpoint), CPU.endpoint);
-        /*writeToJsonDatabase(getComponent(GPU.endpoint), GPU.endpoint);
+        writeToJsonDatabase(getComponent(GPU.endpoint), GPU.endpoint);
         writeToJsonDatabase(getComponent(CpuCooler.endpoint), CpuCooler.endpoint);
         writeToJsonDatabase(getComponent(Cases.endpoint), Cases.endpoint);
         writeToJsonDatabase(getComponent(Motherboard.endpoint), Motherboard.endpoint);
         writeToJsonDatabase(getComponent(Monitor.endpoint), Monitor.endpoint);
         writeToJsonDatabase(getComponent(PSU.endpoint), PSU.endpoint);
         writeToJsonDatabase(getComponent(Ram.endpoint), Ram.endpoint);
-        writeToJsonDatabase(getComponent(SSD.endpoint), SSD.endpoint);*/
+        writeToJsonDatabase(getComponent(SSD.endpoint), SSD.endpoint);
     }
 
     public ArrayList<Component> getComponent(String endpoint) {
         ArrayList<Component> componentArrayList = new ArrayList<>();
-
-
         try {
             Document domDocument = Jsoup.connect(URL + endpoint).get();
             Elements hardwareList = domDocument.select( "#hardware a[href]");
@@ -47,22 +45,26 @@ public class DataScraper implements ComponentFactory {
                 String hardwareReference = hardware.attr("href");
 
                 if (hardwareReference.contains("pc-kombo")) {
-                    System.out.println("Fetching from URL: " +  hardwareReference);
-
                     Elements productHtml = Jsoup.connect(hardwareReference)
                             .get()
                             .select("#product");
 
-                    Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
-                    componentArrayList.add(component);
+                    if (!getPrice(productHtml).equals("0") && !getPrice(productHtml).isBlank()) {
+                        System.out.println("Fetching from URL: " +  hardwareReference);
 
+                        Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
+                        componentArrayList.add(component);
+                    }
+
+                    if (componentArrayList.size() == 10) {
+                        return componentArrayList;
+                    }
                 }
             }
 
         } catch (Exception e) {
             System.out.println("Error occurred while fetching:" + e);
         }
-
 
          writeToJsonDatabase(componentArrayList, endpoint);
          return componentArrayList;
@@ -78,6 +80,7 @@ public class DataScraper implements ComponentFactory {
         for (int i = 0; i < descriptionTermsList.size(); i++) {
             specifications.put(descriptionTermsList.get(i), descriptionDetailsList.get(i));
         }
+        System.out.println(specifications);
         return specifications;
     }
     private Component componentCheck(Elements productHtml, HashMap<String, String> productSpecifications, String endpoint) {
@@ -102,14 +105,37 @@ public class DataScraper implements ComponentFactory {
             System.out.println("Error occurred while writing json: " + e);
         }
     }
-
-    private Double getPrice(Elements productHtml) {
+    private String getPrice(Elements productHtml) {
         try {
-            return Double.valueOf(productHtml.select("[itemprop=price]").text().split(" ")[0]);
+            return productHtml.select("[itemprop=price]").text().split(" ")[0];
         }catch (Exception e) {
             System.out.println("Error occurred inside getPrice: " + e);
-            return 0.0;
+            return "0";
         }
+    }
+
+    @Override
+    public Cases createCases(Elements productHtml, HashMap<String, String> productSpecifications) {
+        return Cases.builder()
+
+                .title(productHtml.select("[itemprop=name]").text())
+                .rating(productHtml.select("[itemprop=aggregateRating]").text())
+                .producer(productSpecifications.get("Producer"))
+                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .description(productHtml.select("[itemprop=description]").text())
+                .price(getPrice(productHtml))
+
+                .width(productSpecifications.get("Width"))
+                .depth(productSpecifications.get("Depth"))
+                .height(productSpecifications.get("Height"))
+                .motherboard(productSpecifications.get("Motherboard"))
+                .powerSupply(productSpecifications.get("Power Supply"))
+                .supportedGpuLength(productSpecifications.get("Supported GPU length"))
+                .fanSupport(true)
+                .window(true)
+                .dustFilter(true)
+                .cableManagement(true)
+                .build();
     }
 
     @Override
@@ -133,6 +159,25 @@ public class DataScraper implements ComponentFactory {
     }
 
     @Override
+    public CpuCooler createCpuCooler(Elements productHtml, HashMap<String, String> productSpecifications) {
+        return CpuCooler.builder()
+
+                .title(productHtml.select("[itemprop=name]").text())
+                .rating(productHtml.select("[itemprop=aggregateRating]").text())
+                .producer(productSpecifications.get("Producer"))
+                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .description(productHtml.select("[itemprop=description]").text())
+                .price(getPrice(productHtml))
+
+                .socketSupports(Arrays.stream(productSpecifications.get("Supported Sockets").split(",")).toList())
+                .fanSupport(true)
+                .extraFanSupport(true)
+                .TDP(productSpecifications.get("TDP"))
+                .height(productSpecifications.get("Height"))
+                .build();
+    }
+
+    @Override
     public GPU createGpu(Elements productHtml, HashMap<String, String> productSpecifications) {
         return GPU.builder()
 
@@ -141,6 +186,7 @@ public class DataScraper implements ComponentFactory {
                 .producer(productSpecifications.get("Producer"))
                 .image(productHtml.select("[itemprop=image]").attr("src"))
                 .description(productHtml.select("[itemprop=description]").text())
+                .price(getPrice(productHtml))
 
                 .length(productSpecifications.get("Length"))
                 .slots(Double.valueOf(productSpecifications.get("Slots")))
@@ -150,51 +196,9 @@ public class DataScraper implements ComponentFactory {
                 .DP(Integer.valueOf(productSpecifications.get("DisplayPort")))
                 .DVI(Integer.valueOf(productSpecifications.get("DVI")))
                 .VGA(Integer.valueOf(productSpecifications.get("VGA")))
-                .MHZ(productSpecifications.get("Memory_Clock"))
+                .MHZ(productSpecifications.get("Memory Clock"))
                 .VRAM(productSpecifications.get("Vram"))
                 .TDP(productSpecifications.get("TDP"))
-                .build();
-    }
-        @Override
-    public Cases createCases(Elements productHtml, HashMap<String, String> productSpecifications) {
-        return Cases.builder()
-                .title(productHtml.select("[itemprop=name]").text())
-                .rating(productHtml.select("[itemprop=aggregateRating]").text())
-                .producer(productSpecifications.get("Producer"))
-                .image(productHtml.select("[itemprop=image]").attr("src"))
-                .description(productHtml.select("[itemprop=description]").text())
-
-                .width(productSpecifications.get("Width"))
-                .depth(productSpecifications.get("Depth"))
-                .height(productSpecifications.get("Height"))
-                .motherboard(productSpecifications.get("Motherboard"))
-                .powerSupply(productSpecifications.get("Power Supply"))
-                .supportedGpuLength(productSpecifications.get("Supported GPU length"))
-                .supportedCpuCooler(productSpecifications.get("Supported CPU cooler"))
-                .fanSupport(true)
-                .radiatorSupport(true)
-                .window(true)
-                .dustFilter(true)
-                .cableManagement(true)
-                .noiseIsolation(true)
-                .build();
-    }
-
-    @Override
-    public CpuCooler createCpuCooler(Elements productHtml, HashMap<String, String> productSpecifications) {
-        return CpuCooler.builder()
-
-                .title(productHtml.select("[itemprop=name]").text())
-                .rating(productHtml.select("[itemprop=aggregateRating]").text())
-                .producer(productSpecifications.get("Producer"))
-                .image(productHtml.select("[itemprop=image]").attr("src"))
-                .description(productHtml.select("[itemprop=description]").text())
-
-                .socketSupports(Arrays.stream(productSpecifications.get("Supported Sockets").split(",")).toList())
-                .fanSupport(true)
-                .extraFanSupport(true)
-                .TDP(productSpecifications.get("TDP"))
-                .height(productSpecifications.get("Height"))
                 .build();
     }
 
@@ -207,6 +211,7 @@ public class DataScraper implements ComponentFactory {
                 .producer(productSpecifications.get("Producer"))
                 .image(productHtml.select("[itemprop=image]").attr("src"))
                 .description(productHtml.select("[itemprop=description]").text())
+                .price(getPrice(productHtml))
 
                 .resolution(productSpecifications.get("Resolution"))
                 .refreshRate(productSpecifications.get("Refresh Rate"))
@@ -233,6 +238,7 @@ public class DataScraper implements ComponentFactory {
                 .producer(productSpecifications.get("Producer"))
                 .image(productHtml.select("[itemprop=image]").attr("src"))
                 .description(productHtml.select("[itemprop=description]").text())
+                .price(getPrice(productHtml))
 
                 .socket(productSpecifications.get("Socket"))
                 .chipset(productSpecifications.get("Chipset"))
@@ -259,6 +265,7 @@ public class DataScraper implements ComponentFactory {
                 .producer(productSpecifications.get("Producer"))
                 .image(productHtml.select("[itemprop=image]").attr("src"))
                 .description(productHtml.select("[itemprop=description]").text())
+                .price(getPrice(productHtml))
 
                 .watt(productSpecifications.get("Watt"))
                 .size(productSpecifications.get("Size"))
@@ -277,8 +284,9 @@ public class DataScraper implements ComponentFactory {
                 .producer(productSpecifications.get("Producer"))
                 .image(productHtml.select("[itemprop=image]").attr("src"))
                 .description(productHtml.select("[itemprop=description]").text())
+                .price(getPrice(productHtml))
 
-                .ramType(productSpecifications.get("DDR4-3200"))
+                .ramType(productSpecifications.get("Ram Type"))
                 .size(productSpecifications.get("Size"))
                 .clock(Integer.parseInt(productSpecifications.get("Clock")))
                 .timings(productSpecifications.get("Timings"))
@@ -295,6 +303,7 @@ public class DataScraper implements ComponentFactory {
                 .producer(productSpecifications.get("Producer"))
                 .image(productHtml.select("[itemprop=image]").attr("src"))
                 .description(productHtml.select("[itemprop=description]").text())
+                .price(getPrice(productHtml))
 
                 .formFactor(productSpecifications.get("Form Factor"))
                 .protocol(productSpecifications.get("Protocol"))

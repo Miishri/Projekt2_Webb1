@@ -15,19 +15,12 @@ import org.scraper.models.Component.Component;
 @NoArgsConstructor
 public class CPU extends Component {
     public static final String endpoint = "/cpus";
-    public static final String jsonDatabase = "src/main/resources/DatabaseJSON/cpus_database.json";
 
-    @JsonProperty("Cores")
     private Integer cores;
-    @JsonProperty("threads")
     private Integer threads;
-    @JsonProperty("baseClock")
     private String baseClock;
-    @JsonProperty("turboClick")
     private String turboClick;
-    @JsonProperty("socket")
     private String socket;
-    @JsonProperty("tdp")
     private String TDP;
     @Override
     public String toString() {
