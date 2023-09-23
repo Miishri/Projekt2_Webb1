@@ -80,7 +80,6 @@ public class DataScraper implements ComponentFactory {
         for (int i = 0; i < descriptionTermsList.size(); i++) {
             specifications.put(descriptionTermsList.get(i), descriptionDetailsList.get(i));
         }
-        System.out.println(specifications);
         return specifications;
     }
     private Component componentCheck(Elements productHtml, HashMap<String, String> productSpecifications, String endpoint) {
