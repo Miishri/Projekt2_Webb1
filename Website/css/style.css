@@ -6,29 +6,116 @@ body {
     font-family: "Montserrat", "Roboto Light", "Figtree", system-ui;
 }
 
-div {
+.top-bar, .footer {
     background-color: #4A4A48;
     color: #F1F2EB;
+}
 
+.top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 1.2rem;
+
+    padding: 1%;
 }
 
-div > img {
-    width: 18%;
-    padding: 10px;
+.main-logo {
+    width: 30%;
+    cursor: pointer;
 }
 
-div > div {
-    gap: 10%;
-    padding: 5px;
+.top-bar-links {
     display: flex;
-    justify-content: space-around;
+    gap: 15%;
+
+    padding: 1%;
 }
 
-img {
-    width: 80%;
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 
+    font-size: 0.8rem;
 }
+
+.login-header {
+    display: none;
+}
+
+.login-logo {
+    width: 90%;
+    cursor: pointer;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    font-size: 0.8rem;
+}
+
+.cart-logo {
+    width: 90%;
+}
+
+.cart-header {
+    display: none;
+}
+
+.slideshow-images {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.slideshow {
+    width: 100vw;
+    height: 30vh;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding: 5px;
+}
+
+.search {
+    padding: 1%;
+}
+
+
+#search:focus {
+    outline: 1px solid #4A4A48;
+    border-radius: 2px;
+}
+
+#search {
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    transition: border-radius 0.3s;
+    width: 250px;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 20%;
+    font-size: 0.8rem;
+}
+
+.links > span {
+    color: black;
+    text-align: center;
+}
+
+
