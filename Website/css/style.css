@@ -1,121 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
-    font-family: "Montserrat", "Roboto Light", "Figtree", system-ui;
+    font-family: "Roboto", "Montserrat", "Figtree", sans-serif;
 }
 
-.top-bar, .footer {
-    background-color: #4A4A48;
-    color: #F1F2EB;
-}
+.nav-bar {
+    background: #2C2F31;
+    height: 6vh;
 
-.top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 1%;
 }
 
 .main-logo {
-    width: 30%;
-    cursor: pointer;
+    height: 5vh;
 }
 
-.top-bar-links {
+.extra-logos {
     display: flex;
-    gap: 15%;
-
-    padding: 1%;
-}
-
-.login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    gap: 2vw;
+    padding-right: 2%;
+}
+
+.cart-logo, .search-logo {
+    height: 2.5vh;
     cursor: pointer;
-
-    font-size: 0.8rem;
-}
-
-.login-header {
-    display: none;
-}
-
-.login-logo {
-    width: 90%;
-    cursor: pointer;
-}
-
-.cart {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    font-size: 0.8rem;
-}
-
-.cart-logo {
-    width: 90%;
-}
-
-.cart-header {
-    display: none;
-}
-
-.slideshow-images {
-    display: flex;
-    justify-items: center;
-    justify-content: center;
-}
-
-.slideshow {
-    width: 100vw;
-    height: 30vh;
-}
-
-.categories {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-
-    padding: 5px;
 }
 
 .search {
-    padding: 1%;
-}
+    display: flex;
+    justify-content: flex-end;
 
-
-#search:focus {
-    outline: 1px solid #4A4A48;
-    border-radius: 2px;
+    padding-right: 4vw;
+    margin: 2px;
 }
 
 #search {
-    border: 1px solid lightgray;
-    border-radius: 8px;
-    transition: border-radius 0.3s;
-    width: 250px;
+    width: 30vw;
+    height: 2vh;
 }
 
-.links {
+.products {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 20%;
-    font-size: 0.8rem;
-}
+    grid-template-columns: 1fr 1fr;
 
-.links > span {
-    color: black;
+    margin-left: 5vw;
+    margin-right: 5vw;
     text-align: center;
 }
 
+.product {
+    border: 1px solid black
+}
+
+.product-title {
+    font-size: 0.9em;
+}
+
+.product-image {
+    width: 9vw;
+}
+
+/* Landscape mode pc */
+@media (min-width:1281px){
+
+    .nav-bar {
+        height: 10vh;
+    }
+
+    .main-logo {
+        height: 9vh;
+    }
+}
 
