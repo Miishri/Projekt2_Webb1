@@ -13,6 +13,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.UUID;
 
 
 public class DataScraper implements ComponentFactory {
@@ -25,15 +26,15 @@ public class DataScraper implements ComponentFactory {
     }
 
     public void bootstrapData() {
-        writeToJsonDatabase(getComponent(CPU.endpoint), CPU.endpoint);
         writeToJsonDatabase(getComponent(GPU.endpoint), GPU.endpoint);
+        /*writeToJsonDatabase(getComponent(CPU.endpoint), CPU.endpoint);
         writeToJsonDatabase(getComponent(CpuCooler.endpoint), CpuCooler.endpoint);
         writeToJsonDatabase(getComponent(Cases.endpoint), Cases.endpoint);
         writeToJsonDatabase(getComponent(Motherboard.endpoint), Motherboard.endpoint);
         writeToJsonDatabase(getComponent(Monitor.endpoint), Monitor.endpoint);
         writeToJsonDatabase(getComponent(PSU.endpoint), PSU.endpoint);
         writeToJsonDatabase(getComponent(Ram.endpoint), Ram.endpoint);
-        writeToJsonDatabase(getComponent(SSD.endpoint), SSD.endpoint);
+        writeToJsonDatabase(getComponent(SSD.endpoint), SSD.endpoint);*/
     }
 
     public ArrayList<Component> getComponent(String endpoint) {
@@ -112,7 +113,7 @@ public class DataScraper implements ComponentFactory {
     @Override
     public Cases createCases(Elements productHtml, HashMap<String, String> productSpecifications) {
         return Cases.builder()
-
+                .id(UUID.randomUUID())
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
@@ -136,7 +137,7 @@ public class DataScraper implements ComponentFactory {
     @Override
     public CPU createCpu(Elements productHtml, HashMap<String, String> productSpecifications) {
         return CPU.builder()
-
+                .id(UUID.randomUUID())
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
@@ -156,7 +157,7 @@ public class DataScraper implements ComponentFactory {
     @Override
     public CpuCooler createCpuCooler(Elements productHtml, HashMap<String, String> productSpecifications) {
         return CpuCooler.builder()
-
+                .id(UUID.randomUUID())
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
@@ -175,7 +176,7 @@ public class DataScraper implements ComponentFactory {
     @Override
     public GPU createGpu(Elements productHtml, HashMap<String, String> productSpecifications) {
         return GPU.builder()
-
+                .id(UUID.randomUUID())
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
@@ -200,7 +201,7 @@ public class DataScraper implements ComponentFactory {
     @Override
     public Monitor createMonitor(Elements productHtml, HashMap<String, String> productSpecifications) {
         return Monitor.builder()
-
+                .id(UUID.randomUUID())
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
@@ -227,7 +228,7 @@ public class DataScraper implements ComponentFactory {
     @Override
     public Motherboard createMotherboard(Elements productHtml, HashMap<String, String> productSpecifications) {
         return Motherboard.builder()
-
+                .id(UUID.randomUUID())
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
@@ -254,7 +255,7 @@ public class DataScraper implements ComponentFactory {
     @Override
     public PSU createPsu(Elements productHtml, HashMap<String, String> productSpecifications) {
         return PSU.builder()
-
+                .id(UUID.randomUUID())
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
@@ -273,7 +274,7 @@ public class DataScraper implements ComponentFactory {
     @Override
     public Ram createRam(Elements productHtml, HashMap<String, String> productSpecifications) {
         return Ram.builder()
-
+                .id(UUID.randomUUID())
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
@@ -292,7 +293,7 @@ public class DataScraper implements ComponentFactory {
     @Override
     public SSD createSSD(Elements productHtml, HashMap<String, String> productSpecifications) {
         return SSD.builder()
-
+                .id(UUID.randomUUID())
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
