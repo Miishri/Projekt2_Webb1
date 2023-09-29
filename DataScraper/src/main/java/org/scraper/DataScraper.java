@@ -27,14 +27,14 @@ public class DataScraper implements ComponentFactory {
 
     public void bootstrapData() {
         writeToJsonDatabase(getComponent(GPU.endpoint), GPU.endpoint);
-        /*writeToJsonDatabase(getComponent(CPU.endpoint), CPU.endpoint);
+        writeToJsonDatabase(getComponent(CPU.endpoint), CPU.endpoint);
         writeToJsonDatabase(getComponent(CpuCooler.endpoint), CpuCooler.endpoint);
         writeToJsonDatabase(getComponent(Cases.endpoint), Cases.endpoint);
         writeToJsonDatabase(getComponent(Motherboard.endpoint), Motherboard.endpoint);
         writeToJsonDatabase(getComponent(Monitor.endpoint), Monitor.endpoint);
         writeToJsonDatabase(getComponent(PSU.endpoint), PSU.endpoint);
         writeToJsonDatabase(getComponent(Ram.endpoint), Ram.endpoint);
-        writeToJsonDatabase(getComponent(SSD.endpoint), SSD.endpoint);*/
+        writeToJsonDatabase(getComponent(SSD.endpoint), SSD.endpoint);
     }
 
     public ArrayList<Component> getComponent(String endpoint) {
