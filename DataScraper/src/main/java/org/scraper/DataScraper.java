@@ -98,7 +98,7 @@ public class DataScraper implements ComponentFactory {
             File file = new File("src/main/resources/DatabaseJSON/" + endpoint.substring(1) + "_database.json");
             mapper.writeValue(file, componentArrayList);
         }catch (Exception e) {
-            System.out.println("Error occurred while writing json: " + e);
+             System.out.println("Error occurred while writing json: " + e);
         }
     }
     private String getPrice(Elements productHtml) {
