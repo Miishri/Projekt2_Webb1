@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Component {
+    @JsonProperty("id")
+    private UUID id;
     @JsonProperty("title")
     private String title;
     @JsonProperty("image")

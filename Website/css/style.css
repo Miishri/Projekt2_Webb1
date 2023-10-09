@@ -1,20 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
-    font-family: "Montserrat", "Roboto Light", "Figtree", system-ui;
+    font-family: "Roboto", "Montserrat", "Figtree", sans-serif;
 }
 
-.top-bar, .footer {
-    background-color: #4A4A48;
-    color: #F1F2EB;
-}
+.nav-bar {
+    background: #2C2F31;
+    height: 6vh;
 
-.top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
+<<<<<<< HEAD
 
     gap: 5px;
     padding: 1%;
@@ -24,10 +23,17 @@ body {
     width: 50%;
     cursor: pointer;
     border-radius: 2px;
+=======
 }
 
-.top-bar-links {
+.main-logo {
+    height: 5vh;
+>>>>>>> 1b5e7cf6a933ab6671155dcbb454bd78b8663dbd
+}
+
+.extra-logos {
     display: flex;
+<<<<<<< HEAD
     gap: 5%;
 
     padding: 1%;
@@ -37,8 +43,17 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+=======
+>>>>>>> 1b5e7cf6a933ab6671155dcbb454bd78b8663dbd
     align-items: center;
+    gap: 2vw;
+    padding-right: 2%;
+}
+
+.cart-logo, .search-logo {
+    height: 2.5vh;
     cursor: pointer;
+<<<<<<< HEAD
 
     font-size: 0.8rem;
 }
@@ -132,6 +147,53 @@ body {
 
 .links > span{
     padding: 20px;
+=======
 }
 
+.search {
+    display: flex;
+    justify-content: flex-end;
+
+    padding-right: 4vw;
+    margin: 2px;
+}
+
+#search {
+    width: 30vw;
+    height: 2vh;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    margin-left: 5vw;
+    margin-right: 5vw;
+    text-align: center;
+>>>>>>> 1b5e7cf6a933ab6671155dcbb454bd78b8663dbd
+}
+
+.product {
+    border: 1px solid black
+}
+
+.product-title {
+    font-size: 0.9em;
+}
+
+.product-image {
+    width: 9vw;
+}
+
+/* Landscape mode pc */
+@media (min-width:1281px){
+
+    .nav-bar {
+        height: 10vh;
+    }
+
+    .main-logo {
+        height: 9vh;
+    }
+}
 
