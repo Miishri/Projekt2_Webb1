@@ -16,17 +16,19 @@ body {
     align-items: center;
     justify-content: space-between;
 
+    gap: 5px;
     padding: 1%;
 }
 
 .main-logo {
-    width: 30%;
+    width: 50%;
     cursor: pointer;
+    border-radius: 2px;
 }
 
 .top-bar-links {
     display: flex;
-    gap: 15%;
+    gap: 5%;
 
     padding: 1%;
 }
@@ -46,7 +48,6 @@ body {
 }
 
 .login-logo {
-    width: 90%;
     cursor: pointer;
 }
 
@@ -61,11 +62,30 @@ body {
 }
 
 .cart-logo {
-    width: 90%;
 }
 
 .cart-header {
     display: none;
+}
+
+.search {
+    padding: 1%;
+    width: 100%;
+}
+
+
+#search:focus {
+    outline: 1px solid #4A4A48;
+    border-radius: 2px;
+}
+
+#search {
+    border: 1px solid #40403e;
+    color: grey;
+    border-radius: 8px;
+    background: #40403e;
+    transition: border-radius 0.3s;
+    width: 50vw;
 }
 
 .slideshow-images {
@@ -77,6 +97,20 @@ body {
 .slideshow {
     width: 100vw;
     height: 30vh;
+
+    padding-bottom: 10px;
+}
+
+.advertisement {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.advertisement > div {
+    background: grey;
+    width: 35vw;
+    height: 15vh;
 }
 
 .categories {
@@ -88,34 +122,16 @@ body {
     padding: 5px;
 }
 
-.search {
-    padding: 1%;
-}
-
-
-#search:focus {
-    outline: 1px solid #4A4A48;
-    border-radius: 2px;
-}
-
-#search {
-    border: 1px solid lightgray;
-    border-radius: 8px;
-    transition: border-radius 0.3s;
-    width: 250px;
-}
-
 .links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-gap: 20%;
+    justify-items: center;
     font-size: 0.8rem;
 }
 
-.links > span {
-    color: black;
-    text-align: center;
+.links > span{
+    padding: 20px;
 }
 
 
