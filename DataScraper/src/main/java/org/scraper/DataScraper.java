@@ -21,29 +21,15 @@ public class DataScraper implements ComponentFactory {
     private final ObjectMapper mapper = new ObjectMapper();
 
     public static void main(String[] args) {
-        String link = "www.multisoft.se/";
-        int[] numbers = {3, 8, 5, 1, 8, 5, 3, 2, 7};
-        int count = 0;
-        while (count < numbers.length) {
-            if (numbers[count] % 2 != 0) {
-                link += numbers[count] + numbers[numbers[count]];
-                count += 2;
-            }else {
-                count -= 1;
-            }
-        }
-
-        System.out.println(link);
+        DataScraper dataScraper = new DataScraper();
+        dataScraper.bootstrapData();
     }
 
     public void bootstrapData() {
         writeToJsonDatabase(getComponent(GPU.endpoint), GPU.endpoint);
         writeToJsonDatabase(getComponent(CPU.endpoint), CPU.endpoint);
-        writeToJsonDatabase(getComponent(CpuCooler.endpoint), CpuCooler.endpoint);
-        writeToJsonDatabase(getComponent(Cases.endpoint), Cases.endpoint);
         writeToJsonDatabase(getComponent(Motherboard.endpoint), Motherboard.endpoint);
         writeToJsonDatabase(getComponent(Monitor.endpoint), Monitor.endpoint);
-        writeToJsonDatabase(getComponent(PSU.endpoint), PSU.endpoint);
         writeToJsonDatabase(getComponent(Ram.endpoint), Ram.endpoint);
         writeToJsonDatabase(getComponent(SSD.endpoint), SSD.endpoint);
     }
@@ -56,7 +42,7 @@ public class DataScraper implements ComponentFactory {
             for (Element hardware: hardwareList) {
                 String hardwareReference = hardware.attr("href");
 
-                if (hardwareReference.contains("pc-kombo")) {
+                if (hardwareReference.contains("pc-kombo") && componentArrayList.size() <= 30) {
                     Elements productHtml = Jsoup.connect(hardwareReference)
                             .get()
                             .select("#product");
@@ -195,14 +181,9 @@ public class DataScraper implements ComponentFactory {
                 .description(productHtml.select("[itemprop=description]").text())
                 .price(getPrice(productHtml))
 
-                .length(productSpecifications.get("Length"))
                 .slots(Double.valueOf(productSpecifications.get("Slots")))
-                .eightPinConnectors(Integer.valueOf(productSpecifications.get("6-pin connectors")))
-                .sixPinConnectors(Integer.valueOf(productSpecifications.get("8-pin connectors")))
-                .HDMI(Integer.valueOf(productSpecifications.get("HDMI")))
                 .DP(Integer.valueOf(productSpecifications.get("DisplayPort")))
                 .DVI(Integer.valueOf(productSpecifications.get("DVI")))
-                .VGA(Integer.valueOf(productSpecifications.get("VGA")))
                 .MHZ(productSpecifications.get("Memory Clock"))
                 .VRAM(productSpecifications.get("Vram"))
                 .TDP(productSpecifications.get("TDP"))
@@ -228,10 +209,6 @@ public class DataScraper implements ComponentFactory {
                 .HDMI(Integer.valueOf(productSpecifications.get("HDMI")))
                 .DP(Integer.valueOf(productSpecifications.get("DisplayPort")))
                 .DVI(Integer.valueOf(productSpecifications.get("DVI")))
-                .VGA(Integer.valueOf(productSpecifications.get("VGA")))
-                .speakers(productSpecifications.get("Speakers").isBlank())
-                .curved(productSpecifications.get("Curved").isBlank())
-                .adjustableHeight(productSpecifications.get("Adjustable Height").isBlank())
                 .sync(productSpecifications.get("Sync"))
                 .build();
     }
@@ -252,11 +229,7 @@ public class DataScraper implements ComponentFactory {
                 .memoryType(productSpecifications.get("Memory Type"))
                 .memoryCapacity(productSpecifications.get("Memory Capacity"))
                 .ramSlots(productSpecifications.get("Ramslots"))
-                .sata(productSpecifications.get("SATA"))
-                .pcie(true)
                 .usbSlots(productSpecifications.get("USB 3 Slots"))
-                .VGA(productSpecifications.get("VGA"))
-                .DVI(productSpecifications.get("DVI"))
                 .DP(productSpecifications.get("Display Port"))
                 .HDMI(productSpecifications.get("HDMI"))
 
@@ -296,7 +269,6 @@ public class DataScraper implements ComponentFactory {
                 .ramType(productSpecifications.get("Ram Type"))
                 .size(productSpecifications.get("Size"))
                 .clock(Integer.parseInt(productSpecifications.get("Clock")))
-                .timings(productSpecifications.get("Timings"))
                 .sticks(Integer.valueOf(productSpecifications.get("Sticks")))
                 .build();
     }
@@ -315,8 +287,6 @@ public class DataScraper implements ComponentFactory {
                 .formFactor(productSpecifications.get("Form Factor"))
                 .protocol(productSpecifications.get("Protocol"))
                 .size(productSpecifications.get("Size"))
-                .NAND(productSpecifications.get("NAND"))
-                .controller(productSpecifications.get("Controller"))
                 .build();
     }
 

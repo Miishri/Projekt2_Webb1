@@ -22,9 +22,5 @@ public class Monitor extends Component {
     private Integer HDMI;
     private Integer DP;
     private Integer DVI;
-    private Integer VGA;
-    private Boolean speakers;
-    private Boolean curved;
-    private Boolean adjustableHeight;
     private String sync;
 }

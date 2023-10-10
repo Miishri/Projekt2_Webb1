@@ -17,6 +17,5 @@ public class Ram extends Component {
     private String ramType;
     private String size;
     private Integer clock;
-    private String timings;
     private Integer sticks;
 }

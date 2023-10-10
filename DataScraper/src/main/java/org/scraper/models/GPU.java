@@ -14,14 +14,9 @@ public class GPU extends Component {
 
     public static final String endpoint = "/gpus";
 
-    private String length;
     private Double slots;
-    private Integer eightPinConnectors;
-    private Integer sixPinConnectors;
-    private Integer HDMI;
     private Integer DP;
     private Integer DVI;
-    private Integer VGA;
     private String MHZ;
     private String VRAM;
     private String TDP;
