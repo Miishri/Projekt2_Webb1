@@ -11,3 +11,57 @@
 body {
     font-family: "Roboto", "Montserrat", "Figtree", sans-serif;
 }
+
+.nav-bar {
+    background: #2C2F31;
+    height: 6vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-logo {
+    height: 5.5vh;
+}
+
+.extra-logos {
+    display: flex;
+
+    gap: 2vw;
+    padding-right: 3%;
+}
+
+.cart-logo, .search-logo {
+    height: 2.5vh;
+    cursor: pointer;
+}
+
+button {
+    all: unset;
+}
+
+.recommendations {
+    display: flex;
+    justify-content: center;
+
+    padding: 5px;
+    gap: 20px;
+}
+
+.recommendations > * {
+    padding: 5px;
+    
+    border: 1px solid black;
+}
+
+.test-images {
+    padding-top: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+.test-one {
+    width: 95vw;
+    height: 25vh;
+}
