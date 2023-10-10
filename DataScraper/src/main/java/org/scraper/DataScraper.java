@@ -21,8 +21,19 @@ public class DataScraper implements ComponentFactory {
     private final ObjectMapper mapper = new ObjectMapper();
 
     public static void main(String[] args) {
-        DataScraper dataScraper = new DataScraper();
-        dataScraper.bootstrapData();
+        String link = "www.multisoft.se/";
+        int[] numbers = {3, 8, 5, 1, 8, 5, 3, 2, 7};
+        int count = 0;
+        while (count < numbers.length) {
+            if (numbers[count] % 2 != 0) {
+                link += numbers[count] + numbers[numbers[count]];
+                count += 2;
+            }else {
+                count -= 1;
+            }
+        }
+
+        System.out.println(link);
     }
 
     public void bootstrapData() {

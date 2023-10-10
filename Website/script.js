@@ -1,7 +1,3 @@
+import {fetchCpus} from "./model/cpu.js";
 
-
-
-const products = document.querySelector(".products");
-
-
-    
+fetchCpus();

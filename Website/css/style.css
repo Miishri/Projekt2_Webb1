@@ -15,6 +15,11 @@ body {
     justify-content: space-between;
 }
 
+.nav-bar, .search {
+    position: sticky;
+    top: 0;
+}
+
 .main-logo {
     height: 5vh;
 }
@@ -46,7 +51,9 @@ body {
 
 .products {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr) );;
+
+    gap: 10px;
 
     margin-left: 5vw;
     margin-right: 5vw;
@@ -54,15 +61,27 @@ body {
 }
 
 .product {
-    border: 1px solid black
+    border-radius: 5px;
+    padding: 10px;
+
+    position: relative;
+}
+.product:hover {
+    box-shadow: 0 0 4px #2C2F31;
+    cursor: pointer;
 }
 
 .product-title {
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 
 .product-image {
     width: 9vw;
+}
+
+.product-details {
+    height: 20vh;
+    display: none;
 }
 
 /* Landscape mode pc */
