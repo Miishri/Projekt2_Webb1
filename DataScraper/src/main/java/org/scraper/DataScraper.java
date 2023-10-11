@@ -1,5 +1,6 @@
 package org.scraper;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.scraper.models.*;
 import org.jsoup.Jsoup;
@@ -10,10 +11,12 @@ import org.scraper.models.Component.Component;
 import org.scraper.models.Component.ComponentFactory;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.UUID;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class DataScraper implements ComponentFactory {
@@ -26,12 +29,7 @@ public class DataScraper implements ComponentFactory {
     }
 
     public void bootstrapData() {
-        writeToJsonDatabase(getComponent(GPU.endpoint), GPU.endpoint);
-        writeToJsonDatabase(getComponent(CPU.endpoint), CPU.endpoint);
-        writeToJsonDatabase(getComponent(Motherboard.endpoint), Motherboard.endpoint);
-        writeToJsonDatabase(getComponent(Monitor.endpoint), Monitor.endpoint);
-        writeToJsonDatabase(getComponent(Ram.endpoint), Ram.endpoint);
-        writeToJsonDatabase(getComponent(SSD.endpoint), SSD.endpoint);
+        readJsonDatabaseURL(CPU.endpoint);
     }
 
     public ArrayList<Component> getComponent(String endpoint) {
@@ -42,7 +40,7 @@ public class DataScraper implements ComponentFactory {
             for (Element hardware: hardwareList) {
                 String hardwareReference = hardware.attr("href");
 
-                if (hardwareReference.contains("pc-kombo") && componentArrayList.size() <= 30) {
+                if (hardwareReference.contains("pc-kombo") && componentArrayList.size() < 30) {
                     Elements productHtml = Jsoup.connect(hardwareReference)
                             .get()
                             .select("#product");
@@ -90,14 +88,30 @@ public class DataScraper implements ComponentFactory {
             default -> new Component();
         };
     }
-    private void writeToJsonDatabase(ArrayList<Component> componentArrayList, String endpoint) {
+    public void writeToJsonDatabase(List<Component> componentArrayList, String endpoint) {
         try {
-            File file = new File("src/main/resources/DatabaseJSON/" + endpoint.substring(1) + "_database.json");
+            File file = getDatabaseFile(endpoint);
             mapper.writeValue(file, componentArrayList);
         }catch (Exception e) {
              System.out.println("Error occurred while writing json: " + e);
         }
     }
+
+    public List<Component> readJsonDatabaseURL(String endpoint)  {
+        try {
+            File file = getDatabaseFile(endpoint);
+            return mapper.readValue(file, new TypeReference<>(){});
+
+        }catch (Exception e) {
+            System.out.println("Error occurred while reading json: " + e);
+        }
+        return new ArrayList<>();
+    }
+
+    private File getDatabaseFile(String endpoint) {
+        return new File("src/main/resources/DatabaseJSON/" + endpoint.substring(1) + "_database.json");
+    }
+
     private String getPrice(Elements productHtml) {
         try {
             return productHtml.select("[itemprop=price]").text().split(" ")[0];
@@ -105,6 +119,15 @@ public class DataScraper implements ComponentFactory {
             System.out.println("Error occurred inside getPrice: " + e);
             return "0";
         }
+    }
+
+    private Boolean checkURL(Elements productHtml) throws IOException {
+        URL url = new URL(productHtml.select("[itemprop=image]").attr("src"));
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+        int response = urlConnection.getResponseCode();
+
+        return response != HttpURLConnection.HTTP_OK;
     }
 
     @Override
