@@ -29,7 +29,12 @@ public class DataScraper implements ComponentFactory {
     }
 
     public void bootstrapData() {
-        readJsonDatabaseURL(CPU.endpoint);
+        getComponent(GPU.endpoint);
+        getComponent(CPU.endpoint);
+        getComponent(Motherboard.endpoint);
+        getComponent(Monitor.endpoint);
+        getComponent(SSD.endpoint);
+        getComponent(Ram.endpoint);
     }
 
     public ArrayList<Component> getComponent(String endpoint) {
@@ -45,7 +50,7 @@ public class DataScraper implements ComponentFactory {
                             .get()
                             .select("#product");
 
-                    if (!getPrice(productHtml).equals("0") && !getPrice(productHtml).isBlank()) {
+                    if (!getPrice(productHtml).equals("0") && !getPrice(productHtml).isBlank() && checkURL(productHtml)) {
                         System.out.println("Fetching from URL: " +  hardwareReference);
 
                         Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
@@ -100,8 +105,7 @@ public class DataScraper implements ComponentFactory {
     public List<Component> readJsonDatabaseURL(String endpoint)  {
         try {
             File file = getDatabaseFile(endpoint);
-            return mapper.readValue(file, new TypeReference<>(){});
-
+            return mapper.readValue(file, new TypeReference<>() {});
         }catch (Exception e) {
             System.out.println("Error occurred while reading json: " + e);
         }
@@ -122,12 +126,14 @@ public class DataScraper implements ComponentFactory {
     }
 
     private Boolean checkURL(Elements productHtml) throws IOException {
-        URL url = new URL(productHtml.select("[itemprop=image]").attr("src"));
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        try {
+            URL url = new URL(productHtml.select("[itemprop=image]").attr("src"));
+        } catch (MalformedURLException ex) {
+            System.out.println("URL has illegal format.");
+            return false;
+        }
 
-        int response = urlConnection.getResponseCode();
-
-        return response != HttpURLConnection.HTTP_OK;
+        return true;
     }
 
     @Override

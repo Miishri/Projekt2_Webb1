@@ -27,7 +27,11 @@ public class ImageCompressor {
 
     public void writeOptimizedImage(URL url) throws IOException {
         PngImage inputImage = new PngImage(getTempImage(url));
-        optimizeImage(inputImage).writeDataOutputStream(Files.newOutputStream(Paths.get(path)));
+        PngImage pngImage = optimizeImage(inputImage);
+
+        System.out.println(inputImage.getImageData().length + " shrank to " + pngImage.getImageData().length);
+
+        pngImage.writeDataOutputStream(Files.newOutputStream(Paths.get(path)));
     }
 
     public void optimizeImageWithCooBird() throws IOException {
