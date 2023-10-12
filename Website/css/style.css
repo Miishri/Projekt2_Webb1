@@ -10,19 +10,27 @@
 
 body {
     font-family: "Roboto", "Montserrat", "Figtree", sans-serif;
+    color: #F8F8FF;
 }
 
 .nav-bar {
-    background: #2C2F31;
+    position: sticky;
+    top: 0;
+
+    background: rgba(4, 4, 6, 0.5);
+    backdrop-filter: blur(20px);
+
     height: 6vh;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
 }
 
 .main-logo {
     height: 5.5vh;
+    border-radius: 4px;
 }
 
 .extra-logos {
@@ -35,33 +43,4 @@ body {
 .cart-logo, .search-logo {
     height: 2.5vh;
     cursor: pointer;
-}
-
-button {
-    all: unset;
-}
-
-.recommendations {
-    display: flex;
-    justify-content: center;
-
-    padding: 5px;
-    gap: 20px;
-}
-
-.recommendations > * {
-    padding: 5px;
-    
-    border: 1px solid black;
-}
-
-.test-images {
-    padding-top: 1%;
-    display: flex;
-    justify-content: center;
-}
-
-.test-one {
-    width: 95vw;
-    height: 25vh;
 }
