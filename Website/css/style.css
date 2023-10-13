@@ -14,10 +14,9 @@ body {
 }
 
 .nav-bar {
-    background: rgba(4, 4, 6, 0.5);
-    backdrop-filter: blur(20px);
-
     height: 6vh;
+
+    backdrop-filter: blur(50%);
 
     display: flex;
     align-items: center;
@@ -26,7 +25,7 @@ body {
 }
 
 .main-logo {
-    height: 5.5vh;
+    height: 25vh;
     border-radius: 4px;
 }
 
@@ -40,4 +39,11 @@ body {
 .cart-logo, .search-logo {
     height: 2.5vh;
     cursor: pointer;
+}
+
+.halloween-background {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: -1;
 }
