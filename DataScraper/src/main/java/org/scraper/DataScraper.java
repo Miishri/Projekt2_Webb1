@@ -97,7 +97,7 @@ public class DataScraper implements ComponentFactory {
         }
     }
 
-    public List<Component> readJsonDatabaseURL(String endpoint)  {
+    public List<?> readJsonDatabaseURL(String endpoint)  {
         try {
             File file = getDatabaseFile(endpoint);
             return mapper.readValue(file, new TypeReference<>(){});
