@@ -10,10 +10,14 @@
 
 body {
     font-family: "Roboto", "Montserrat", "Figtree", sans-serif;
-
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .nav-bar {
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(100px);
     height: 6vh;
 
     display: flex;
@@ -45,17 +49,14 @@ body {
     background: url("https://i.ibb.co/vBcBj4f/halloween-background2.png") no-repeat;
     background-size: contain;
 
-    position: fixed;
-    top: 0;
     width: 100vw;
-    z-index: -1;
-    height: 100vh
 }
 
 .discount-images {
     display: flex;
 
     width: 100%;
+    padding-top: 2%;
     gap: 10%;
 
     overflow-x: auto;
@@ -93,7 +94,6 @@ body {
     }
 
     .discount-images > img{
-
         height: 25vh;
     }
 }
