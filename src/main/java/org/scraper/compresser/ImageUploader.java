@@ -78,7 +78,7 @@ public class ImageUploader {
 
     }
     public List<URL> getImageUrls(String endpoint) {
-        List<Component> components = (List<Component>) new DataScraper().readJsonDatabaseURL(endpoint);
+        List<Component> components = new DataScraper().readJsonDatabaseURL(endpoint);
         return components.stream().map((e) -> {
             String imageUrl = e.getImage();
             if (!imageUrl.contains("https://i.ibb.co")) {
@@ -93,7 +93,7 @@ public class ImageUploader {
     }
 
     public void setHostedUrl(URL hostedUrl, URL url, String endpoint) {
-        List<Component> databaseList = (List<Component>) dataScraper.readJsonDatabaseURL(endpoint);
+        List<Component> databaseList = dataScraper.readJsonDatabaseURL(endpoint);
         System.out.println("Database list fetched with : " + databaseList.size() + " components");
 
         for (Component component: databaseList) {
