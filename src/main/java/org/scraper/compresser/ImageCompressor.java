@@ -5,17 +5,21 @@ import com.googlecode.pngtastic.core.PngOptimizer;
 import net.coobird.thumbnailator.Thumbnails;
 
 import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
+import java.awt.*;
+import java.awt.image.*;
 import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Base64;
+import java.io.File;
+import java.io.IOException;
 
 public class ImageCompressor {
-    private final String path = System.getProperty("user.home") + "/Desktop/image.png";
+    private final String path = System.getProperty("user.home")  + "/image.png";
     public static String compressImage(ImageCompressor imageCompressor, URL url) throws IOException {
+        imageCompressor.writeOptimizedImage(url);
         imageCompressor.writeOptimizedImage(url);
 
         String encodedBase64 = imageCompressor.encodeImageBase64();
@@ -59,7 +63,7 @@ public class ImageCompressor {
     public ByteArrayInputStream getTempImage(URL url) throws IOException {
         BufferedImage image = ImageIO.read(url);
         ByteArrayOutputStream arrayInputStream = new ByteArrayOutputStream();
-        ImageIO.write(image, "png", arrayInputStream);
+        ImageIO.write(transparency(image), "png", arrayInputStream);
         return new ByteArrayInputStream(arrayInputStream.toByteArray());
     }
 
@@ -70,5 +74,33 @@ public class ImageCompressor {
     public void writeUrlImage(BufferedImage image) throws IOException {
         File file = new File(path);
         ImageIO.write(image, "png", file);
+    }
+
+
+    public BufferedImage transparency(BufferedImage bufferedImage) {
+        Image imageWithTransparency = makeColorTransparent(bufferedImage, new Color(bufferedImage.getRGB(0, 0)));
+
+        return imageToBufferedImage(imageWithTransparency);
+    }
+    private static BufferedImage imageToBufferedImage(final Image image) {
+        final BufferedImage bufferedImage =
+                new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        final Graphics2D g2 = bufferedImage.createGraphics();
+        g2.drawImage(image, 0, 0, null);
+        g2.dispose();
+        return bufferedImage;
+    }
+    public static Image makeColorTransparent(final BufferedImage im, final Color color) {
+        final ImageFilter filter = new RGBImageFilter() {
+            public final int markerRGB = color.getRGB() | 0xFFFFFFFF;
+
+            public int filterRGB(final int x, final int y, final int rgb) {
+                if ((rgb | 0xFF000000) == markerRGB) return 0x00FFFFFF & rgb;
+                else return rgb;
+            }
+        };
+
+        final ImageProducer ip = new FilteredImageSource(im.getSource(), filter);
+        return Toolkit.getDefaultToolkit().createImage(ip);
     }
 }
