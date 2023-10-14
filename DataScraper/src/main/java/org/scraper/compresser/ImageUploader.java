@@ -78,12 +78,8 @@ public class ImageUploader {
 
     }
     public List<URL> getImageUrls(String endpoint) {
-<<<<<<< HEAD
         List<Component> components = (List<Component>) new DataScraper().readJsonDatabaseURL(endpoint);
         return components.stream().map((e) -> {
-=======
-        return (dataScraper.readJsonDatabaseURL(endpoint)).stream().map((e) -> {
->>>>>>> 11d8a9e8bb38d6b1f1e9e3b2d4ae17ad57e70a9e
             String imageUrl = e.getImage();
             if (!imageUrl.contains("https://i.ibb.co")) {
                 try {
@@ -97,18 +93,7 @@ public class ImageUploader {
     }
 
     public void setHostedUrl(URL hostedUrl, URL url, String endpoint) {
-<<<<<<< HEAD
-        DataScraper dataScraper = new DataScraper();
-        List<Component> components =  dataScraper.readJsonDatabaseURL(endpoint).stream().map((e) -> e.getImage().equals(url.toString())
-                ? Component.builder().image(hostedUrl.toString()).build()
-                : e).toList();
-
-
-        dataScraper.writeToJsonDatabase(components, endpoint);
-=======
-        //dataScraper.writeToJsonDatabase(dataScraper.getComponent(endpoint), endpoint);
-
-        List<Component> databaseList = dataScraper.readJsonDatabaseURL(endpoint);
+        List<Component> databaseList = (List<Component>) dataScraper.readJsonDatabaseURL(endpoint);
         System.out.println("Database list fetched with : " + databaseList.size() + " components");
 
         for (Component component: databaseList) {
@@ -124,7 +109,6 @@ public class ImageUploader {
             component.setImage(hostedUrl.toString());
             System.out.println("Replaced image src component with ID: " + component.getId() + "\nwith URL: " + hostedUrl);
         }
->>>>>>> 11d8a9e8bb38d6b1f1e9e3b2d4ae17ad57e70a9e
     }
 
     private String getApiKey() {
