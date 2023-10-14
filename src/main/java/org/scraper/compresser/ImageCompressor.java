@@ -34,8 +34,8 @@ public class ImageCompressor {
         pngImage.writeDataOutputStream(Files.newOutputStream(Paths.get(path)));
     }
 
-    public void optimizeImageWithCooBird() throws IOException {
-        URL url = new URL("https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Acdn-reichelt.de%2Fbilder%2Fweb%2Fxxl_ws%2FE200%2FAMD_R5-5600X_01.png&feedId=34189&k=88484424d74235f15c4e85174c4c26372188390e");
+    public void optimizeImageWithCooBird(String inputUrl) throws IOException {
+        URL url = new URL(inputUrl);
         BufferedImage image = ImageIO.read(url);
 
         File output = new File(path);
@@ -49,10 +49,10 @@ public class ImageCompressor {
     }
 
     public String encodeImageBase64() throws IOException {
-        return Base64.getEncoder().encodeToString(getImageDate());
+        return Base64.getEncoder().encodeToString(getImageData());
     }
 
-    public byte[] getImageDate() throws IOException {
+    public byte[] getImageData() throws IOException {
         return Files.readAllBytes(Path.of(path));
     }
 
