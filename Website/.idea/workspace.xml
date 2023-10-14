@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4e6ab48f-cfc6-4b2b-9af2-c3a837cbadc9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../DataScraper/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/DataScraper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/compresser/ImageCompressor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/compresser/ImageUploader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/models/CPU.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/models/Cases.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/models/Component/Component.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/models/Component/ComponentFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/models/CpuCooler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/models/GPU.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/models/Monitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/models/Motherboard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/models/PSU.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/models/Ram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/main/java/org/scraper/models/SSD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DataScraper/src/test/java/org/scraper/DataScraperTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/cpus_database.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/displays_database.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/gpus_database.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/motherboards_database.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/rams_database.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Databases/ssds_database.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/logos/search.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/logos/shopping-cart.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/instructions/project_settings.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ComponentFactory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Product.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2Wkpe3k9teFnrxx47eFlGj2MF2a" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "test-branch-2",
+    "last_opened_file_path": "C:/Users/muham/WebstormProjects/Projekt2_Webb1/Website",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e6ab48f-cfc6-4b2b-9af2-c3a837cbadc9" name="Changes" comment="" />
+      <created>1697286523762</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697286523762</updated>
+      <workItem from="1697286524866" duration="4000" />
+      <workItem from="1697286537509" duration="7000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
