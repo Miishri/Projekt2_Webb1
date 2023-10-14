@@ -10,13 +10,11 @@
 
 body {
     font-family: "Roboto", "Montserrat", "Figtree", sans-serif;
-    color: #F8F8FF;
+
 }
 
 .nav-bar {
     height: 6vh;
-
-    backdrop-filter: blur(50%);
 
     display: flex;
     align-items: center;
@@ -25,25 +23,76 @@ body {
 }
 
 .main-logo {
-    height: 25vh;
+    padding-top: 5px;
+
+    height: 30vh;
     border-radius: 4px;
 }
 
 .extra-logos {
     display: flex;
 
-    gap: 2vw;
-    padding-right: 3%;
+    gap: 3vw;
+    padding-right: 4%;
 }
 
 .cart-logo, .search-logo {
-    height: 2.5vh;
+    height: 3vh;
     cursor: pointer;
 }
 
-.halloween-background {
-    position: absolute;
+#logo-background {
+    background: url("https://i.ibb.co/vBcBj4f/halloween-background2.png") no-repeat;
+    background-size: contain;
+
+    position: fixed;
     top: 0;
     width: 100vw;
     z-index: -1;
+    height: 100vh
+}
+
+.discount-images {
+    display: flex;
+
+    width: 100%;
+    gap: 14%;
+
+    overflow-x: auto;
+    flex-shrink: 0;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+}
+
+.discount-images::-webkit-scrollbar {
+    display: none;
+}
+
+.discount-images > img{
+    scroll-snap-align: center;
+
+    border-radius: 5px;
+    width: 90vw;
+    height: 15vh;
+}
+
+
+@media (min-width: 554px) {
+    #logo-background {
+        background: url("https://i.ibb.co/vjYrYxC/halloween-background.png") no-repeat;
+        background-size:cover;
+        height: 80vh;
+    }
+
+    .discount-images {
+        gap: 11%;
+    }
+
+    .discount-images > img{
+
+        height: 25vh;
+    }
 }
