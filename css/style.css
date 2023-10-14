@@ -46,13 +46,11 @@ body {
 }
 
 #logo-background {
-    background: url("https://i.ibb.co/vBcBj4f/halloween-background2.png") no-repeat;
-    background-size: contain;
-
+    background-size:cover;
     width: 100vw;
 }
 
-.discount-images {
+#discount-images {
     display: flex;
 
     width: 100%;
@@ -68,39 +66,37 @@ body {
     white-space: nowrap;
 }
 
-.discount-images::-webkit-scrollbar {
+#discount-images::-webkit-scrollbar {
     display: none;
 }
 
-.discount-images > img{
+#discount-images > img{
     scroll-snap-align: center;
 
     cursor: pointer;
     border-radius: 5px;
     width: 90vw;
-    height: 15vh;
 }
 
 
 @media (min-width: 554px) {
     #logo-background {
-        background: url("https://i.ibb.co/vjYrYxC/halloween-background.png") no-repeat;
-        background-size:cover;
+        background: url("https://i.ibb.co/jW7ffJx/halloween-background.png") no-repeat;
         height: 80vh;
     }
 
-    .discount-images {
+    #discount-images {
         gap: 11%;
     }
 
-    .discount-images > img{
+    #discount-images > img{
         height: 25vh;
     }
 }
 
-@media (min-width: 1372px) {
+@media (min-width: 1199px) {
     #logo-background {
-        background: url("https://i.ibb.co/58pLHRs/halloween-background.png") no-repeat;
+        background: url("https://i.ibb.co/0h0zj3v/halloween-background.png") no-repeat;
         background-size: cover;
     }
 }
