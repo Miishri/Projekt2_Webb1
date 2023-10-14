@@ -20,7 +20,6 @@ public class ImageCompressor {
     private final String path = System.getProperty("user.home")  + "/image.png";
     public static String compressImage(ImageCompressor imageCompressor, URL url) throws IOException {
         imageCompressor.writeOptimizedImage(url);
-        imageCompressor.writeOptimizedImage(url);
 
         String encodedBase64 = imageCompressor.encodeImageBase64();
 
