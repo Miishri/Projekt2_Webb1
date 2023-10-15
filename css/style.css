@@ -35,23 +35,14 @@ body {
     cursor: pointer;
 }
 
-.background-images {
-    display: flex;
-    gap: 5%;
-}
-
-.background-images > img {
-    width: 15vw;
-}
-
-#image-sales {
+#slider {
     display: flex;
 
     width: 100%;
-    padding: 2%;
+    padding: 6% 2% 2% 2%;
     gap: 5%;
 
-    overflow-x: auto;
+    overflow-x: hidden;
     transition: 0.5s;
     flex-shrink: 0;
     scroll-behavior: smooth;
@@ -60,11 +51,10 @@ body {
     scroll-snap-type: x mandatory;
     white-space: nowrap;
 }
-#image-sales::-webkit-scrollbar {
+#slider::-webkit-scrollbar {
     display: none;
 }
-
-#image-sales > img{
+#slider > img{
     scroll-snap-align: center;
 
     cursor: pointer;
@@ -72,7 +62,7 @@ body {
     width: 90vw;
 }
 
-.discount-images-dots {
+.slider-dots {
     display: flex;
     justify-content: center;
     gap: 5%;
@@ -88,23 +78,52 @@ body {
     width: 3vw;
     height: 3vw;
 }
-
 .dot:hover {
     cursor: pointer;
+}
+
+.categories {
+    margin-top: 4%;
+    text-align: center;
+
+    display: flex;
+
+    overflow-x: auto;
+    gap: 5%;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.category > img{
+    width: 15vw;
+}
+
+.category > h6{
+    white-space: nowrap;
+}
+
+.current-dot {
     box-shadow:0 0 2px rgba(255, 255, 255, 0.8);
     transition: 0.4s;
 }
 
 @media (min-width: 554px) and (max-width: 1000px) {
-    #image-sales {
+    #slider {
+        padding-top: 4%;
         gap: 8%;
     }
 
-    #image-sales > img{
+    #slider > img{
         height: 25vh;
     }
 
-    .discount-images-dots {
+    .slider-dots {
         gap: 3%;
     }
 
@@ -115,17 +134,21 @@ body {
 }
 
 @media (min-width: 1001px) {
-    #image-sales {
-        gap: 4%;
+    #slider {
+        padding-top: 1%;
+        gap: 6%;
     }
 
-    #image-sales > img{
-        height: 25vh;
-    }
-    .discount-images-dots {
-        margin: 0.5vh;
+    #slider > img{
+        height: 65vh;
     }
 
+    .slider-dots {
+        margin: 0.4vh;
+    }
+    .slider-dots {
+        gap: 1%;
+    }
     .dot {
         width: 1.3vw;
         height: 1.3vw;
