@@ -5,7 +5,10 @@ function fetchCpu(){
         .then(res => res.json())
         .then(cpus => {
             cpus.forEach(cpu => {
-                createProduct(cpu);
+                const firstFiveCpus = cpu.slice(0, 7);
+                firstFiveCpus.forEach(cpu => {
+                    createProduct(cpu);
+                })
             })
         })
 }
@@ -14,7 +17,8 @@ function fetchGpu(){
     return fetch("Databases/gpus_database.json")
         .then(res => res.json())
         .then(gpus => {
-            gpus.forEach(gpu => {
+            const firstFiveGpus = gpus.slice(0, 7);
+            firstFiveGpus.forEach(gpu => {
                 createProduct(gpu);
             })
         })
@@ -24,7 +28,8 @@ function fetchMotherboard(){
     return fetch("Databases/motherboards_database.json")
         .then(res => res.json())
         .then(motherboards => {
-            motherboards.forEach(motherboard => {
+            const firstFiveMotherboards = motherboards.slice(0, 7);
+            firstFiveMotherboards.forEach(motherboard => {
                 createProduct(motherboard);
             })
         })
@@ -34,7 +39,8 @@ function fetchDisplay(){
     return fetch("Databases/displays_database.json")
         .then(res => res.json())
         .then(displays => {
-            displays.forEach(display => {
+            const firstFiveDisplays = displays.slice(0, 7);
+            firstFiveDisplays.forEach(display => {
                 createProduct(display);
             })
         })
@@ -44,7 +50,8 @@ function fetchRam(){
     return fetch("Databases/rams_database.json")
         .then(res => res.json())
         .then(rams => {
-            rams.forEach(ram => {
+            const firstFiveRams = rams.slice(0, 7);
+            firstFiveRams.forEach(ram => {
                 createProduct(ram);
             })
         })
@@ -54,7 +61,8 @@ function fetchSsd(){
     return fetch("Databases/ssds_database.json")
         .then(res => res.json())
         .then(ssds => {
-            ssds.forEach(ssd => {
+            const firstFiveSsds = ssds.slice(0, 7);
+            firstFiveSsds.forEach(ssd => {
                 createProduct(ssd);
             })
         })
