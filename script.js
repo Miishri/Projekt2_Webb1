@@ -1,12 +1,28 @@
 const images = document.querySelectorAll(".discount-image-slide")
-const discountSlider = document.querySelector(".discount-images");
+const discountSlider = document.getElementById("discount-images");
 
 setInterval(() => {
+    slideImage()
+}, 4000)
+
+function slideImage() {
     const scrollAmount = discountSlider.scrollWidth / 5;
-    if ((discountSlider.scrollLeft + discountSlider.clientWidth) === discountSlider.scrollWidth) {
+    if (equalsScrollWidth()) {
         discountSlider.scrollLeft = 0;
     } else {
-        discountSlider.scrollLeft += scrollAmount;
+        addScroll(scrollAmount)
     }
+}
+function equalsScrollWidth() {
+    return (discountSlider.scrollLeft + discountSlider.clientWidth) === discountSlider.scrollWidth
+}
+function addScroll(scrollAmount) {
+    discountSlider.scrollLeft += scrollAmount
+}
 
-}, 4000)
+
+const dots = document.querySelectorAll(".dot")
+
+dots.forEach((dot) => {
+
+})
