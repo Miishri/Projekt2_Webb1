@@ -18,6 +18,5 @@ function updateDot() {
 }
 
 discountSlider.addEventListener('click', updateSlider)
-
 discountSlider.scrollLeft = 0
 updateDot();
