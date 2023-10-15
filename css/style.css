@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 * {
     padding: 0;
@@ -15,36 +14,25 @@ body {
 }
 
 .nav-bar {
-    position: sticky;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(100px);
-    height: 6vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(100px);
+
+    position: sticky;
+    top: 0;
 }
 
 .main-logo {
     padding: 5px 0 5px 10px;
-
     height: 6vh;
-    border-radius: 4px;
 }
 
 .cart-logo {
     height: 3vh;
     cursor: pointer;
-}
-
-#background {
-    font-family: 'Dancing Script', cursive;
-
-    color: orange;
-
-    padding: 3px;
-    height: auto;
-    width: 100vw;
 }
 
 .background-images {
@@ -53,11 +41,10 @@ body {
 }
 
 .background-images > img {
-    height: auto;
     width: 15vw;
 }
 
-#discount-images {
+#image-sales {
     display: flex;
 
     width: 100%;
@@ -73,11 +60,11 @@ body {
     scroll-snap-type: x mandatory;
     white-space: nowrap;
 }
-#discount-images::-webkit-scrollbar {
+#image-sales::-webkit-scrollbar {
     display: none;
 }
 
-#discount-images > img{
+#image-sales > img{
     scroll-snap-align: center;
 
     cursor: pointer;
@@ -109,11 +96,11 @@ body {
 }
 
 @media (min-width: 554px) and (max-width: 1000px) {
-    #discount-images {
+    #image-sales {
         gap: 8%;
     }
 
-    #discount-images > img{
+    #image-sales > img{
         height: 25vh;
     }
 
@@ -128,11 +115,11 @@ body {
 }
 
 @media (min-width: 1001px) {
-    #discount-images {
+    #image-sales {
         gap: 4%;
     }
 
-    #discount-images > img{
+    #image-sales > img{
         height: 25vh;
     }
     .discount-images-dots {
