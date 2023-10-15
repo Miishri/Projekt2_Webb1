@@ -1,3 +1,7 @@
+import {fetchCpu, fetchDisplay, fetchGpu} from "./model/ComponentFactory.js";
+import {createRecommendationProducts} from "./model/Product.js";
+
+
 const images = document.querySelectorAll(".slider-images")
 const discountSlider = document.getElementById("slider");
 const dots = document.querySelectorAll(".dot")
@@ -20,3 +24,18 @@ function updateDot() {
 discountSlider.addEventListener('click', updateSlider)
 discountSlider.scrollLeft = 0
 updateDot();
+
+
+async function populateRecommendedProducts() {
+    const singleCpu = await fetchCpu()
+    const singleGpu = await fetchGpu()
+    const singleMonitor = await fetchDisplay()
+
+    console.log(singleCpu[0])
+
+    createRecommendationProducts(singleCpu[0])
+    createRecommendationProducts(singleGpu[0])
+    createRecommendationProducts(singleMonitor[0])
+}
+
+populateRecommendedProducts()

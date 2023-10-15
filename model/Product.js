@@ -1,5 +1,9 @@
 function createProduct(component) {
-    const products = document.querySelectorAll(".products")
+    const products = document.querySelector(".products")
+    products.appendChild(createProductElement(component))
+}
+function createRecommendationProducts(component) {
+    const products = document.querySelector(".recommended-products")
     products.appendChild(createProductElement(component))
 }
 
@@ -61,4 +65,4 @@ function createProductPriceElement(component) {
     return productPrice
 }
 
-export {createProduct}
+export {createProduct, createRecommendationProducts}
