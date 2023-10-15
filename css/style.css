@@ -30,7 +30,12 @@ body {
     height: 6vh;
 }
 
-.cart-logo {
+.extra-logos {
+    display: flex;
+    gap: 2vw;
+}
+
+.cart-logo, .search-logo {
     height: 3vh;
     cursor: pointer;
 }
