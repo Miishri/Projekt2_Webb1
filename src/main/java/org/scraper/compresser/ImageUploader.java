@@ -16,21 +16,24 @@ import java.util.*;
 public class ImageUploader {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-    private final OkHttpClient okHttpClient = new OkHttpClient();
+    private final OkHttpClient okHttpClient = new OkHttpClient()
+            .newBuilder()
+            .build();
     private final String postUri = "https://api.imgbb.com/1/upload?key=" + getApiKey();
+
+    private final String imgurPostUri = "https://api.imgur.com/3/upload";
     private final ImageCompressor imageCompressor = new ImageCompressor();
     private final DataScraper dataScraper = new DataScraper();
     private int count = 1;
 
     public static void main(String[] args) throws IOException {
         ImageUploader imageUploader = new ImageUploader();
+        imageUploader.uploadImages(GPU.endpoint);
         imageUploader.uploadImages(Monitor.endpoint);
         imageUploader.uploadImages(CPU.endpoint);
-        imageUploader.uploadImages(GPU.endpoint);
         imageUploader.uploadImages(Motherboard.endpoint);
         imageUploader.uploadImages(SSD.endpoint);
         imageUploader.uploadImages(Ram.endpoint);
-
     }
 
     public void uploadImages(String endpoint) throws IOException {
