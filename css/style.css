@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 * {
     padding: 0;
@@ -10,7 +11,7 @@
 
 body {
     font-family: "Roboto", "Montserrat", "Figtree", sans-serif;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(49,49,49,255);
 }
 
 .nav-bar {
@@ -19,43 +20,49 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(100px);
     height: 6vh;
-
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
+    justify-content: space-around;
 }
 
 .main-logo {
-    padding-top: 5px;
+    padding: 5px 0 5px 10px;
 
-    height: 30vh;
+    height: 6vh;
     border-radius: 4px;
 }
 
-.extra-logos {
-    display: flex;
-
-    gap: 3vw;
-    padding-right: 4%;
-}
-
-.cart-logo, .search-logo {
+.cart-logo {
     height: 3vh;
     cursor: pointer;
 }
 
-#logo-background {
-    background-size:cover;
+#background {
+    font-family: 'Dancing Script', cursive;
+
+    color: orange;
+
+    padding: 3px;
+    height: auto;
     width: 100vw;
+}
+
+.background-images {
+    display: flex;
+    gap: 5%;
+}
+
+.background-images > img {
+    height: auto;
+    width: 15vw;
 }
 
 #discount-images {
     display: flex;
 
     width: 100%;
-    padding-top: 2%;
-    gap: 10%;
+    padding: 1%;
+    gap: 5%;
 
     overflow-x: auto;
     flex-shrink: 0;
@@ -65,7 +72,6 @@ body {
     scroll-snap-type: x mandatory;
     white-space: nowrap;
 }
-
 #discount-images::-webkit-scrollbar {
     display: none;
 }
@@ -78,50 +84,62 @@ body {
     width: 90vw;
 }
 
-#categories {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.discount-images-dots {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
 
-    text-align: center;
-
-    font-size: 1.1rem;
-    margin: 20px 0 20px 80px;
-    width: 60vw;
-    gap: 4vw;
+    margin: 1%;
 }
 
-.cat {
-    background: orange;
-    color: antiquewhite;
+.dot {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(100px);
 
-    padding: 10px;
-    border-radius: 10vw;
+    border-radius: 4vw;
+    width: 3vw;
+    height: 3vw;
 }
 
+.dot:hover {
+    cursor: pointer;
+    box-shadow:0 0 2px rgba(255, 255, 255, 0.8);
+    transition: 0.4s;
+}
 
-
-
-
-
-
-@media (min-width: 554px) {
-    #logo-background {
-        background: url("https://i.ibb.co/jW7ffJx/halloween-background.png") no-repeat;
-        height: 80vh;
-    }
-
+@media (min-width: 554px) and (max-width: 1000px) {
     #discount-images {
-        gap: 11%;
+        gap: 8%;
     }
 
     #discount-images > img{
         height: 25vh;
     }
+
+    .discount-images-dots {
+        gap: 3%;
+    }
+
+    .dot {
+        width: 2vw;
+        height: 2vw;
+    }
 }
 
-@media (min-width: 1199px) {
-    #logo-background {
-        background: url("https://i.ibb.co/0h0zj3v/halloween-background.png") no-repeat;
-        background-size: cover;
+@media (min-width: 1001px) {
+    #discount-images {
+        gap: 4%;
+    }
+
+    #discount-images > img{
+        height: 25vh;
+    }
+    .discount-images-dots {
+        margin: 0.5vh;
+    }
+
+    .dot {
+        width: 1.3vw;
+        height: 1.3vw;
     }
 }
