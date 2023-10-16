@@ -16,7 +16,6 @@ public class ImgurUploader extends ImageUploaderInterface{
 
     private final TinifyCompressor tinifyCompressor = new TinifyCompressor();
     private int count = 1;
-
     public static void main(String[] args) throws IOException {
         ImgurUploader imgurUploader = new ImgurUploader();
         imgurUploader.uploadAllImages();
@@ -65,11 +64,13 @@ public class ImgurUploader extends ImageUploaderInterface{
         for (ArrayList<String> url: getStringImageUrls(endpoint)) {
             if (url.size() == 1) {
                 for (String stringImageUrl: url) {
-                    System.out.println("----------------------"+ count +"-------------------");
-                    System.out.println("Upload started for URL: " + url);
-                    setHostedUrls(getSourceList(stringImageUrl), new URL(stringImageUrl), endpoint);
-                    System.out.println("Upload successful for URL: " + url);
-                    System.out.println("------------------------------------------");
+                    if (!stringImageUrl.contains("i.imgur")) {
+                        System.out.println("----------------------"+ count +"-------------------");
+                        System.out.println("Upload started for URL: " + url);
+                        setHostedUrls(getSourceList(stringImageUrl), new URL(stringImageUrl), endpoint);
+                        System.out.println("Upload successful for URL: " + url);
+                        System.out.println("------------------------------------------");
+                    }
                     count++;
                 }
             }

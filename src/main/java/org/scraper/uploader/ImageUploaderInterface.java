@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.cdimascio.dotenv.Dotenv;
 import okhttp3.*;
 import org.scraper.DataScraper;
+import org.scraper.compresser.ImageCompressor;
 import org.scraper.models.Component.Component;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class ImageUploaderInterface {
     final ObjectMapper objectMapper = new ObjectMapper();
@@ -21,6 +23,8 @@ public class ImageUploaderInterface {
     final OkHttpClient okHttpClient = new OkHttpClient()
             .newBuilder()
             .build();
+
+    final ImageCompressor imageCompressor = new ImageCompressor();
 
     final String imgBbPostUri = "https://api.imgbb.com/1/upload?key=" + getImgBbApiKey();
     final String imgurPostUri = "https://api.imgur.com/3/image";
@@ -80,6 +84,20 @@ public class ImageUploaderInterface {
                 .toList();
     }
 
+    public UUID getUUID(String url, String endpoint) {
+        return dataScraper
+                .readJsonDatabaseURL(endpoint)
+                .stream()
+                .map((component -> {
+                    if (component.getImage().get(0).equals(url)) {
+                        return component.getId();
+                    }
+                    return null;
+                }))
+                .filter(Objects::isNull)
+                .findFirst().get();
+    }
+
     public boolean imageNotHosted(String imageUrl){
         return !(imageUrl.contains("https://i.ibb.co") || imageUrl.contains("imgur"));
     }
@@ -91,6 +109,12 @@ public class ImageUploaderInterface {
     }
     public String getImgurKey(String version) {
         return Dotenv.configure().filename(envFilePath).load().get("CLIENT_ID_IMGUR" + version);
+    }
+    public String getAccessKey() {
+        return Dotenv.configure().filename(envFilePath).load().get("ACCESS_KEY");
+    }
+    public String getSecretAccessKey() {
+        return Dotenv.configure().filename(envFilePath).load().get("SECRET_ACCESS_KEY");
     }
 
     String urlToString(URL url) {
@@ -106,6 +130,10 @@ public class ImageUploaderInterface {
             }
         }
         return null;
+    }
+
+    public String getImagePath() {
+        return imageCompressor.getImagePath();
     }
 
     public JsonNode executeHttpClientCall(Request request) throws IOException {

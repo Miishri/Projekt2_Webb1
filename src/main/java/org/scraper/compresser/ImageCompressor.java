@@ -35,9 +35,9 @@ public class ImageCompressor {
         return file.delete();
     }
 
-    void writeBufferedImageToPath(BufferedImage image) throws IOException {
+    public void writeBufferedImageToPath(BufferedImage bufferedImage) throws IOException {
         File file = new File(getImagePath());
-        ImageIO.write(image, "jpeg", file);
+        ImageIO.write(bufferedImage, "jpeg", file);
     }
 
     public String getImagePath() {
