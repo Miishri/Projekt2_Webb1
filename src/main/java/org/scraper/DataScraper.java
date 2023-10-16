@@ -2,6 +2,8 @@ package org.scraper;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.jetbrains.annotations.NotNull;
+import org.jsoup.Connection;
 import org.scraper.models.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -15,6 +17,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -51,11 +54,12 @@ public class DataScraper implements ComponentFactory {
                             .select("#product");
 
                     if (!getPrice(productHtml).equals("0") && !getPrice(productHtml).isBlank() && checkURL(productHtml)) {
-                        System.out.println("Fetching from URL: " +  hardwareReference);
+                        if (getContentType(getImageUrl(productHtml))) {
+                            System.out.println("Fetching from URL: " +  hardwareReference);
 
-                        Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
-                        componentArrayList.add(component);
-
+                            Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
+                            componentArrayList.add(component);
+                        }
                     }
                 }
             }
@@ -135,6 +139,48 @@ public class DataScraper implements ComponentFactory {
         }
 
         return true;
+    }
+
+    private String getImageUrl(Elements productHtml) {
+        return productHtml.select("[itemprop=image]").attr("src");
+    }
+    public Boolean getContentType(String imageUrl) {
+        try {
+            if (!imageUrl.startsWith("http://") && !imageUrl.startsWith("https://")) {
+                imageUrl = "http://" + imageUrl;
+            }
+
+            HttpURLConnection connection = getHttpURLConnection(imageUrl);
+
+            String contentType = connection.getContentType();
+
+            System.out.println(contentType);
+
+            connection.disconnect();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @NotNull
+    private static HttpURLConnection getHttpURLConnection(String imageUrl) throws IOException {
+        HttpURLConnection connection = (HttpURLConnection) new URL(imageUrl).openConnection();
+        connection.setInstanceFollowRedirects(false);
+        connection.connect();
+
+        int responseCode = connection.getResponseCode();
+
+        // Check if the response code indicates a redirection
+        if (responseCode >= 300 && responseCode < 400) {
+            String redirectedUrl = connection.getHeaderField("Location");
+            if (redirectedUrl != null) {
+                connection = (HttpURLConnection) new URL(redirectedUrl).openConnection();
+                connection.connect();
+            }
+        }
+        return connection;
     }
 
     @Override

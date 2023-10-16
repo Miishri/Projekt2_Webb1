@@ -39,10 +39,12 @@ public class ImgurUploader extends ImageUploaderInterface{
 
         System.out.println("Created request Body: " + requestBody);
 
+        System.out.println("Client-ID " + getImgurKey("1"));
+
         Request request = new Request.Builder()
                 .url(imgurPostUri)
                 .addHeader("Content-Type", "multipart/form-data")
-                .addHeader("Authorization", "Client-ID " + getImgurKey())
+                .addHeader("Authorization", "Client-ID " + getImgurKey("2"))
                 .post(requestBody)
                 .build();
 

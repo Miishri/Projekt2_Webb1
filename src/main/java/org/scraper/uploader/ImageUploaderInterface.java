@@ -89,8 +89,8 @@ public class ImageUploaderInterface {
     public String getTinifyKey() {
         return Dotenv.configure().filename(envFilePath).load().get("TINIFY_KEY");
     }
-    public String getImgurKey() {
-        return Dotenv.configure().filename(envFilePath).load().get("CLIENT_ID_IMGUR");
+    public String getImgurKey(String version) {
+        return Dotenv.configure().filename(envFilePath).load().get("CLIENT_ID_IMGUR" + version);
     }
 
     String urlToString(URL url) {
