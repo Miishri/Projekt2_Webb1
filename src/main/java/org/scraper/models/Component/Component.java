@@ -20,7 +20,7 @@ import java.util.UUID;
 public class Component {
     private UUID id;
     private String title;
-    private String image;
+    private ArrayList<String> image;
     private String description;
     private String producer;
     private String rating;

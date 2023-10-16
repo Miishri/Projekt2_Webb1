@@ -55,6 +55,7 @@ public class DataScraper implements ComponentFactory {
 
                         Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
                         componentArrayList.add(component);
+
                     }
                 }
             }
@@ -143,7 +144,7 @@ public class DataScraper implements ComponentFactory {
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
-                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .image(new ArrayList<>(List.of(productHtml.select("[itemprop=image]").attr("src"))))
                 .description(productHtml.select("[itemprop=description]").text())
                 .price(getPrice(productHtml))
 
@@ -167,7 +168,7 @@ public class DataScraper implements ComponentFactory {
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
-                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .image(new ArrayList<>(List.of(productHtml.select("[itemprop=image]").attr("src"))))
                 .description(productHtml.select("[itemprop=description]").text())
                 .price(getPrice(productHtml))
 
@@ -187,7 +188,7 @@ public class DataScraper implements ComponentFactory {
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
-                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .image(new ArrayList<>(List.of(productHtml.select("[itemprop=image]").attr("src"))))
                 .description(productHtml.select("[itemprop=description]").text())
                 .price(getPrice(productHtml))
 
@@ -206,7 +207,7 @@ public class DataScraper implements ComponentFactory {
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
-                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .image(new ArrayList<>(List.of(productHtml.select("[itemprop=image]").attr("src"))))
                 .description(productHtml.select("[itemprop=description]").text())
                 .price(getPrice(productHtml))
 
@@ -226,7 +227,7 @@ public class DataScraper implements ComponentFactory {
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
-                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .image(new ArrayList<>(List.of(productHtml.select("[itemprop=image]").attr("src"))))
                 .description(productHtml.select("[itemprop=description]").text())
                 .price(getPrice(productHtml))
 
@@ -249,7 +250,7 @@ public class DataScraper implements ComponentFactory {
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
-                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .image(new ArrayList<>(List.of(productHtml.select("[itemprop=image]").attr("src"))))
                 .description(productHtml.select("[itemprop=description]").text())
                 .price(getPrice(productHtml))
 
@@ -272,7 +273,7 @@ public class DataScraper implements ComponentFactory {
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
-                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .image(new ArrayList<>(List.of(productHtml.select("[itemprop=image]").attr("src"))))
                 .description(productHtml.select("[itemprop=description]").text())
                 .price(getPrice(productHtml))
 
@@ -291,7 +292,7 @@ public class DataScraper implements ComponentFactory {
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
-                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .image(new ArrayList<>(List.of(productHtml.select("[itemprop=image]").attr("src"))))
                 .description(productHtml.select("[itemprop=description]").text())
                 .price(getPrice(productHtml))
 
@@ -309,7 +310,7 @@ public class DataScraper implements ComponentFactory {
                 .title(productHtml.select("[itemprop=name]").text())
                 .rating(productHtml.select("[itemprop=aggregateRating]").text())
                 .producer(productSpecifications.get("Producer"))
-                .image(productHtml.select("[itemprop=image]").attr("src"))
+                .image(new ArrayList<>(List.of(productHtml.select("[itemprop=image]").attr("src"))))
                 .description(productHtml.select("[itemprop=description]").text())
                 .price(getPrice(productHtml))
 
@@ -318,5 +319,4 @@ public class DataScraper implements ComponentFactory {
                 .size(productSpecifications.get("Size"))
                 .build();
     }
-
 }
