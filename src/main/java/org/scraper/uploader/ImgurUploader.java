@@ -2,18 +2,15 @@ package org.scraper.uploader;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import okhttp3.*;
-import org.scraper.compresser.ImageCompressor;
 import org.scraper.compresser.TinifyCompressor;
 import org.scraper.models.*;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static org.scraper.compresser.PngtasticCompressor.compressImage;
 
 public class ImgurUploader extends ImageUploaderInterface{
 
@@ -83,7 +80,7 @@ public class ImgurUploader extends ImageUploaderInterface{
         byte[] compressedResized = tinifyCompressor.getCompressedImageResizedBufferedData(compressedOriginal);
 
         String originalUrl = urlToString(uploadImage(tinifyCompressor.encodeImageBase64(compressedOriginal)));
-        String resizedUrl = urlToString(uploadImage(tinifyCompressor.encodeImageBase64(compressedOriginal)));
+        String resizedUrl = urlToString(uploadImage(tinifyCompressor.encodeImageBase64(compressedResized)));
         return new ArrayList<>(List.of(originalUrl, resizedUrl));
     }
 }
