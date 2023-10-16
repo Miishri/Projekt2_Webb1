@@ -63,7 +63,7 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
                 .acl(ObjectCannedACL.PUBLIC_READ)
                 .build();
 
-        s3Client.putObject(putObjectRequest, RequestBody.fromFile(new File("C:/Users/MuhammadShamaeem/Pictures/image.png")));
+        s3Client.putObject(putObjectRequest, RequestBody.fromFile(new File(getImagePath())));
 
         return new URL("https://" + bucketName + ".s3.amazonaws.com/" + uuidImageKey);
     }

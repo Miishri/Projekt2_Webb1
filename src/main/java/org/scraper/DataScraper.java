@@ -54,7 +54,7 @@ public class DataScraper implements ComponentFactory {
                             .select("#product");
 
                     if (!getPrice(productHtml).equals("0") && !getPrice(productHtml).isBlank() && checkURL(productHtml)) {
-                        if (getContentType(getImageUrl(productHtml))) {
+                        if (getContentType(getImageUrl(productHtml)) && !getImageUrl(productHtml).equals("https://i5.walmartimages.com/asr/78c488c1-9d40-4141-b61f-5a1faf41ea5f_1.450bc3104ffd69cb0db6817dfad04eef.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF")) {
                             System.out.println("Fetching from URL: " +  hardwareReference);
 
                             Component component = componentCheck(productHtml, mapSpecificationsWithKeys(productHtml), endpoint);
