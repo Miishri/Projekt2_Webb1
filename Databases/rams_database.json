@@ -1,1 +1,146 @@
-[{"id":"ae829c6a-dddf-4046-aab7-adb39200995c","title":"Corsair Vengeance LPX Series red DDR4-3200","image":"https://www.alternate.de/p/o/i/Corsair_DIMM_16_GB_DDR4_3200__2x_8_GB__Dual_Kit__Arbeitsspeicher@@ieig5u23.jpg","description":"","producer":"Corsair","rating":"","price":"41.99","ramType":"DDR4-3200","size":"16 GB","clock":3200,"sticks":2},{"id":"05c4d72b-cb68-4fc9-b39f-979e01931498","title":"Team Group T-Force Xtreem ARGB","image":"https://images2.productserve.com/noimage.gif","description":"","producer":"Team Group","rating":"","price":"84.99","ramType":"DDR4-3600","size":"32 GB","clock":3600,"sticks":2},{"id":"4b80002f-8d62-49c1-ab27-ed1f2074c46c","title":"ADATA Premier DDR5-4800","image":"https://www.alternate.de/p/o/9/4/ADATA_DIMM_16_GB_DDR5_4800__1x_16_GB____Arbeitsspeicher@@1792549_1.jpg","description":"","producer":"ADATA","rating":"","price":"49.99","ramType":"DDR5-4800","size":"16 GB","clock":4800,"sticks":1},{"id":"ab0839d7-0c38-47b3-ab19-9857fed03230","title":"ADATA XPG Spectrix RGB D41 grey","image":"https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Ad2zs7efolu1fdi.cloudfront.net%2Fimages%2F72%2Fbd%2F38%2Fce%2F72bd38ce0de41b06d43f26b0b5695d96.jpg&feedId=30997&k=bf2c7d3126ddf3a756731ea31e04230543a5f72d","description":"","producer":"ADATA","rating":"","price":"125.78","ramType":"DDR4-3600","size":"16 GB","clock":3600,"sticks":2},{"id":"13b418da-9b5e-46c3-b61e-8ad6649eaff4","title":"ADATA XPG Spectrix RGB D41 red","image":"https://m.media-amazon.com/images/I/51cYWKh7PpL.jpg","description":"","producer":"ADATA","rating":"","price":"170.58","ramType":"DDR4-3200","size":"16 GB","clock":3200,"sticks":2},{"id":"dea0ad58-f22a-41e7-a918-663a67df84a0","title":"ADATA XPG Spectrix RGB D60G grey","image":"https://www.alternate.de/p/o/i/ADATA_DIMM_16_GB_DDR4_3600_Kit__Arbeitsspeicher@@ieigvz28.jpg","description":"","producer":"ADATA","rating":"","price":"139.18","ramType":"DDR4-3600","size":"16 GB","clock":3600,"sticks":2},{"id":"000adf0b-bff3-4375-8036-8c7027a94689","title":"Corsair Dominator Platinum + AF","image":"https://m.media-amazon.com/images/I/41dXzjh7m+L._SL500_.jpg","description":"","producer":"Corsair","rating":"","price":"179.99","ramType":"DDR4-3600","size":"16 GB","clock":3600,"sticks":2},{"id":"017c5485-69cd-4e02-9ea0-5241dc2276a2","title":"Corsair Dominator Platinum DDR4-2666 CL15","image":"https://i5.walmartimages.com/asr/78c488c1-9d40-4141-b61f-5a1faf41ea5f_1.450bc3104ffd69cb0db6817dfad04eef.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF","description":"","producer":"Corsair","rating":"","price":"154.99","ramType":"DDR4-2666","size":"32 GB","clock":2666,"sticks":1},{"id":"3a05a680-816d-48ad-8016-53dbc4ba8cbf","title":"Corsair Dominator Platinum RGB Series","image":"https://www.alternate.de/p/o/i/Corsair_DIMM_16_GB_DDR4_3600__2x_8_GB__Dual_Kit__Arbeitsspeicher@@ieig5z2b.jpg","description":"","producer":"Corsair","rating":"","price":"89.99","ramType":"DDR4-3600","size":"16 GB","clock":3600,"sticks":2},{"id":"752e0dc4-7ba8-4c9f-b048-3ce8885f4a30","title":"Corsair Dominator Platinum RGB Series","image":"https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Amedia.jacob.services%2Fimages%2F91%2F65%2F34%2Ffa%2F916534fa23bc76e1a78f5b29b4da2729.jpg&feedId=30997&k=6165556a2382834e97add8fec74fac84f239b207","description":"","producer":"Corsair","rating":"","price":"79.99","ramType":"DDR4-3200","size":"16 GB","clock":3200,"sticks":2},{"id":"8333c06d-f256-4088-87cb-1a0ad7c7577b","title":"Corsair Dominator Platinum RGB Series","image":"https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Aimg.computerunivers.net%2Fimages%2F1000%2F907483884181CFC99F7C43CE9AD30B8A.jpg&feedId=26619&k=35a1e6177db3fecbf475a9a7ce1f4649be3ed788","description":"","producer":"Corsair","rating":"","price":"80.74","ramType":"DDR4-3200","size":"16 GB","clock":3200,"sticks":2},{"id":"bfa04475-a349-4b15-9cd7-13eac009b10a","title":"Corsair Dominator Platinum RGB Series","image":"https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Amedia.jacob.services%2Fimages%2F04%2F24%2F7e%2F0d%2F04247e0dadf0269c1ef489606cc5632d.jpg&feedId=30997&k=280956e1b40e67620737673f4f7ce38d411d1d3d","description":"","producer":"Corsair","rating":"","price":"114.99","ramType":"DDR4-3200","size":"32 GB","clock":3200,"sticks":2}]
+[
+  {
+    "id": "8413d150-cf8f-4b2f-8486-30a7bfa09845" ,
+    "title": "Corsair Vengeance LPX black" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-cf82e1b5-b288-4379-b4d9-a8dcf50828b6.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-83080dc0-0804-4b55-ada1-250dd5bbca3e.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "Corsair" ,
+    "rating": "" ,
+    "price": "37.99"
+  } ,
+  {
+    "id": "f743ccba-0bdc-4ae6-94d8-fde0685d6b31" ,
+    "title": "ADATA Premier DDR5-4800" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-17ed71d7-84a2-4de0-a865-002f89493c0b.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-4cb2ac36-a187-41ea-bc0f-d7e3824efa85.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ADATA" ,
+    "rating": "" ,
+    "price": "49.99"
+  } ,
+  {
+    "id": "0e0a5fe7-d81f-41db-ae75-1e8d3638263e" ,
+    "title": "ADATA XPG Spectrix RGB D41 grey" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-74bf089f-4121-49b9-bdba-bfdf20064a15.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-ec679640-e287-4364-a816-13c8c2703c3e.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ADATA" ,
+    "rating": "" ,
+    "price": "125.78"
+  } ,
+  {
+    "id": "389a2040-a9bd-413f-b29a-39d1065d6f97" ,
+    "title": "ADATA XPG Spectrix RGB D41 red" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-dff362ab-8f9e-47ea-af70-68d1c06d18ca.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-97b79e4c-fe33-4403-bec4-eeb38fdc988b.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ADATA" ,
+    "rating": "" ,
+    "price": "170.58"
+  } ,
+  {
+    "id": "170de6fa-8915-4635-b166-ea0a21fe44fb" ,
+    "title": "ADATA XPG Spectrix RGB D60G grey" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-fcea0a07-5a55-4e69-9ac3-f826d6f74167.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-dd4146e5-774b-42b7-b17a-d0c3821b2b00.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ADATA" ,
+    "rating": "" ,
+    "price": "139.18"
+  } ,
+  {
+    "id": "0405dc80-ae0d-4185-b1cc-1cd270b95262" ,
+    "title": "Corsair Dominator Platinum + AF" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-0aa860dd-0227-49f2-b813-f31f718c10ec.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-5e63d30e-6a40-4917-a731-381f4795405f.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "Corsair" ,
+    "rating": "" ,
+    "price": "179.99"
+  } ,
+  {
+    "id": "c3546cc9-3b99-45ad-8b28-35b5ac797ee4" ,
+    "title": "Corsair Dominator Platinum RGB Series" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-4fbd67da-b3be-408b-90a3-463f801cf361.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-d9729aff-d630-4c92-b066-81abb154e353.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "Corsair" ,
+    "rating": "" ,
+    "price": "79.99"
+  } ,
+  {
+    "id": "13ecf6de-67f3-4c1a-974e-991aee59e0b0" ,
+    "title": "Corsair Dominator Platinum RGB Series" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-52b2e6a1-8018-42b7-af43-79a0ce7e0fbb.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-5a38c26c-034b-4868-bcfd-b0443e5f6932.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "Corsair" ,
+    "rating": "" ,
+    "price": "80.74"
+  } ,
+  {
+    "id": "a825112c-d5fe-4f7b-bd38-a38a281dc9d3" ,
+    "title": "Corsair Dominator Platinum RGB Series" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-f96f85f1-cb41-4448-95ff-541a8792e3e1.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-8664a6ac-05f9-4ed7-b284-2b4290e8761a.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "Corsair" ,
+    "rating": "" ,
+    "price": "89.99"
+  } ,
+  {
+    "id": "a5dc1233-4ea5-452d-98f5-a4060b415bae" ,
+    "title": "Corsair Dominator Platinum RGB Series" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-0628fbdd-a668-40aa-aba9-0404077e3f17.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-0cb0294d-cdca-409b-a435-9cc50e9c630e.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "Corsair" ,
+    "rating": "" ,
+    "price": "114.99"
+  } ,
+  {
+    "id": "488de22c-ddf8-4dcd-92eb-b2102a26d892" ,
+    "title": "Corsair Dominator Platinum RGB Series" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-2bef0b28-ac82-41c7-8301-3e23cd8397ed.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-f66007a4-c69a-4e78-869e-f50e305e560e.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "Corsair" ,
+    "rating": "" ,
+    "price": "188.57"
+  } ,
+  {
+    "id": "bc40aac3-a9ef-41d5-b03e-db141ef8a30f" ,
+    "title": "Corsair Dominator Platinum Series 16GB" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-7e24dd2b-9d32-4d84-8a06-32dfa69a3c14.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-74400815-d23f-455b-859f-6d44653d1cfd.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "Corsair" ,
+    "rating": "" ,
+    "price": "271.99"
+  }
+]

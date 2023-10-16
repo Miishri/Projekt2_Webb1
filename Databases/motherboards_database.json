@@ -1,1 +1,146 @@
-[{"id":"eb7bc33e-78d3-4639-a013-ea6e9eef419a","title":"MSI B550-A Pro","image":"https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Acdn-reichelt.de%2Fbilder%2Fweb%2Fxxl_ws%2FE200%2FMSI_7C56-002R_01.png&feedId=34189&k=614c9dc041672229c90f94d7cd35ddfe09de53bb","description":"","producer":"MSI","rating":"","price":"139.99","socket":"AM4","chipset":"B550","memoryType":"DDR4","memoryCapacity":"128","ramSlots":"4","usbSlots":"2","dp":"1","hdmi":"1"},{"id":"ad2548ba-9687-45d9-83a1-2990985720fd","title":"ASRock B360 Pro4","image":"https://m.media-amazon.com/images/I/51JQ1vXhHLL._SL500_.jpg","description":"","producer":"ASRock","rating":"","price":"100.25","socket":"1151","chipset":"B360","memoryType":"DDR4","memoryCapacity":"64","ramSlots":"4","usbSlots":"2","dp":"0","hdmi":"0"},{"id":"291bae7d-2bd5-4cd8-8eba-a9f6324a81a4","title":"ASRock B360M Pro4","image":"https://m.media-amazon.com/images/I/515Y-orYayL._SL500_.jpg","description":"","producer":"ASRock","rating":"","price":"77.99","socket":"1151","chipset":"B360","memoryType":"DDR4","memoryCapacity":"64","ramSlots":"4","usbSlots":"2","dp":"0","hdmi":"0"},{"id":"79ee2c6c-9e61-4bad-9be5-8d6f797a93d9","title":"ASRock B360M-ITX/AC","image":"https://m.media-amazon.com/images/I/51ianvoPofL._SL500_.jpg","description":"","producer":"ASRock","rating":"","price":"97.99","socket":"1151","chipset":"B360","memoryType":"DDR4","memoryCapacity":"32","ramSlots":"2","usbSlots":"2","dp":"0","hdmi":"0"},{"id":"57bcf01f-7dd0-4cab-aa62-77e522406873","title":"ASRock B650 PG Lightning","image":"https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Aimg.computerunivers.net%2Fimages%2F1000%2F9091562535B477B82572490295647545.jpg&feedId=26619&k=c450416dd9467a538cc764a1ca30ca17adbfe278","description":"","producer":"ASRock","rating":"","price":"199.99","socket":"AM5","chipset":"B650","memoryType":"DDR5","memoryCapacity":"128","ramSlots":"4","usbSlots":"7","dp":"1","hdmi":"1"},{"id":"194c175a-0f72-4be8-bc96-5e38ec7595d8","title":"ASRock B650 Pro RS","image":"https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Aimg.computerunivers.net%2Fimages%2F1000%2F90915626931869F68F4E44CD93E77099.jpg&feedId=26619&k=e035fd3c8eaad4e62720ba60c55723e7085517ec","description":"","producer":"ASRock","rating":"","price":"139.99","socket":"AM5","chipset":"B650","memoryType":"DDR5","memoryCapacity":"128","ramSlots":"4","usbSlots":"2","dp":"1","hdmi":"1"},{"id":"c3378189-a30a-4813-a3df-fef93b311ab7","title":"ASRock B650M PG Riptide","image":"https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Acdn-reichelt.de%2Fbilder%2Fweb%2Fxxl_ws%2FE910%2FASROCK_90MXBJ90_01.png&feedId=34189&k=0add766ef4a71f9c30cd8342a63059780e7a562a","description":"","producer":"ASRock","rating":"","price":"169.99","socket":"AM5","chipset":"B650E","memoryType":"DDR5","memoryCapacity":"128","ramSlots":"4","usbSlots":"2","dp":"1","hdmi":"1"},{"id":"80be177d-ab55-401d-b898-e6aa4cf5f0e4","title":"ASRock Fatal1ty B250M Performance","image":"https://m.media-amazon.com/images/I/511RbHq-WoL.jpg","description":"","producer":"ASRock","rating":"","price":"99.99","socket":"1151","chipset":"B250","memoryType":"DDR4","memoryCapacity":"64","ramSlots":"4","usbSlots":"3","dp":"0","hdmi":"0"},{"id":"8a4f2c8b-16df-4ae4-a64f-55114df2390b","title":"ASRock Fatal1ty X399 Professional Gaming","image":"https://m.media-amazon.com/images/I/51oz9P7WwhL._SL500_.jpg","description":"","producer":"ASRock","rating":"","price":"399.99","socket":"TR4","chipset":"X399","memoryType":"DDR4","memoryCapacity":"128","ramSlots":"8","usbSlots":"8","dp":"0","hdmi":"0"},{"id":"31ad727b-ad7e-4ab0-a04c-d049eb03d46f","title":"ASRock H110M-HDS","image":"https://m.media-amazon.com/images/I/51+gMqf4m2L.jpg","description":"","producer":"ASRock","rating":"","price":"51.99","socket":"1151","chipset":"H110","memoryType":"DDR4","memoryCapacity":"32","ramSlots":"2","usbSlots":"2","dp":"0","hdmi":"0"},{"id":"569c65ea-d59a-496c-99f9-f48d584fd963","title":"ASRock X299 Gaming K6","image":"https://m.media-amazon.com/images/I/51Jz1UgmYWL._SL500_.jpg","description":"","producer":"ASRock","rating":"","price":"199.99","socket":"2066","chipset":"X299","memoryType":"DDR4","memoryCapacity":"128","ramSlots":"8","usbSlots":"4","dp":"0","hdmi":"0"},{"id":"bb4878fc-e7b7-4bcc-97f6-7b51b146bfd3","title":"ASRock X399 Taichi","image":"https://m.media-amazon.com/images/I/51-cEiYsr7L._SL500_.jpg","description":"","producer":"ASRock","rating":"","price":"296.99","socket":"TR4","chipset":"X399","memoryType":"DDR4","memoryCapacity":"128","ramSlots":"8","usbSlots":"8","dp":"0","hdmi":"0"}]
+[
+  {
+    "id": "3662d1c2-1913-4447-b6ce-c9ea9c7660d9" ,
+    "title": "MSI B550-A Pro" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-db640911-48e8-4288-9a2b-754f787f7f47.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-ae417617-43f7-4aee-bed1-3e7b4859eaa2.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "MSI" ,
+    "rating": "" ,
+    "price": "139.99"
+  } ,
+  {
+    "id": "eae48607-d152-4d8e-a046-2d76e4db0622" ,
+    "title": "ASRock B360 Pro4" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-b2ea0234-b18a-4253-9d4d-c3a550da39b7.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-75b5026c-2bc6-4dc9-a2c7-4a07d9d0d26e.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ASRock" ,
+    "rating": "" ,
+    "price": "100.25"
+  } ,
+  {
+    "id": "2c0df20d-3b99-4576-adcc-7abea1c1f75d" ,
+    "title": "ASRock B360M Pro4" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-4126281d-c39c-4d23-a783-46ce17631562.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-9cc42f20-f668-46d1-b03d-cad87334b8cf.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ASRock" ,
+    "rating": "" ,
+    "price": "77.99"
+  } ,
+  {
+    "id": "2331818c-c9ea-442e-a340-135b18ad00b8" ,
+    "title": "ASRock B360M-ITX/AC" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-b8cf153a-af81-41ae-8f67-c608046fbe9b.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-b171a86e-1552-4c2f-845a-a7384be6004c.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ASRock" ,
+    "rating": "" ,
+    "price": "97.99"
+  } ,
+  {
+    "id": "4666c32b-d3d3-490a-b0e2-cabba2c1771f" ,
+    "title": "ASRock B650 PG Lightning" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-2510c294-d312-4f96-9c75-cb6a18ecab6a.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-57e2b398-3e06-4ba3-bbdd-3b92add7a245.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ASRock" ,
+    "rating": "" ,
+    "price": "199.99"
+  } ,
+  {
+    "id": "f5d90677-0c89-45cf-9b0d-8d5187a5deec" ,
+    "title": "ASRock B650 Pro RS" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-b22d9e20-78e9-4039-894c-e4be3457bda5.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-85d200dd-4989-4190-9a79-255330e6f894.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ASRock" ,
+    "rating": "" ,
+    "price": "139.99"
+  } ,
+  {
+    "id": "d2f49e84-2983-4438-897d-d346b663c76b" ,
+    "title": "ASRock B650M PG Riptide" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-3464fb70-a1ce-462b-8553-7b379286102f.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-52dc0dbe-1cd3-407f-b69e-b8bbadc474d4.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ASRock" ,
+    "rating": "" ,
+    "price": "169.99"
+  } ,
+  {
+    "id": "1392e4f5-965d-4d50-9c7c-65d5a3b9a248" ,
+    "title": "ASRock Fatal1ty B250M Performance" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-8cb5ea05-9b5c-40f1-8882-3b29d476b1b0.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-34da8087-8566-4c90-bd7e-ba58466c2335.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ASRock" ,
+    "rating": "" ,
+    "price": "99.99"
+  } ,
+  {
+    "id": "812980b4-9d47-4a96-aed3-6e151e0dfafb" ,
+    "title": "ASRock Fatal1ty X399 Professional Gaming" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-dfc9cd20-7d24-4ab8-abdc-304e71b6878a.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-c40a4ccf-306c-477e-8f46-5e1d8b3d02b6.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ASRock" ,
+    "rating": "" ,
+    "price": "399.99"
+  } ,
+  {
+    "id": "168a2020-35f6-42a6-8e18-96844021e589" ,
+    "title": "ASRock H110M-HDS" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-68f0e800-077e-4fa1-96fa-e0ddfef1889a.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-ca630cb8-ff87-49ce-99da-88cc7c2bddc0.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ASRock" ,
+    "rating": "" ,
+    "price": "51.99"
+  } ,
+  {
+    "id": "dde0fa96-7f13-4c6e-b68f-1032dfc3798b" ,
+    "title": "ASRock X299 Gaming K6" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-7a4db58d-4c0f-4de8-9099-42b57cca729e.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-393c2131-c82e-4760-a72e-90fc6a2306af.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ASRock" ,
+    "rating": "" ,
+    "price": "199.99"
+  } ,
+  {
+    "id": "a57b54c7-a14c-403d-b61b-c35e18c50b64" ,
+    "title": "ASRock X399 Taichi" ,
+    "image": [
+      "https://mydatastoragebucket.s3.amazonaws.com/component-127b87c8-2b74-4d42-8895-edcd2eec3bec.jpeg" ,
+      "https://mydatastoragebucket.s3.amazonaws.com/component-a19a937f-0b7c-4e8f-9014-39ee8bc918c8.jpeg"
+    ] ,
+    "description": "" ,
+    "producer": "ASRock" ,
+    "rating": "" ,
+    "price": "296.99"
+  }
+]

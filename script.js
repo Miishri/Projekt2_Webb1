@@ -1,16 +1,21 @@
 import {fetchCpu, fetchDisplay, fetchGpu} from "./model/ComponentFactory.js";
 import {createRecommendationProducts} from "./model/Product.js";
 
-
-const images = document.querySelectorAll(".slider-images")
 const discountSlider = document.getElementById("slider");
 const dots = document.querySelectorAll(".dot")
 
 let imageIndex = 0
 
+setInterval(updateSlider, 2000)
+
 function updateSlider() {
     imageIndex = (imageIndex + 1) % dots.length;
-    discountSlider.scrollLeft = imageIndex * discountSlider.clientWidth;
+    const scrollLeftValue = imageIndex * discountSlider.clientWidth;
+    const scrollOptions = {
+        left: scrollLeftValue,
+        behavior: 'smooth'
+    };
+    discountSlider.scrollTo(scrollOptions);
     updateDot();
 }
 
@@ -21,7 +26,6 @@ function updateDot() {
     dots[imageIndex].classList.add("current-dot")
 }
 
-discountSlider.addEventListener('click', updateSlider)
 discountSlider.scrollLeft = 0
 updateDot();
 

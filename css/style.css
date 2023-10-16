@@ -48,7 +48,7 @@ body {
     gap: 5%;
 
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: scroll-left 2s ease;
     flex-shrink: 0;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -62,7 +62,6 @@ body {
 #slider > img{
     scroll-snap-align: center;
 
-    cursor: pointer;
     border-radius: 5px;
     width: 90vw;
 }
