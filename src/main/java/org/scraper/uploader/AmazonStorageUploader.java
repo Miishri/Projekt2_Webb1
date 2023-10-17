@@ -1,5 +1,8 @@
 package org.scraper.uploader;
 
+import com.tinify.Options;
+import com.tinify.Source;
+import com.tinify.Tinify;
 import org.scraper.compresser.ImageCompressor;
 import org.scraper.compresser.TinifyCompressor;
 import org.scraper.models.*;
@@ -46,7 +49,7 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
         uploadImages(Ram.endpoint);
     }
 
-    URL uploadImage() throws MalformedURLException {
+    URL uploadImage(String compressedType) throws MalformedURLException {
         AwsCredentials credentials = AwsBasicCredentials.create(getAccessKey(), getSecretAccessKey());
         AwsCredentialsProvider provider = StaticCredentialsProvider.create(credentials);
         S3Client s3Client = S3Client.builder()
@@ -54,7 +57,7 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
                 .credentialsProvider(provider)
                 .build();
 
-        String uuidImageKey = "component-" + UUID.randomUUID() + ".jpeg";
+        String uuidImageKey = "component-" + compressedType + UUID.randomUUID() + ".jpeg";
 
         PutObjectRequest putObjectRequest = PutObjectRequest.builder()
                 .contentType("image/jpeg")
@@ -66,6 +69,19 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
         s3Client.putObject(putObjectRequest, RequestBody.fromFile(new File(getImagePath())));
 
         return new URL("https://" + bucketName + ".s3.amazonaws.com/" + uuidImageKey);
+    }
+
+    /*  Future fix for bugs */
+    public void uploadImageTinify(String compressedType) throws IOException {
+        Source source = Tinify.fromFile(getImagePath());
+        Options amazonS3Uploader = new Options()
+                .with("service", "s3")
+                .with("aws_access_key_id", getAccessKey())
+                .with("aws_secret_access_key", getSecretAccessKey())
+                .with("region", "eu-north-1")
+                .with("path", bucketName + "/ComponentProductImages/"+ "component-" + compressedType + UUID.randomUUID() + ".jpeg");
+
+        source.store(amazonS3Uploader);
     }
 
 
@@ -88,12 +104,12 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
     private ArrayList<String> getSourceList(String url) throws IOException {
         byte[] compressedOriginal = tinifyCompressor.getCompressedImageBufferedData(url);
         imageCompressor.writeBufferedImageToPath(ImageIO.read(new ByteArrayInputStream(compressedOriginal)));
-        String originalUrl = urlToString(uploadImage());
+        String originalUrl = urlToString(uploadImage("original"));
         imageCompressor.deleteCurrentWrittenImage();
 
         BufferedImage compressedResized = ImageIO.read(new ByteArrayInputStream(tinifyCompressor.getCompressedImageResizedBufferedData(compressedOriginal)));
         imageCompressor.writeBufferedImageToPath(compressedResized);
-        String resizedUrl = urlToString(uploadImage());
+        String resizedUrl = urlToString(uploadImage("resized"));
         imageCompressor.deleteCurrentWrittenImage();
 
         return new ArrayList<>(List.of(originalUrl, resizedUrl));
