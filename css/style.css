@@ -154,7 +154,7 @@ body {
 .product-price {
     justify-self: flex-end;
 
-    background: orange;
+    background: rgba(0, 0, 0, 0.5);
 
     border-radius: 5px;
     padding: 4%;
@@ -164,10 +164,11 @@ body {
 
 
 .product-price:hover {
+    box-shadow: 0 0 2px black;
     opacity: 0.8;
 }
 .product-price:active {
-    box-shadow: 0 2px 2px black;
+    box-shadow: 0 2px 4px black;
 }
 
 .product-description-visible, .product-rating-visible {
