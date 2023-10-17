@@ -33,6 +33,7 @@ function createProductImageElement(component) {
     const productImage = document.createElement("img")
     productImage.classList.add("product-image")
     productImage.src = component["image"][1]
+    productImage.alt = component["title"]
     return productImage
 }
 
