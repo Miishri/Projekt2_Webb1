@@ -1,4 +1,4 @@
-import {fetchCpu, fetchDisplay, fetchGpu} from "./model/ComponentFactory.js";
+import {fetchCpu, fetchDisplay, fetchGpu, fetchRam} from "./model/ComponentFactory.js";
 import {createRecommendationProducts} from "./model/Product.js";
 
 const discountSlider = document.getElementById("slider");
@@ -27,14 +27,15 @@ updateDot();
 
 async function populateRecommendedProducts() {
     const singleCpu = await fetchCpu()
-    const singleGpu = await fetchGpu()
+    const singleRam = await fetchRam()
     const singleMonitor = await fetchDisplay()
 
     console.log(singleCpu[0])
 
-    createRecommendationProducts(singleCpu[0])
-    createRecommendationProducts(singleGpu[0])
+    createRecommendationProducts(singleCpu[3])
+    createRecommendationProducts(singleRam[5])
     createRecommendationProducts(singleMonitor[0])
 }
 
 populateRecommendedProducts()
+

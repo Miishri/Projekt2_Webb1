@@ -10,7 +10,7 @@
 body {
     font-family: "Montserrat", "Figtree", sans-serif;
     background-color: rgba(49,49,49,255);
-    color: antiquewhite;
+    color: white;
 }
 
 .nav-bar {
@@ -47,8 +47,8 @@ body {
     padding: 6% 2% 2% 2%;
     gap: 5%;
 
-    overflow-x: hidden;
-    transition: scroll-left 2s ease;
+    overflow-x: auto;
+    transition: 2s;
     flex-shrink: 0;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -73,7 +73,6 @@ body {
 
     margin: 1% 0 3% 0;
 }
-
 .dot {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(100px);
@@ -85,35 +84,91 @@ body {
 .dot:hover {
     cursor: pointer;
 }
-
-#product-suggestions {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-
-    margin-left: 6%;
+.current-dot {
+    box-shadow:0 0 2px rgba(255, 255, 255, 0.8);
+    transition: 0.4s;
 }
 
-.top-products-title {
-    font-size: 1.1rem;
+#suggested {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.top-products-title, .recommended-products-title {
+    text-align: center;
+    font-size: 1.15rem;
 }
 
 .top-products {
     display: flex;
     justify-content: center;
 
-    margin: 2% 0 4% 0;
+    margin: 1% 0 4% 0;
     gap: 4%;
-    overflow-x: auto;
 }
 
 .top-products > img {
-    height: 23vh;
+    width: 70vw;
     border-radius: 5px;
+
+    box-shadow: 0 0 5px black;
 }
 
 .top-product-2, .top-product-3 {
+    display: none;
+}
+
+.recommended-products {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin: 2% 0 4% 0;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 2px black;
+
+    text-align: center;
+
+    padding: 1%;
+}
+
+.product > * {
+    cursor:pointer;
+}
+
+.product-title {
+    width: 25vw;
+}
+
+.product-image {
+    width: auto;
+    height: 25vw;
+    border-radius: 4%;
+}
+
+.product-price {
+    justify-self: flex-end;
+
+    margin-top: 5%;
+    border-radius: 5px;
+    padding: 5%;
+
+    cursor: pointer;
+}
+
+.product-description-visible, .product-rating-visible {
+    display: flex;
+}
+.product-description-hidden, .product-rating-hidden {
     display: none;
 }
 
@@ -146,10 +201,6 @@ body {
     padding-top: 2vh;
 }
 
-.current-dot {
-    box-shadow:0 0 2px rgba(255, 255, 255, 0.8);
-    transition: 0.4s;
-}
 
 @media (min-width: 554px) and (max-width: 1000px) {
     #slider {
@@ -181,16 +232,18 @@ body {
         gap: 6%;
     }
 
-    #slider > img{
+    #slider > img {
         height: 70vh;
     }
 
     .slider-dots {
         margin: 0.4vh;
     }
+
     .slider-dots {
         gap: 1%;
     }
+
     .dot {
         width: 1.3vw;
         height: 1.3vw;
