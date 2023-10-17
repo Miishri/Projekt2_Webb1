@@ -138,12 +138,7 @@ body {
 
     text-align: center;
 
-    padding-top: 5%;
-    padding: 2%;
-}
-
-.product > * {
-    cursor:pointer;
+    padding: 4vw;
 }
 
 .product-title {
@@ -159,10 +154,20 @@ body {
 .product-price {
     justify-self: flex-end;
 
+    background: orange;
+
     border-radius: 5px;
-    padding: 5%;
+    padding: 4%;
 
     cursor: pointer;
+}
+
+
+.product-price:hover {
+    opacity: 0.8;
+}
+.product-price:active {
+    box-shadow: 0 2px 2px black;
 }
 
 .product-description-visible, .product-rating-visible {
@@ -177,7 +182,7 @@ body {
     text-align: center;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
 }
 
@@ -202,13 +207,28 @@ body {
 
 
 .products {
-    margin: 5%;
+    padding: 3% 3% 2% 3%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 4%;
-    row-gap: 0.25%;
-
+    column-gap: 2vw;
+    row-gap: 2vw;
 }
+
+.products-paging {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+
+.products-paging > div:hover {
+    cursor: pointer;
+}
+
+.next, .back {
+    font-size: 1.5rem;
+}
+
 
 @media (min-width: 554px) and (max-width: 1000px) {
     #slider {
