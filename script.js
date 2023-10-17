@@ -1,5 +1,5 @@
-import {fetchCpu, fetchDisplay, fetchGpu, fetchRam} from "./model/ComponentFactory.js";
-import {createRecommendationProducts} from "./model/Product.js";
+import {fetchCpu, fetchDisplay, fetchGpu, fetchRam, getAllComponents} from "./model/ComponentFactory.js";
+import {createProduct, createRecommendationProducts} from "./model/Product.js";
 
 const discountSlider = document.getElementById("slider");
 const dots = document.querySelectorAll(".dot")
@@ -38,4 +38,6 @@ async function populateRecommendedProducts() {
 }
 
 populateRecommendedProducts()
+
+const testProducts = await getAllComponents()
 

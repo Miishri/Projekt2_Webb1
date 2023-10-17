@@ -9,7 +9,7 @@
 
 body {
     font-family: "Montserrat", "Figtree", sans-serif;
-    background-color: rgba(49,49,49,255);
+    background-color: rgba(49, 49, 49, 0.95);
     color: white;
 }
 
@@ -138,7 +138,8 @@ body {
 
     text-align: center;
 
-    padding: 1%;
+    padding-top: 5%;
+    padding: 2%;
 }
 
 .product > * {
@@ -152,13 +153,12 @@ body {
 .product-image {
     width: auto;
     height: 25vw;
-    border-radius: 4%;
+    border-radius: 4%
 }
 
 .product-price {
     justify-self: flex-end;
 
-    margin-top: 5%;
     border-radius: 5px;
     padding: 5%;
 
@@ -179,7 +179,6 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 5%;
 }
 
 .category {
@@ -201,6 +200,15 @@ body {
     padding-top: 2vh;
 }
 
+
+.products {
+    margin: 5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4%;
+    row-gap: 0.25%;
+
+}
 
 @media (min-width: 554px) and (max-width: 1000px) {
     #slider {
