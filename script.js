@@ -10,12 +10,8 @@ setInterval(updateSlider, 2000)
 
 function updateSlider() {
     imageIndex = (imageIndex + 1) % dots.length;
-    const scrollLeftValue = imageIndex * discountSlider.clientWidth;
-    const scrollOptions = {
-        left: scrollLeftValue,
-        behavior: 'smooth'
-    };
-    discountSlider.scrollTo(scrollOptions);
+    discountSlider.scrollLeft = imageIndex * discountSlider.clientWidth;
+    
     updateDot();
 }
 
@@ -26,7 +22,6 @@ function updateDot() {
     dots[imageIndex].classList.add("current-dot")
 }
 
-discountSlider.scrollLeft = 0
 updateDot();
 
 

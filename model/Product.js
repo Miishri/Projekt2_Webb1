@@ -33,7 +33,7 @@ function createProductTitleElement(component) {
 function createProductImageElement(component) {
     const productImage = document.createElement("img")
     productImage.classList.add("product-image")
-    productImage.src = component["image"]
+    productImage.src = component["image"][1]
     return productImage
 }
 
