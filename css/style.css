@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Figtree&display=swap');
 
 * {
     padding: 0;
@@ -8,7 +7,7 @@
 }
 
 body {
-    font-family: "Montserrat", "Figtree", sans-serif;
+    font-family: "Montserrat", sans-serif;
     background-color: rgba(49, 49, 49, 0.95);
     color: white;
 }
@@ -121,9 +120,49 @@ body {
 
 .recommended-products {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
     margin: 2% 0 4% 0;
+}
+
+.recommended-products > div {
+    padding: 1%;
+}
+
+.categories-heading {
+    font-size: 1.2rem;
+    padding-left: 6%;
+}
+
+.categories {
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.active-category {
+    color: orange;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+
+    padding: 5%;
+}
+
+.category > img{
+    width: 15vw;
+}
+
+.category > h6{
+    white-space: nowrap;
+    padding-top: 2vh;
+    justify-self: flex-end;
 }
 
 .product {
@@ -138,7 +177,7 @@ body {
 
     text-align: center;
 
-    padding: 4vw;
+    padding: 1vw;
 }
 
 .product-title {
@@ -149,6 +188,10 @@ body {
     width: auto;
     height: 25vw;
     border-radius: 4%
+}
+
+.product-image:hover {
+    cursor: pointer;
 }
 
 .product-price {
@@ -178,34 +221,10 @@ body {
     display: none;
 }
 
-.categories {
-    margin-top: 4%;
+.products-title {
+    font-size: 1.4rem;
     text-align: center;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
 }
-
-.category {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-
-    padding: 5%;
-}
-
-.category > img{
-    width: 8vw;
-}
-
-.category > h6{
-    white-space: nowrap;
-    padding-top: 2vh;
-}
-
 
 .products {
     padding: 3% 3% 2% 3%;
@@ -213,6 +232,10 @@ body {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2vw;
     row-gap: 2vw;
+}
+
+.products-paging.hide-page{
+    display: none;
 }
 
 .products-paging {
@@ -230,6 +253,11 @@ body {
     font-size: 1.5rem;
 }
 
+.footer {
+    margin-top: 5%;
+
+    height: 5vh;
+}
 
 @media (min-width: 554px) and (max-width: 1000px) {
     #slider {
