@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="https://github.com/Miishri">
     <meta name="description"
           content="Halloween themed website for
           buying computer parts,
@@ -19,7 +20,10 @@
     <link rel="stylesheet"
           href="css/style.css"
     >
-    <script src="script.js" type="module" defer></script>
+    <script src="script.js"
+            type="module"
+            defer>
+    </script>
 </head>
 <body>
 <nav class="nav-bar">
@@ -27,39 +31,32 @@
          src="https://i.ibb.co/FJZ70md/main-logo-pumpkin2-min.png"
          alt="main hyper machina logo"
     >
-    <div class="extra-logos">
-        <img class="search-logo"
-             src="Images/logos/search.svg"
-             alt="search logo svg"
-        >
-        <img class="cart-logo"
-             src="Images/logos/shopping-cart.svg"
-             alt="Shopping cart logo svg"
-        >
-    </div>
+    <img class="cart-logo"
+         src="Images/logos/shopping-cart.svg"
+         alt="Shopping cart logo svg"
+    >
 </nav>
-<header>
+<main>
     <div id="slider">
-        <img class="slider-images" id="slide-1"
+        <img class="slider-images"
              src="https://imgur.com/aMothzh.jpeg"
-             rel="preload"
-             alt="discount banner one"
+             alt="halloween upto 80% banner"
         >
-        <img class="slider-images" id="slide-2"
+        <img class="slider-images"
              src="https://imgur.com/R8UOzfV.jpeg"
-             alt="discount banner two"
+             alt="computer dream build fast delivery banner"
         >
-        <img class="slider-images" id="slide-3"
+        <img class="slider-images"
              src="https://imgur.com/bpWu1Y8.jpeg"
-             alt="discount banner three"
+             alt="halloween upto 50% off sale banner"
         >
-        <img class="slider-images" id="slide-4"
+        <img class="slider-images"
              src="https://imgur.com/tWu0Zhr.jpeg"
-             alt="discount banner four"
+             alt="nvidia 3060 series rtx banner"
         >
-        <img class="slider-images" id="slide-5"
+        <img class="slider-images"
              src="https://imgur.com/MaJr7Yu.jpeg"
-             alt="discount banner five"
+             alt="trick or treat halloween discount banner"
         >
     </div>
     <div class="slider-dots">
@@ -69,63 +66,64 @@
         <div class="dot"></div>
         <div class="dot"></div>
     </div>
-</header>
-<div id="suggested">
-    <h5 class="top-products-title">
-        Our Top Products
-    </h5>
+</main>
+<div class="top-suggestions">
+    <h5 class="top-suggestions-title">Our Top Products</h5>
     <div class="top-products">
-        <img class="top-product-1" src="https://i.imgur.com/EDhImwS.jpg" alt="amd 7900">
-        <img class="top-product-2" src="https://i.imgur.com/rxxsl1U.jpg" alt="amd cpu new">
-        <img class="top-product-3" src="https://i.ibb.co/cvsHtJt/4090.webp" alt="nvidia gpu 4090">
+        <img class="top-product-1"
+             src="https://i.imgur.com/EDhImwS.jpg"
+             alt="amd 7900 product image">
+        <img class="top-product-2"
+             src="https://i.imgur.com/rxxsl1U.jpg"
+             alt="new amd cpu image">
+        <img class="top-product-3"
+             src="https://i.ibb.co/cvsHtJt/4090.webp"
+             alt="nvidia gpu 4090 image">
     </div>
 </div>
 <div id="recommended">
-    <h5 class="recommended-products-title">
-        Most Bought Products
-    </h5>
-    <div class="recommended-products">
-
+    <h2 class="recommended-products-title">Most Bought Products</h2>
+    <div class="recommended-products"></div>
+</div>
+<div>
+    <h2 class="categories-heading">Categories</h2>
+    <div class="categories">
+        <div class="category gpu">
+            <img  src="Images/logos/gpu.svg"
+                  alt="orange gpu svg">
+            <h6>Graphic Cards</h6>
+        </div>
+        <div class="category ssd">
+            <img src="Images/logos/ssd.svg"
+                 alt="orange sdd svg">
+            <h6>Solid State Drives</h6>
+        </div>
+        <div class="category monitor">
+            <img src="Images/logos/monitor.svg"
+                 alt="orange monitor svg">
+            <h6>Monitors</h6>
+        </div>
+        <div class="category ram">
+            <img src="Images/logos/ram.svg"
+                 alt="orange ram svg">
+            <h6>Ram Sticks</h6>
+        </div>
+        <div class="category cpu">
+            <img src="Images/logos/cpu.svg"
+                 alt="orange cpu svg">
+            <h6>Processors</h6>
+        </div>
+        <div class="category motherboard">
+            <img src="Images/logos/motherboard.svg"
+                 alt="orange motherboard svg">
+            <h6>Motherboards</h6>
+        </div>
     </div>
 </div>
-
-<h5 class="categories-heading">
-    Categories
-</h5>
-<div class="categories">
-    <div class="category gpu">
-        <img  src="Images/logos/gpu.svg"
-              alt="orange gpu svg">
-        <h6>Graphic Cards</h6>
-    </div>
-    <div class="category ssd">
-        <img src="Images/logos/ssd.svg"
-             alt="orange sdd svg">
-        <h6>Solid State Drives</h6>
-    </div>
-    <div class="category monitor">
-        <img src="Images/logos/monitor.svg"
-             alt="orange monitor svg">
-        <h6>Monitors</h6>
-    </div>
-    <div class="category ram">
-        <img src="Images/logos/ram.svg"
-             alt="orange ram svg">
-        <h6>Ram Sticks</h6>
-    </div>
-    <div class="category cpu">
-        <img src="Images/logos/cpu.svg"
-             alt="orange cpu svg">
-        <h6>Processors</h6>
-    </div>
-    <div class="category motherboard">
-        <img src="Images/logos/motherboard.svg"
-             alt="orange motherboard svg">
-        <h6>Motherboards</h6>
-    </div>
+<div>
+    <h2 class="products-title">All Products</h2>
+    <div class="products"></div>
 </div>
-<h5 class="products-title">All Products</h5>
-<div class="products"></div>
 <div class="products-paging">
     <div class="back"><</div>
     <div class="page-1">1</div>
@@ -136,6 +134,6 @@
     <div class="page-6">6</div>
     <div class="next">></div>
 </div>
-<footer class="footer" ></footer>
+<footer class="footer"></footer>
 </body>
 </html>

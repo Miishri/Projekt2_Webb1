@@ -34,6 +34,8 @@ function createProductImageElement(component) {
     productImage.classList.add("product-image")
     productImage.src = component["image"][1]
     productImage.alt = component["title"]
+    productImage.width = 150
+    productImage.height = 150
     return productImage
 }
 
