@@ -205,10 +205,6 @@ body {
     row-gap: 2vw;
 }
 
-.products-paging.hide-page{
-    display: none;
-}
-
 .products-paging {
     display: flex;
     justify-content: center;

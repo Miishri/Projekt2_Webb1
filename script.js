@@ -3,15 +3,21 @@ import {
     fetchDisplay,
     fetchGpu,
     fetchMotherboard,
-    fetchRam,
-    fetchSsd,
+    fetchRam, fetchSsd,
     getAllComponents
 } from "./model/ComponentFactory.js";
 import {createProduct, createRecommendationProducts} from "./model/Product.js";
 
 const discountSlider = document.getElementById("slider");
 const dots = document.querySelectorAll(".dot")
+const products = document.querySelector(".products");
+const categories = document.querySelectorAll(".category")
+
 let imageIndex = 0
+let productsLoaded = false;
+const itemsPerPage = 12;
+const components = await getAllComponents();
+let currentPage = 1;
 
 setInterval(updateSlider, 2000)
 function updateSlider() {
@@ -28,85 +34,85 @@ function updateDot() {
 }
 updateDot();
 
-async function populateRecommendedProducts() {
-    const singleCpu = await fetchCpu()
-    const singleRam = await fetchRam()
-    const singleMonitor = await fetchDisplay()
-    
-    createRecommendationProducts(singleCpu[3])
-    createRecommendationProducts(singleRam[5])
-    createRecommendationProducts(singleMonitor[0])
-}
-await populateRecommendedProducts()
+createRecommendationProducts(components[3])
+createRecommendationProducts(components[14])
+createRecommendationProducts(components[34])
 
-const gpu = document.querySelector(".gpu")
-gpu.addEventListener('click', async () => {
-    addActiveCategory(gpu)
-    displayPagedProducts(await fetchGpu())
-})  
-const cpu = document.querySelector(".cpu")
-cpu.addEventListener('click', async () => {
-    addActiveCategory(cpu)
-    displayPagedProducts(await fetchCpu())
+categories.forEach((category) => {
+    category.addEventListener('click', () => {
+        if (!category.classList.contains('active-category')) {
+            disableCategories();
+            loadComponent(category);
+            enableCategories();
+        }else {
+            removeActiveCategories()
+            showPaging()
+            showPage(currentPage)
+        }
+    })
 })
-const ssd = document.querySelector(".ssd")
-ssd.addEventListener('click', async () => {
-    addActiveCategory(ssd)
-    displayPagedProducts(await fetchSsd())
-})
-const monitor = document.querySelector(".monitor")
-monitor.addEventListener('click', async () => {
-    addActiveCategory(monitor)
-    displayPagedProducts(await fetchDisplay())
-})
-const ram = document.querySelector(".ram")
-ram.addEventListener('click', async () => {
-    addActiveCategory(ram)
-    displayPagedProducts(await fetchRam())
-})
-const motherboard = document.querySelector(".motherboard")
-motherboard.addEventListener('click', async () => {
-    addActiveCategory(motherboard)
-    displayPagedProducts(await fetchMotherboard())
-})
+const loadComponent = async function (component) {
+    hidePaging()
+    removeActiveCategories()
+    const componentId = component.id
+    addActiveCategory(component)
+    switch (componentId) {
+        case "gpu":
+            displayPagedProducts(await fetchGpu())
+            break;
+        case "cpu":
+            displayPagedProducts(await fetchCpu())
+            break;
+        case "motherboard":
+            displayPagedProducts(await fetchMotherboard())
+            break;
+        case "ram":
+            displayPagedProducts(await fetchRam())
+            break;
+        case "monitor":
+            displayPagedProducts(await fetchDisplay())
+            break;
+        case "ssd":
+            displayPagedProducts(await fetchSsd())
+            break;
+    }
+} 
 
 function addActiveCategory(element) {
-    hideAllPages()
-    removeAllActiveCategories()
     element.classList.add("active-category")
 }
 
-function hideAllPages() {
-    document.querySelectorAll(".products-paging").forEach((page) => {
-        page.classList.add("hide-page")
+function removeActiveCategories() {
+    categories.forEach((category) => {
+        category.classList.remove("active-category")
     })
 }
 
-function removeAllActiveCategories() {
-    document.querySelectorAll(".categories").forEach((cat) => {
-        cat.classList.remove("active-category");
+
+const disableCategories = () => {
+    categories.forEach(category => {
+        category.disabled = true;
     });
-}
+};
 
+const enableCategories = () => {
+    categories.forEach(category => {
+        category.disabled = false;
+    });
+};
 
-let loadedProducts = false;
-const productsDiv = document.querySelector(".products");
-const components = await getAllComponents();
-const itemsPerPage = 12;
-let currentPage = 1;
-
-if (!loadedProducts) {
+if (!productsLoaded) {
     showPage(currentPage);
-    loadedProducts = true;
+    productsLoaded = true;
 }
+
 function showPage(pageNumber) {
     const startIndex = (pageNumber - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const pageComponents = components.slice(startIndex, endIndex);
-    displayPagedProducts(pageComponents);
+    displayPagedProducts(components.slice(startIndex, endIndex));
 }
 function displayPagedProducts(splicedComponents) {
-    productsDiv.innerHTML = '';
+    products.innerHTML = '';
     splicedComponents.forEach((product) => {
         createProduct(product);
     });
@@ -115,12 +121,13 @@ for (let i = 1; i <= 6; i++) {
     loadPageEvent(i)
 }
 function loadPageEvent(i) {
-    const pageDiv = document.querySelector(`.page-${i}`);
-    pageDiv.addEventListener('click', () => {
+    const page = document.querySelector(`.page-${i}`);
+    page.addEventListener('click', () => {
         showPage(i);
         currentPage = i;
     });
 }
+
 document.querySelector(".next").addEventListener('click', () => endOfNextPage())
 function endOfNextPage(){if (currentPage <= 6 && currentPage + 1 !== 7) showPage(++currentPage)}
 document.querySelector(".back").addEventListener('click', () => endOfBackPage())
@@ -128,4 +135,10 @@ function endOfBackPage() {
     if (currentPage <= 6 && currentPage - 1 !== 0) {
         showPage(--currentPage)
     }
+}
+function hidePaging() {
+    document.getElementById("products-paginator").style.display = 'none'
+}
+function showPaging() {
+    document.getElementById("products-paginator").style.display = 'flex'
 }
