@@ -8,21 +8,23 @@ import {
     getAllComponents
 } from "./model/ComponentFactory.js";
 
-import { createProduct, createRecommendationProducts } from "./model/Product.js";
+import {
+    createProduct,
+    createRecommendationProducts
+} from "./model/Product.js";
 
 const discountSlider = document.getElementById("slider");
 const dots = document.querySelectorAll(".dot");
 const products = document.querySelector(".products");
 const categories = document.querySelectorAll(".category");
-const paginator = document.getElementById("products-paginator");
 
 let imageIndex = 0;
-let itemsPerPage = 12;
 let currentPage = 1;
+const itemsPerPage = 12;
 let productsLoaded = false;
 let components = [];
 
-async function initializeComponents() {
+async function fetchData() {
     components = await getAllComponents();
     createRecommendationProducts(components[3]);
     createRecommendationProducts(components[14]);
@@ -31,6 +33,8 @@ async function initializeComponents() {
     productsLoaded = true;
 }
 
+fetchData();
+
 function updateSlider() {
     imageIndex = (imageIndex + 1) % dots.length;
     discountSlider.scrollLeft = imageIndex * discountSlider.clientWidth;
@@ -38,9 +42,11 @@ function updateSlider() {
 }
 
 function updateDot() {
-    dots.forEach((dot) => dot.classList.remove("current-dot"));
+    dots.forEach(dot => dot.classList.remove("current-dot"));
     dots[imageIndex].classList.add("current-dot");
 }
+
+setInterval(updateSlider, 2000);
 
 function loadComponent(component) {
     hidePaging();
@@ -69,9 +75,8 @@ function loadComponent(component) {
     }
 }
 
-async function fetchAndDisplay(fetchFunction) {
-    const componentData = await fetchFunction();
-    displayPagedProducts(componentData);
+function fetchAndDisplay(fetchFunction) {
+    fetchFunction().then(data => displayPagedProducts(data)).catch(error => console.error(error));
 }
 
 function addActiveCategory(element) {
@@ -79,64 +84,66 @@ function addActiveCategory(element) {
 }
 
 function removeActiveCategories() {
-    categories.forEach((category) => category.classList.remove("active-category"));
+    categories.forEach(category => category.classList.remove("active-category"));
 }
 
-function disableCategories() {
-    categories.forEach(category => category.disabled = true);
-}
+const disableCategories = () => categories.forEach(category => category.disabled = true);
+const enableCategories = () => categories.forEach(category => category.disabled = false);
 
-function enableCategories() {
-    categories.forEach(category => category.disabled = false);
-}
+categories.forEach(category => {
+    category.addEventListener('click', () => {
+        if (!category.classList.contains('active-category')) {
+            disableCategories();
+            loadComponent(category);
+            enableCategories();
+        } else {
+            removeActiveCategories();
+            showPaging();
+            showPage(currentPage);
+        }
+    });
+});
 
 function showPage(pageNumber) {
-    currentPage = pageNumber;
-    const startIndex = (currentPage - 1) * itemsPerPage;
+    const startIndex = (pageNumber - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     displayPagedProducts(components.slice(startIndex, endIndex));
 }
 
 function displayPagedProducts(splicedComponents) {
+    const fragment = document.createDocumentFragment();
+    splicedComponents.forEach(product => {
+        const productElement = createProduct(product);
+        fragment.appendChild(productElement);
+    });
     products.innerHTML = '';
-    splicedComponents.forEach((product) => {
-        createProduct(product);
+    products.appendChild(fragment);
+}
+
+for (let i = 1; i <= 6; i++) {
+    const page = document.querySelector(`.page-${i}`);
+    page.addEventListener('click', () => {
+        showPage(i);
+        currentPage = i;
     });
 }
 
+document.querySelector(".next").addEventListener('click', () => {
+    if (currentPage < 6) {
+        showPage(++currentPage);
+    }
+});
+
+document.querySelector(".back").addEventListener('click', () => {
+    if (currentPage > 1) {
+        showPage(--currentPage);
+    }
+});
+
 function hidePaging() {
-    paginator.style.display = 'none';
+    document.getElementById("products-paginator").style.display = 'none';
 }
 
 function showPaging() {
-    paginator.style.display = 'flex';
+    document.getElementById("products-paginator").style.display = 'flex';
 }
-
-function handlePageNavigation(direction) {
-    if (direction === 'next' && currentPage < 6) {
-        showPage(++currentPage);
-    } else if (direction === 'back' && currentPage > 1) {
-        showPage(--currentPage);
-    }
-}
-
-function handleCategoryClick(event) {
-    const category = event.target;
-    if (category.classList.contains('category') && !category.classList.contains('active-category')) {
-        disableCategories();
-        loadComponent(category);
-        enableCategories();
-        showPaging();
-    } else {
-        removeActiveCategories();
-        showPaging();
-        showPage(currentPage);
-    }
-}
-
-discountSlider.addEventListener('click', updateSlider);
-categories.forEach(category => category.addEventListener('click', handleCategoryClick));
-document.querySelector(".next").addEventListener('click', () => handlePageNavigation('next'));
-document.querySelector(".back").addEventListener('click', () => handlePageNavigation('back'));
-
-initializeComponents();
