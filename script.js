@@ -111,13 +111,10 @@ function showPage(pageNumber) {
 }
 
 function displayPagedProducts(splicedComponents) {
-    const fragment = document.createDocumentFragment();
-    splicedComponents.forEach(product => {
-        const productElement = createProduct(product);
-        fragment.appendChild(productElement);
-    });
     products.innerHTML = '';
-    products.appendChild(fragment);
+    splicedComponents.forEach(product => {
+        createProduct(product);
+    });
 }
 
 for (let i = 1; i <= 6; i++) {
