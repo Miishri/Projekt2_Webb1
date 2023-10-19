@@ -1,7 +1,5 @@
 package org.scraper.compresser;
 
-import org.scraper.uploader.ImageUploaderInterface;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -30,14 +28,18 @@ public class ImageCompressor {
         ImageIO.write(image, "jepg", arrayInputStream);
         return new ByteArrayInputStream(arrayInputStream.toByteArray());
     }
-    public boolean deleteCurrentWrittenImage() {
+    public void deleteCurrentWrittenImage() {
         File file = new File(imagePath);
-        return file.delete();
+        file.delete();
     }
 
     public void writeBufferedImageToPath(BufferedImage bufferedImage) throws IOException {
         File file = new File(getImagePath());
         ImageIO.write(bufferedImage, "jpeg", file);
+    }
+    public void writeBufferedImageToPathWebp(BufferedImage bufferedImage, String path) throws IOException {
+        File file = new File(path);
+        ImageIO.write(bufferedImage, "webp", file);
     }
 
     public String getImagePath() {

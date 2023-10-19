@@ -1,6 +1,7 @@
 package org.scraper.uploader;
 
 import com.tinify.Options;
+import com.tinify.Result;
 import com.tinify.Source;
 import com.tinify.Tinify;
 import org.scraper.compresser.ImageCompressor;
@@ -24,6 +25,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -31,6 +33,7 @@ import java.util.UUID;
 public class AmazonStorageUploader extends ImageUploaderInterface {
 
     private final TinifyCompressor tinifyCompressor = new TinifyCompressor();
+    private final ImgBbUploader imgBbUploader = new ImgBbUploader();
 
     private String region = "eu-north-1";
     private String bucketName = "mydatastoragebucket";
@@ -49,7 +52,7 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
         uploadImages(Ram.endpoint);
     }
 
-    URL uploadImage(String compressedType) throws MalformedURLException {
+    URL uploadImage(String compressedType) throws IOException {
         AwsCredentials credentials = AwsBasicCredentials.create(getAccessKey(), getSecretAccessKey());
         AwsCredentialsProvider provider = StaticCredentialsProvider.create(credentials);
         S3Client s3Client = S3Client.builder()
@@ -57,31 +60,40 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
                 .credentialsProvider(provider)
                 .build();
 
-        String uuidImageKey = "component-" + compressedType + UUID.randomUUID() + ".jpeg";
+        String uuidImageKey = "component-" + compressedType + UUID.randomUUID() + ".webp";
 
         PutObjectRequest putObjectRequest = PutObjectRequest.builder()
-                .contentType("image/jpeg")
+                .contentType("image/webp")
                 .bucket(bucketName)
                 .key(uuidImageKey)
                 .acl(ObjectCannedACL.PUBLIC_READ)
                 .build();
 
         s3Client.putObject(putObjectRequest, RequestBody.fromFile(new File(getImagePath())));
+        tinifyCompressor.deleteWebpImage();
 
         return new URL("https://" + bucketName + ".s3.amazonaws.com/" + uuidImageKey);
     }
 
     /*  Future fix for bugs */
-    public void uploadImageTinify(String compressedType) throws IOException {
+    public URL uploadImageTinify(String compressedType) throws IOException {
         Source source = Tinify.fromFile(getImagePath());
+        Result converted = source.convert(new Options().with("type", "image/webp" )).result();
+        String url = imgBbUploader.compressAndUpload(imageCompressor.encodeImageBase64(converted.toBuffer())).toString();
+
+        Source webpSource = Tinify.fromUrl(url);
+        String uuidImageKey = "component-" + compressedType + UUID.randomUUID() + ".webp";
+
         Options amazonS3Uploader = new Options()
                 .with("service", "s3")
                 .with("aws_access_key_id", getAccessKey())
                 .with("aws_secret_access_key", getSecretAccessKey())
                 .with("region", "eu-north-1")
-                .with("path", bucketName + "/ComponentProductImages/"+ "component-" + compressedType + UUID.randomUUID() + ".jpeg");
+                .with("path", bucketName + "/" + uuidImageKey);
 
-        source.store(amazonS3Uploader);
+        webpSource.store(amazonS3Uploader);
+
+        return new URL("https://" + bucketName + ".s3.amazonaws.com/" + uuidImageKey);
     }
 
 
@@ -89,12 +101,14 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
         for (ArrayList<String> url: getStringImageUrls(endpoint)) {
             if (url.size() == 1) {
                 for (String stringImageUrl: url) {
-                    System.out.println("----------------------"+ count +"-------------------");
-                    System.out.println("Upload started for URL: " + url);
-                    setHostedUrls(getSourceList(stringImageUrl), new URL(stringImageUrl), endpoint);
-                    System.out.println("Upload successful for URL: " + url);
-                    System.out.println("------------------------------------------");
-                    count++;
+                    if (!stringImageUrl.contains("s3.amazonaws.com/")) {
+                        System.out.println("----------------------"+ count +"-------------------");
+                        System.out.println("Upload started for URL: " + url);
+                        setHostedUrls(getSourceList(stringImageUrl), new URL(stringImageUrl), endpoint);
+                        System.out.println("Upload successful for URL: " + url);
+                        System.out.println("------------------------------------------");
+                        count++;
+                    }
                 }
             }
         }
@@ -104,12 +118,12 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
     private ArrayList<String> getSourceList(String url) throws IOException {
         byte[] compressedOriginal = tinifyCompressor.getCompressedImageBufferedData(url);
         imageCompressor.writeBufferedImageToPath(ImageIO.read(new ByteArrayInputStream(compressedOriginal)));
-        String originalUrl = urlToString(uploadImage("original"));
+        String originalUrl = urlToString(uploadImageTinify("original"));
         imageCompressor.deleteCurrentWrittenImage();
 
         BufferedImage compressedResized = ImageIO.read(new ByteArrayInputStream(tinifyCompressor.getCompressedImageResizedBufferedData(compressedOriginal)));
         imageCompressor.writeBufferedImageToPath(compressedResized);
-        String resizedUrl = urlToString(uploadImage("resized"));
+        String resizedUrl = urlToString(uploadImageTinify("resized"));
         imageCompressor.deleteCurrentWrittenImage();
 
         return new ArrayList<>(List.of(originalUrl, resizedUrl));
