@@ -20,7 +20,6 @@ body {
 .main-logo {
     padding: 5px 0 5px 10px;
     height: 7vh;
-    width: 50vw;
 }
 .cart-logo {
     padding-right: 4.5vw;
@@ -42,7 +41,6 @@ body {
     scroll-snap-align: center;
     border-radius: 5px;
     width: 90vw;
-    height: 20vh;
 }
 .slider-dots {
     display: flex;
@@ -123,6 +121,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 1rem;
 
     padding: 5%;
 }
@@ -131,9 +130,7 @@ body {
     width: 15vw;
 }
 
-.category > h4{
-    font-size: 0.8rem;
-    font-weight: lighter;
+.category > h6{
     white-space: nowrap;
     padding-top: 2vh;
     justify-self: flex-end;
