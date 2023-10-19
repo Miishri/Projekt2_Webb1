@@ -34,10 +34,25 @@ function updateDot() {
 }
 updateDot();
 
-createRecommendationProducts(components[3])
-createRecommendationProducts(components[14])
-createRecommendationProducts(components[34])
+const firstProduct = components[3]
+createRecommendationProducts(firstProduct)
+const secondProduct = components[14]
+createRecommendationProducts(secondProduct)
+const thirdProduct = components[34]
+createRecommendationProducts(thirdProduct)
 
+
+function replaceComponentSource(image) {
+    if (firstProduct["image"][1] === image) {
+        return firstProduct["image"][0]
+    }else if (secondProduct["image"][1] === image) {
+        return secondProduct["image"][0]
+    }else if (thirdProduct["image"][1] === image) {
+        return thirdProduct["image"][0]
+    }
+
+    return image
+}
 categories.forEach((category) => {
     category.addEventListener('click', () => {
         if (!category.classList.contains('active-category')) {

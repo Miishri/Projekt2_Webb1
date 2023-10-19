@@ -5,6 +5,7 @@ function createProduct(component) {
 function createRecommendationProducts(component) {
     const products = document.querySelector(".recommended-products")
     products.appendChild(createProductElement(component))
+    return products
 }
 
 function createProductElement(component) {
@@ -32,10 +33,10 @@ function createProductTitleElement(component) {
 function createProductImageElement(component) {
     const productImage = document.createElement("img")
     productImage.classList.add("product-image")
-    productImage.src = component["image"][1]
+    productImage.src = component["image"][0]
+    productImage.width = 300
+    productImage.height = 300
     productImage.alt = component["title"]
-    productImage.width = 150
-    productImage.height = 150
     return productImage
 }
 
