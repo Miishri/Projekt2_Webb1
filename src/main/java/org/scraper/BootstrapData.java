@@ -17,7 +17,6 @@ public class BootstrapData {
 
     public static void bootstrap() throws IOException {
         DataScraper dataScraper = new DataScraper();
-        dataScraper.bootstrapData();
 
         AmazonStorageUploader amazonStorageUploader = new AmazonStorageUploader();
         amazonStorageUploader.uploadAllImages();

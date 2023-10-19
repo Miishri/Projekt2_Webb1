@@ -82,6 +82,7 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
         String url = imgBbUploader.compressAndUpload(imageCompressor.encodeImageBase64(converted.toBuffer())).toString();
 
         Source webpSource = Tinify.fromUrl(url);
+        System.out.println(url);
         String uuidImageKey = "component-" + compressedType + UUID.randomUUID() + ".webp";
 
         Options amazonS3Uploader = new Options()
@@ -101,7 +102,7 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
         for (ArrayList<String> url: getStringImageUrls(endpoint)) {
             if (url.size() == 1) {
                 for (String stringImageUrl: url) {
-                    if (!stringImageUrl.contains("s3.amazonaws.com/")) {
+                    if (!stringImageUrl.contains("mydatastoragebucket")) {
                         System.out.println("----------------------"+ count +"-------------------");
                         System.out.println("Upload started for URL: " + url);
                         setHostedUrls(getSourceList(stringImageUrl), new URL(stringImageUrl), endpoint);
