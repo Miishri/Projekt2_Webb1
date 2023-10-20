@@ -6,9 +6,9 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-8f1762ed-cdc5-4da7-9d19-3f7a99a4bb3b.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-2a6fc2f1-5e48-43f1-b4b2-14f06ca4feb1.webp"
     ],
-    "description": "",
+    "description": "Acer CB242Y bir is a high-quality computer monitor with a 23.8-inch display and a sleek design. It offers excellent image quality and is perfect for both work and entertainment.",
     "producer": "Acer",
-    "rating": "",
+    "rating": 4.5,
     "price": "109.99"
   },
   {
@@ -18,9 +18,9 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-a7d704ab-648d-4076-b6d2-5e3513d343e1.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-c1d37db2-9897-47b6-802a-d71971d0b4cb.webp"
     ],
-    "description": "",
+    "description": "Gigabyte G27QC is a high-end gaming monitor with a 27-inch curved display. It offers a fast refresh rate and vivid colors, making it an excellent choice for gamers.",
     "producer": "Gigabyte",
-    "rating": "",
+    "rating": 4.7,
     "price": "329.99"
   },
   {
@@ -30,9 +30,9 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-3e061216-e911-4251-8084-2d9251fa4507.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-7015fe27-017b-4292-8c90-f947bfcf07a7.webp"
     ],
-    "description": "",
+    "description": "LG UltraGear 27GL850-B is a top-tier gaming monitor with a 27-inch Nano IPS display. It provides exceptional color accuracy and a high refresh rate, making it a great choice for professional gamers.",
     "producer": "LG",
-    "rating": "",
+    "rating": 4.8,
     "price": "319.99"
   },
   {
@@ -42,9 +42,9 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-ae3d224d-63e7-4c97-9e72-2a2111032e0e.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-462ceb94-d4ad-4f83-886f-b900a126703d.webp"
     ],
-    "description": "",
+    "description": "Viewsonic VX2758-2KP-MHD is a 27-inch gaming monitor with a fast refresh rate and excellent image quality. It's designed for gamers and offers a smooth gaming experience.",
     "producer": "ViewSonic",
-    "rating": "",
+    "rating": 4.6,
     "price": "299.99"
   },
   {
@@ -54,9 +54,9 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-fe647ac8-5531-4569-b508-487a861b38a6.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-010bb65a-4269-4046-8906-d573d925d72a.webp"
     ],
-    "description": "",
+    "description": "AOC AGON AG241QX is a 23.8-inch gaming monitor with a high refresh rate and FreeSync support. It's an excellent choice for competitive gamers who need fast response times.",
     "producer": "AOC",
-    "rating": "",
+    "rating": 4.4,
     "price": "249.99"
   },
   {
@@ -66,9 +66,9 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-c1b464b7-9450-4af6-8d7b-ea55766869e1.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-f8552105-56c5-4054-ac28-9606c9b00bf1.webp"
     ],
-    "description": "",
+    "description": "AOC AGON AG271QG is a premium gaming monitor with a 27-inch QHD display. It offers G-Sync support and excellent image quality for a top-tier gaming experience.",
     "producer": "AOC",
-    "rating": "",
+    "rating": 4.9,
     "price": "668.91"
   },
   {
@@ -78,9 +78,9 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-cb461be7-9808-4145-a406-0b26034b3a0e.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-01f5c8de-3792-41e2-8f7f-06eeb96090b5.webp"
     ],
-    "description": "",
+    "description": "AOC AGON AG271QX is a 27-inch gaming monitor with a high refresh rate and FreeSync support. It's designed for gamers who want a competitive edge in their games.",
     "producer": "AOC",
-    "rating": "",
+    "rating": 4.7,
     "price": "299.99"
   },
   {
@@ -90,9 +90,9 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-f97548a3-7ec5-4a71-b3b9-bf1961c679a8.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-0a6b0caa-2339-42f5-afd9-b6e7ec481ade.webp"
     ],
-    "description": "",
+    "description": "AOC AGON AG271UG is a high-end gaming monitor with a 27-inch 4K display. It offers stunning visuals and is ideal for gamers and content creators.",
     "producer": "AOC",
-    "rating": "",
+    "rating": 4.8,
     "price": "749.66"
   }
 ]

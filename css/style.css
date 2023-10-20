@@ -161,8 +161,7 @@ body {
 
 .product {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
     align-items: center;
 
     color: white;
@@ -174,8 +173,19 @@ body {
     padding: 1vw;
 }
 
+.product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .product-title {
-    width: 25vw;
+    font-size: 1.1rem;
+}
+
+.product-description {
+    font-size: 0.7rem;
 }
 
 .product-image {
@@ -208,13 +218,6 @@ body {
     box-shadow: 0 2px 4px black;
 }
 
-.product-description-visible, .product-rating-visible {
-    display: flex;
-}
-.product-description-hidden, .product-rating-hidden {
-    display: none;
-}
-
 .products-title {
     font-size: 1.4rem;
     text-align: center;
@@ -222,11 +225,12 @@ body {
 
 .products {
     padding: 3% 3% 2% 3%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
     column-gap: 2vw;
     row-gap: 2vw;
 }
+
 
 .products-paging {
     display: flex;
@@ -263,6 +267,19 @@ body {
 @media (min-width: 641px) {
     .main-logo {
         height: 8vh;
+    }
+
+    .product-title {
+        font-size: 1.5rem;
+    }
+
+    .product-description {
+        font-size: 1.2rem;
+    }
+
+    .product-price {
+        font-size: 1.5rem;
+        padding: 2%;
     }
 }
 
@@ -321,6 +338,19 @@ body {
         padding: 1%;
     }
 
+    .product {
+        border-radius: 1vw;
+    }
+
+    .product-title {
+        font-size: 1.5em;
+    }
+
+    .product-price {
+        font-size: 1.5rem;
+        padding: 2%;
+    }
+
     .categories-heading {
         font-size: 2rem;
         padding-left: 5%;
@@ -351,24 +381,12 @@ body {
         box-shadow: 0 0 1px white;
     }
 
-    .product-title {
-        font-size: 1.2rem;
-        width: 20vw;
-    }
-
     .product-image {
         height: 10vw;
     }
-    .product-price {
-        font-size: 1.2rem;
-    }
-
-    .products-title {
-        font-size: 1.4rem;
-        text-align: center;
-    }
 
     .products {
-        grid-template-columns: repeat(4, 1fr);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 }

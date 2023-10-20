@@ -14,12 +14,20 @@ function createProductElement(component) {
     product.id = component["id"]
 
     product.appendChild(createProductImageElement(component))
-    product.appendChild(createProductTitleElement(component))
-    product.appendChild(createProductDescriptionElement(component))
-    product.appendChild(createProductRatingElement(component))
-    product.appendChild(createProductPriceElement(component))
-
+    product.appendChild(createProductInfoElement(
+        createProductTitleElement(component),
+        createProductDescriptionElement(component),
+        createProductPriceElement(component)))
     return product
+}
+
+function createProductInfoElement(title, description, price) {
+    const productDetails = document.createElement("div")
+    productDetails.classList.add("product-details")
+    productDetails.appendChild(title)
+    productDetails.appendChild(description)
+    productDetails.appendChild(price)
+    return productDetails
 }
 
 function createProductTitleElement(component) {
@@ -43,7 +51,6 @@ function createProductImageElement(component) {
 function createProductDescriptionElement(component) {
     const productDescription = document.createElement("div");
     productDescription.classList.add("product-description")
-    productDescription.classList.add("product-description-hidden")
     productDescription.textContent = component["description"]
     return productDescription
 }
@@ -51,7 +58,6 @@ function createProductDescriptionElement(component) {
 function createProductRatingElement(component) {
     const productRating = document.createElement("div")
     productRating.classList.add("product-rating")
-    productRating.classList.add("product-rating-hidden")
     productRating.textContent = component["rating"]
     return productRating
 }

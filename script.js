@@ -14,7 +14,7 @@ const categories = document.querySelectorAll(".category")
 
 let imageIndex = 0
 let productsLoaded = false;
-const itemsPerPage = 12;
+const itemsPerPage = 8;
 const components = await getAllComponents();
 let currentPage = 1;
 
@@ -33,24 +33,8 @@ function updateDot() {
 }
 updateDot();
 
-const firstProduct = components[3]
-createRecommendationProducts(firstProduct)
-const secondProduct = components[10]
-createRecommendationProducts(secondProduct)
-const thirdProduct = components[4]
+const thirdProduct = components[28]
 createRecommendationProducts(thirdProduct)
-
-
-function replaceComponentSource(image) {
-    if (firstProduct["image"][1] === image) {
-        return firstProduct["image"][0]
-    }else if (secondProduct["image"][1] === image) {
-        return secondProduct["image"][0]
-    }else if (thirdProduct["image"][1] === image) {
-        return thirdProduct["image"][0]
-    }
-    return image
-}
 
 categories.forEach((category) => {
     category.addEventListener('click', () => {
@@ -76,12 +60,6 @@ const loadComponent = async function (component) {
             break;
         case "cpu":
             displayPagedProducts(await fetchCpu())
-            break;
-        case "motherboard":
-            displayPagedProducts(await fetchMotherboard())
-            break;
-        case "ram":
-            displayPagedProducts(await fetchRam())
             break;
         case "monitor":
             displayPagedProducts(await fetchDisplay())
@@ -124,6 +102,7 @@ function showPage(pageNumber) {
     const startIndex = (pageNumber - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     displayPagedProducts(components.slice(startIndex, endIndex));
+    console.log(components.slice(startIndex, endIndex))
 }
 function displayPagedProducts(splicedComponents) {
     products.innerHTML = '';
@@ -131,7 +110,7 @@ function displayPagedProducts(splicedComponents) {
         createProduct(product);
     });
 }
-for (let i = 1; i <= 3; i++) {
+for (let i = 1; i <= 4; i++) {
     loadPageEvent(i)
 }
 function loadPageEvent(i) {
@@ -143,7 +122,7 @@ function loadPageEvent(i) {
 }
 
 document.querySelector(".next").addEventListener('click', () => endOfNextPage())
-function endOfNextPage(){if (currentPage <= 3 && currentPage + 1 !== 4) showPage(++currentPage)}
+function endOfNextPage(){if (currentPage <= 4 && currentPage + 1 !== 5) showPage(++currentPage)}
 document.querySelector(".back").addEventListener('click', () => endOfBackPage())
 function endOfBackPage() {
     if (currentPage <= 6 && currentPage - 1 !== 0) {
@@ -174,7 +153,7 @@ function displayFetchedProduct(productData) {
 
 
     document.body.appendChild(currentProduct)
-    console.log("here")
+
 }
 
 function fetchComponentWithId(productId) {
