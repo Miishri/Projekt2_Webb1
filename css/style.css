@@ -102,15 +102,15 @@ body {
 }
 
 .categories-heading {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding-left: 6%;
 }
 
 .categories {
-    text-align: center;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .active-category {
@@ -124,7 +124,7 @@ body {
     align-items: center;
     font-size: 1rem;
 
-    padding: 5%;
+    padding: 2%;
 }
 
 .category > img{
