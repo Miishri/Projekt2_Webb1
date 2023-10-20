@@ -247,10 +247,11 @@ body {
     display: flex;
     justify-content: center;
 
-
     background: black;
-    width: 50vw;
-    height: 100vw;
+    width: 100vw;
+
+    position: absolute;
+    top: 40vh;
 }
 
 .footer {
@@ -299,7 +300,7 @@ body {
     }
 
     .top-products > img {
-        width: 25vw;
+        width: 28vw;
         border-radius: 5px;
 
         box-shadow: 0 0 5px black;
@@ -311,7 +312,7 @@ body {
 
     .recommended-products {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
 
         margin: 1.5% 0 4% 0;
     }

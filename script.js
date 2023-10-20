@@ -163,6 +163,7 @@ document.querySelectorAll(".products").forEach((product) => {
     })
 })
 function displayProduct(productId) {
+    visibleCartCount()
     const fetchedProduct = fetchComponentWithId(productId)
     displayFetchedProduct(fetchedProduct)
 }
@@ -171,6 +172,8 @@ function displayFetchedProduct(productData) {
     const currentProduct = document.createElement("div")
     currentProduct.classList.add("current-product")
 
+
+    document.body.appendChild(currentProduct)
     console.log("here")
 }
 
@@ -185,11 +188,12 @@ function fetchComponentWithId(productId) {
     return component
 }
 
+function visibleCartCount() {
+    productCartCount.display = "inline-block"
+}
+
 const productCartCount = document.getElementById("product-count")
 const localStorageProducts = localStorage.getItem("products")
 
-if (!localStorageProducts) {
-    productCartCount.display = "inline-block"
-}
 
 
