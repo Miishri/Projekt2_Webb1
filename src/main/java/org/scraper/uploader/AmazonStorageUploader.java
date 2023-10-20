@@ -72,7 +72,7 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
         s3Client.putObject(putObjectRequest, RequestBody.fromFile(new File(getImagePath())));
         tinifyCompressor.deleteWebpImage();
 
-        return new URL("https://" + bucketName + ".s3.amazonaws.com/" + uuidImageKey);
+        return new URL("https://" + bucketName + "CompnentImages/.s3.amazonaws.com/" + uuidImageKey);
     }
 
     /*  Future fix for bugs */
@@ -90,11 +90,11 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
                 .with("aws_access_key_id", getAccessKey())
                 .with("aws_secret_access_key", getSecretAccessKey())
                 .with("region", "eu-north-1")
-                .with("path", bucketName + "/" + uuidImageKey);
+                .with("path", bucketName + "/componentImages/" + uuidImageKey);
 
         webpSource.store(amazonS3Uploader);
 
-        return new URL("https://" + bucketName + ".s3.amazonaws.com/" + uuidImageKey);
+        return new URL("https://" + bucketName + ".s3.amazonaws.com/componentImages" + uuidImageKey);
     }
 
 

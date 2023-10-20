@@ -48,7 +48,7 @@ public class DataScraper implements ComponentFactory {
             for (Element hardware: hardwareList) {
                 String hardwareReference = hardware.attr("href");
 
-                if (hardwareReference.contains("pc-kombo") && componentArrayList.size() < 12) {
+                if (hardwareReference.contains("pc-kombo") && componentArrayList.size() < 8) {
                     Elements productHtml = Jsoup.connect(hardwareReference)
                             .get()
                             .select("#product");
