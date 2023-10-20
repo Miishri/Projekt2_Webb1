@@ -156,3 +156,40 @@ function hidePaging() {
 function showPaging() {
     document.getElementById("products-paginator").style.display = 'flex'
 }
+
+document.querySelectorAll(".products").forEach((product) => {
+    product.addEventListener('click', () => {
+        displayProduct(product.id)
+    })
+})
+function displayProduct(productId) {
+    const fetchedProduct = fetchComponentWithId(productId)
+    displayFetchedProduct(fetchedProduct)
+}
+
+function displayFetchedProduct(productData) {
+    const currentProduct = document.createElement("div")
+    currentProduct.classList.add("current-product")
+
+    console.log("here")
+}
+
+function fetchComponentWithId(productId) {
+    let component = "none"
+    components.forEach((comp) => {
+        if (comp.id === productId) {
+            component = comp
+        }
+    })
+    
+    return component
+}
+
+const productCartCount = document.getElementById("product-count")
+const localStorageProducts = localStorage.getItem("products")
+
+if (!localStorageProducts) {
+    productCartCount.display = "inline-block"
+}
+
+

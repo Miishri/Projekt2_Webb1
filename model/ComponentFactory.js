@@ -31,6 +31,7 @@ function fetchSsd(){
         })
 }
 
+
 async function getAllComponents() {
     let components = []
     components = compPutAndReturn(await fetchGpu(), components)
