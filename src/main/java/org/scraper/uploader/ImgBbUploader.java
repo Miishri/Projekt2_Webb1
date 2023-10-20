@@ -1,17 +1,14 @@
 package org.scraper.uploader;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import okhttp3.*;
-import org.scraper.compresser.ImageCompressor;
+import okhttp3.MultipartBody;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 import org.scraper.compresser.PngtasticCompressor;
-import org.scraper.compresser.TinifyCompressor;
 import org.scraper.models.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.*;
-
-import static org.scraper.compresser.PngtasticCompressor.compressImage;
 
 public class ImgBbUploader extends ImageUploaderInterface{
 

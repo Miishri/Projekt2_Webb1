@@ -3,7 +3,6 @@ package org.scraper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jetbrains.annotations.NotNull;
-import org.jsoup.Connection;
 import org.scraper.models.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -17,9 +16,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 public class DataScraper implements ComponentFactory {

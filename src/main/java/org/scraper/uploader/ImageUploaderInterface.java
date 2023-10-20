@@ -9,7 +9,6 @@ import org.scraper.compresser.ImageCompressor;
 import org.scraper.models.Component.Component;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;

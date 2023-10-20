@@ -1,6 +1,5 @@
 package org.scraper.compresser;
 
-import com.tinify.Tinify;
 
 import java.awt.*;
 import java.awt.image.*;

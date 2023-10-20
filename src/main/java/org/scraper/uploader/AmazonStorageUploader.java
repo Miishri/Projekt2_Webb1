@@ -4,28 +4,24 @@ import com.tinify.Options;
 import com.tinify.Result;
 import com.tinify.Source;
 import com.tinify.Tinify;
-import org.scraper.compresser.ImageCompressor;
 import org.scraper.compresser.TinifyCompressor;
 import org.scraper.models.*;
-import software.amazon.awssdk.auth.credentials.*;
-import software.amazon.awssdk.core.Response;
+import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
+import software.amazon.awssdk.auth.credentials.AwsCredentials;
+import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.ObjectCannedACL;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
-import software.amazon.awssdk.services.s3.model.PutObjectResponse;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -34,9 +30,7 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
 
     private final TinifyCompressor tinifyCompressor = new TinifyCompressor();
     private final ImgBbUploader imgBbUploader = new ImgBbUploader();
-
-    private String region = "eu-north-1";
-    private String bucketName = "mydatastoragebucket";
+    private final String bucketName = "mydatastoragebucket";
     private int count = 1;
 
     public static void main(String[] args) throws IOException {
