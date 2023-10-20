@@ -33,9 +33,9 @@ function createProductTitleElement(component) {
 function createProductImageElement(component) {
     const productImage = document.createElement("img")
     productImage.classList.add("product-image")
-    productImage.src = component["image"][0]
-    productImage.width = 300
-    productImage.height = 300
+    productImage.src = component["image"][1]
+    productImage.width = 150
+    productImage.height = 150
     productImage.alt = component["title"]
     return productImage
 }
