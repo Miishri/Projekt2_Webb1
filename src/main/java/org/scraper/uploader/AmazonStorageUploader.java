@@ -94,6 +94,7 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
                 .with("service", "s3")
                 .with("aws_access_key_id", getAccessKey())
                 .with("aws_secret_access_key", getSecretAccessKey())
+                .with("cache-control", "max-age=31622400")
                 .with("region", "eu-north-1")
                 .with("path", bucketName + "/componentImages/" + uuidImageKey);
 
