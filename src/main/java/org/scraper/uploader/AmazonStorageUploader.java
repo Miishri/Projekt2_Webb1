@@ -100,7 +100,7 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
 
         webpSource.store(amazonS3Uploader);
 
-        System.out.println("Post to AWS S3 successful");
+        System.out.println("Post to AWS S3 successful: " + amazonS3Uploader.toJson());
 
         return new URL("https://" + bucketName + ".s3.amazonaws.com/componentImages" + uuidImageKey);
     }
