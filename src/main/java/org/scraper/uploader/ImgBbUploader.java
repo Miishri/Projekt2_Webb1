@@ -40,7 +40,7 @@ public class ImgBbUploader extends ImageUploaderInterface{
                 .build();
 
 
-        System.out.println("Created request Body: " + requestBody);
+        System.out.println("Created Request Body");
 
         Request request = new Request.Builder()
                 .url(expirableImgPostUri)
@@ -48,7 +48,11 @@ public class ImgBbUploader extends ImageUploaderInterface{
                 .post(requestBody)
                 .build();
 
-        System.out.println("Created request: " + request);
+        System.out.println("---------------------------------");
+        System.out.println("IMAGE SET TO EXPIRE IN 90 SECONDS");
+        System.out.println("---------------------------------");
+
+        System.out.println("Created request with body: " + request.body());
 
         JsonNode jsonNode = getJsonNodeData(executeHttpClientCall(request));
 

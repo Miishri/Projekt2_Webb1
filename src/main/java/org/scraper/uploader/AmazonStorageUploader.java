@@ -77,13 +77,18 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
 
     /*  Future fix for bugs */
     public URL uploadImageTinify(String compressedType) throws IOException {
+
+        System.out.println("Converting local image to Webp");
+
         Source source = Tinify.fromFile(getImagePath());
         Result converted = source.convert(new Options().with("type", "image/webp" )).result();
         String url = imgBbUploader.compressAndUpload(imageCompressor.encodeImageBase64(converted.toBuffer())).toString();
 
+        System.out.println("Uploaded compressed image to ImgBB with URL: " + url);
+
         Source webpSource = Tinify.fromUrl(url);
-        System.out.println(url);
-        String uuidImageKey = "component-" + compressedType + UUID.randomUUID() + ".webp";
+
+        String uuidImageKey = "Component-" + compressedType + "-" + UUID.randomUUID() + ".webp";
 
         Options amazonS3Uploader = new Options()
                 .with("service", "s3")
@@ -93,6 +98,8 @@ public class AmazonStorageUploader extends ImageUploaderInterface {
                 .with("path", bucketName + "/componentImages/" + uuidImageKey);
 
         webpSource.store(amazonS3Uploader);
+
+        System.out.println("Post to AWS S3 successful");
 
         return new URL("https://" + bucketName + ".s3.amazonaws.com/componentImages" + uuidImageKey);
     }
