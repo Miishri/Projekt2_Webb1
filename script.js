@@ -2,8 +2,7 @@ import {
     fetchCpu,
     fetchDisplay,
     fetchGpu,
-    fetchMotherboard,
-    fetchRam, fetchSsd,
+    fetchSsd,
     getAllComponents
 } from "./model/ComponentFactory.js";
 import {createProduct, createRecommendationProducts} from "./model/Product.js";
@@ -36,9 +35,9 @@ updateDot();
 
 const firstProduct = components[3]
 createRecommendationProducts(firstProduct)
-const secondProduct = components[14]
+const secondProduct = components[10]
 createRecommendationProducts(secondProduct)
-const thirdProduct = components[34]
+const thirdProduct = components[4]
 createRecommendationProducts(thirdProduct)
 
 
@@ -50,9 +49,9 @@ function replaceComponentSource(image) {
     }else if (thirdProduct["image"][1] === image) {
         return thirdProduct["image"][0]
     }
-
     return image
 }
+
 categories.forEach((category) => {
     category.addEventListener('click', () => {
         if (!category.classList.contains('active-category')) {
@@ -132,7 +131,7 @@ function displayPagedProducts(splicedComponents) {
         createProduct(product);
     });
 }
-for (let i = 1; i <= 6; i++) {
+for (let i = 1; i <= 3; i++) {
     loadPageEvent(i)
 }
 function loadPageEvent(i) {
@@ -144,7 +143,7 @@ function loadPageEvent(i) {
 }
 
 document.querySelector(".next").addEventListener('click', () => endOfNextPage())
-function endOfNextPage(){if (currentPage <= 6 && currentPage + 1 !== 7) showPage(++currentPage)}
+function endOfNextPage(){if (currentPage <= 3 && currentPage + 1 !== 4) showPage(++currentPage)}
 document.querySelector(".back").addEventListener('click', () => endOfBackPage())
 function endOfBackPage() {
     if (currentPage <= 6 && currentPage - 1 !== 0) {
