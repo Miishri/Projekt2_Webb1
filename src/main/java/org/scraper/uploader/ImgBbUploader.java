@@ -43,7 +43,7 @@ public class ImgBbUploader extends ImageUploaderInterface{
         System.out.println("Created request Body: " + requestBody);
 
         Request request = new Request.Builder()
-                .url(imgBbPostUri)
+                .url(expirableImgPostUri)
                 .addHeader("Content-Type", "multipart/form-data")
                 .post(requestBody)
                 .build();

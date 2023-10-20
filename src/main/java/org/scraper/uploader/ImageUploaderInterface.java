@@ -25,8 +25,8 @@ public class ImageUploaderInterface {
             .build();
 
     final ImageCompressor imageCompressor = new ImageCompressor();
-
     final String imgBbPostUri = "https://api.imgbb.com/1/upload?key=" + getImgBbApiKey();
+    final String expirableImgPostUri = "https://api.imgbb.com/1/upload?expiration=90&key=" + getImgBbApiKey();
     final String imgurPostUri = "https://api.imgur.com/3/image";
     private final String envFilePath = "src/main/resources/key.env";
 
