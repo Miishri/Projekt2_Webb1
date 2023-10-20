@@ -111,10 +111,10 @@ public class ImageUploaderInterface {
         return Dotenv.configure().filename(envFilePath).load().get("CLIENT_ID_IMGUR" + version);
     }
     public String getAccessKey() {
-        return Dotenv.configure().filename(envFilePath).load().get("ACCESS_KEY");
+        return Dotenv.configure().filename(envFilePath).load().get("AMAZON_SECRET_KEY");
     }
     public String getSecretAccessKey() {
-        return Dotenv.configure().filename(envFilePath).load().get("SECRET_ACCESS_KEY");
+        return Dotenv.configure().filename(envFilePath).load().get("AMAZON_SECRET_ACCESS_KEY");
     }
 
     String urlToString(URL url) {
