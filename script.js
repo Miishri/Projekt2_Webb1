@@ -162,6 +162,36 @@ function addToCart(componentId) {
 function fetchComponentWithId(productId) {
     return components.find(comp => comp.id === productId)
 }
+
+function removeFromCart(componentId) {
+    const cartItem = fetchCartComponent(componentId);
+    const component = fetchComponentWithId(componentId);
+    if (cartItem && cartCount > 0) {
+        cartItem.remove();
+        cartCount -= 1;
+        updateCartCount();
+        updateTotalPrice(-Number(component["price"]));
+        removeFromStorage(componentId);
+    }
+}
+
+function updateTotalPrice(priceChange) {
+    totalPrice += priceChange;
+    calculateTotalPrice();
+}
+
+function fetchCartComponent(buttonId) {
+    let product
+    console.log(document.querySelectorAll(".cart-products"))
+    document.querySelectorAll(".cart-product").forEach((cartProduct) => {
+
+        if (cartProduct.id === buttonId) {
+            product = cartProduct
+        }
+    })
+    return product
+}
+
 function updateCartCount() {
     productCartCount.style.display = "inline-block";
     productCartCount.textContent = cartCount
@@ -169,6 +199,7 @@ function updateCartCount() {
 
 function createDropdownProductElement(component) {
     const cartProduct = document.createElement("div")
+    cartProduct.id = component["id"]
     cartProduct.classList.add("cart-product")
 
     const cartProductImage = document.createElement("img")
@@ -186,16 +217,27 @@ function createDropdownProductElement(component) {
     const cartProductPrice = document.createElement("div")
     cartProductPrice.classList.add("cart-product-price")
     cartProductPrice.textContent = component["price"] + "$"
+    totalPrice += Number(component["price"])
     cartProductName.appendChild(cartProductPrice)
 
-    totalPrice += Number(component["price"])
+    const removeProductButton = document.createElement("div")
+    removeProductButton.classList.add("cart-product-button")
+    removeProductButton.textContent = "remove"
+    removeProductButton.id = component["id"]
+    removeProductButton.addEventListener('click', () => {
+            const componentId = removeProductButton.id;
+            removeFromCart(componentId);
+            if (cartCount === 0) {
+                resetCart()
+            }
+        })
+    cartProductName.appendChild(removeProductButton)
 
     cartProducts.appendChild(cartProduct)
     calculateTotalPrice()
 }
 
 if (document.readyState !== 'loading') {
-    console.log("hey")
     const localStorageProducts = localStorage.getItem("products")
     if (localStorageProducts) {
         deleteCartButton.style.display = "flex"
@@ -220,6 +262,16 @@ function addToLocalStorage(componentId) {
     if (products.length < 6) {
         products.push(componentId)
     }
+    localStorage.setItem("products", JSON.stringify(products));
+}
+
+function removeFromStorage(componentId) {
+    const localStorageProducts = localStorage.getItem("products")
+    let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
+    if (products.length < 6) {
+        products = products.filter(productId => productId !== componentId);
+    }
+    console.log(products)
     localStorage.setItem("products", JSON.stringify(products));
 }
 

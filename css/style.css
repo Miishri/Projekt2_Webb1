@@ -105,6 +105,22 @@ body {
     box-shadow: 0 1px 5px red;
 }
 
+.cart-product-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.cart-product-button {
+    background: red;
+    padding: 2%;
+    width: 3vw;
+    align-self: center;
+
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 #slider {
     display: flex;
     width: 100%;
@@ -377,17 +393,16 @@ body {
     .cart-product {
         display: flex;
         justify-content: space-evenly;
-    ;
     }
     .cart-product-image {
         width: 4vw;
         height: auto;
     }
     .cart-product-name {
-        font-size: 2em;
+        font-size: 1rem;
     }
     .cart-product-price {
-        font-size: 3rem;
+        font-size: 1.5rem;
     }
 
     #slider {
