@@ -8,32 +8,38 @@ import {
 import {createProduct, createRecommendationProducts} from "./model/Product.js";
 
 const discountSlider = document.getElementById("slider");
-const dots = document.querySelectorAll(".dot")
 const products = document.querySelector(".products");
-const categories = document.querySelectorAll(".category")
+const categories = document.querySelectorAll(".category");
+const cart = document.querySelector(".cart-logo");
+const cartDropdown = document.getElementById("cart-dropdown");
+const cartProducts = document.querySelector(".cart-products");
+const deleteCartButton = document.getElementById("delete-cart");
+const productCartCount = document.getElementById("product-count");
+const totalProductPrice = document.getElementById("total");
+const dots = document.querySelectorAll(".dot");
 
-let imageIndex = 0
+
+let totalPrice = 0;
+let imageIndex = 0;
 let productsLoaded = false;
-const itemsPerPage = 8;
-const components = await getAllComponents();
 let currentPage = 1;
+let cartCount = 0;
+let components = await getAllComponents();
 
-setInterval(updateSlider, 2000)
+setInterval(updateSlider, 2000);
 function updateSlider() {
     imageIndex = (imageIndex + 1) % dots.length;
     discountSlider.scrollLeft = imageIndex * discountSlider.clientWidth;
-
     updateDot();
 }
 function updateDot() {
-    dots.forEach((dot) => {
-        dot.classList.remove("current-dot")
-    })
+    dots.forEach((dot) =>  dot.classList.remove("current-dot"))
     dots[imageIndex].classList.add("current-dot")
 }
 updateDot();
 
 const thirdProduct = components[28]
+
 createRecommendationProducts(thirdProduct)
 
 categories.forEach((category) => {
@@ -75,23 +81,18 @@ function addActiveCategory(element) {
 }
 
 function removeActiveCategories() {
-    categories.forEach((category) => {
-        category.classList.remove("active-category")
-    })
+    categories.forEach((category) => category.classList.remove("active-category"))
 }
 
+const disableCategories = () => {categories.forEach(category => category.disabled = true)}
+const enableCategories = () => {categories.forEach(category => category.disabled = false)}
 
-const disableCategories = () => {
-    categories.forEach(category => {
-        category.disabled = true;
-    });
-};
-
-const enableCategories = () => {
-    categories.forEach(category => {
-        category.disabled = false;
-    });
-};
+function hidePaging() {
+    document.getElementById("products-paginator").style.display = 'none'
+}
+function showPaging() {
+    document.getElementById("products-paginator").style.display = 'flex'
+}
 
 if (!productsLoaded) {
     showPage(currentPage);
@@ -99,16 +100,14 @@ if (!productsLoaded) {
 }
 
 function showPage(pageNumber) {
-    const startIndex = (pageNumber - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
+    const startIndex = (pageNumber - 1) * 8;
+    const endIndex = startIndex + 8;
     displayPagedProducts(components.slice(startIndex, endIndex));
-    console.log(components.slice(startIndex, endIndex))
 }
 function displayPagedProducts(splicedComponents) {
-    products.innerHTML = '';
-    splicedComponents.forEach((product) => {
-        createProduct(product);
-    });
+    products.innerHTML = ''
+    splicedComponents.forEach((product) => createProduct(product))
+    toCart()
 }
 for (let i = 1; i <= 4; i++) {
     loadPageEvent(i)
@@ -122,57 +121,127 @@ function loadPageEvent(i) {
 }
 
 document.querySelector(".next").addEventListener('click', () => endOfNextPage())
-function endOfNextPage(){if (currentPage <= 4 && currentPage + 1 !== 5) showPage(++currentPage)}
+function endOfNextPage(){if (currentPage <= 4) showPage(++currentPage)}
 document.querySelector(".back").addEventListener('click', () => endOfBackPage())
 function endOfBackPage() {
-    if (currentPage <= 6 && currentPage - 1 !== 0) {
-        showPage(--currentPage)
+    if (currentPage > 1) showPage(--currentPage)
+}
+
+cart.addEventListener('click', () => {
+    if (cartCount > 0) {
+        toggleCartDropdown()
     }
-}
-function hidePaging() {
-    document.getElementById("products-paginator").style.display = 'none'
-}
-function showPaging() {
-    document.getElementById("products-paginator").style.display = 'flex'
-}
-
-document.querySelectorAll(".products").forEach((product) => {
-    product.addEventListener('click', () => {
-        displayProduct(product.id)
-    })
 })
-function displayProduct(productId) {
-    visibleCartCount()
-    const fetchedProduct = fetchComponentWithId(productId)
-    displayFetchedProduct(fetchedProduct)
+
+function toggleCartDropdown() {
+    cartDropdown.style.display = (cartDropdown.style.display === "none" || cartDropdown.style.display === "") ? "block" : "none";
 }
 
-function displayFetchedProduct(productData) {
-    const currentProduct = document.createElement("div")
-    currentProduct.classList.add("current-product")
+function toCart() {
+    visibleCartCount()
+    document.querySelectorAll(".product-price").forEach((button) => {
+        button.addEventListener('click', () => {
+            if (cartCount < 5) {
+                deleteCartButton.style.display = "flex"
+                addToCart(button.id)
+            }
+        })
+    })
+}
 
-
-    document.body.appendChild(currentProduct)
-
+function addToCart(componentId) {
+    if (cartCount < 5) {
+        const component = fetchComponentWithId(componentId);
+        createDropdownProductElement(component);
+        cartCount += 1;
+        updateCartCount();
+        addToLocalStorage(componentId)
+    }
 }
 
 function fetchComponentWithId(productId) {
-    let component = "none"
-    components.forEach((comp) => {
-        if (comp.id === productId) {
-            component = comp
-        }
-    })
-    
-    return component
+    return components.find(comp => comp.id === productId)
+}
+function updateCartCount() {
+    productCartCount.style.display = "inline-block";
+    productCartCount.textContent = cartCount
+}
+
+function createDropdownProductElement(component) {
+    const cartProduct = document.createElement("div")
+    cartProduct.classList.add("cart-product")
+
+    const cartProductImage = document.createElement("img")
+    cartProductImage.classList.add("cart-product-image")
+    cartProductImage.src = component["image"][1]
+    cartProductImage.height = 60
+    cartProductImage.width = 60
+    cartProduct.appendChild(cartProductImage)
+
+    const cartProductName = document.createElement("div")
+    cartProductName.classList.add("cart-product-name")
+    cartProductName.textContent = component["title"]
+    cartProductName.style.fontSize = "1rem"
+    cartProduct.appendChild(cartProductName)
+
+    const cartProductPrice = document.createElement("div")
+    cartProductPrice.classList.add("cart-product-price")
+    cartProductPrice.textContent = component["price"] + "$"
+    cartProductName.appendChild(cartProductPrice)
+
+    totalPrice += Number(component["price"])
+
+    cartProducts.appendChild(cartProduct)
+    calculateTotalPrice()
+}
+
+if (document.readyState !== 'loading') {
+    console.log("hey")
+    const localStorageProducts = localStorage.getItem("products")
+    if (localStorageProducts) {
+        deleteCartButton.style.display = "flex"
+        let products = JSON.parse(localStorageProducts);
+        cartCount = products.length
+        productCartCount.style.display = "inline-block";
+        productCartCount.textContent = cartCount
+        products.forEach((productId) => {
+            createDropdownProductElement(fetchComponentWithId(productId))
+        })
+        calculateTotalPrice()
+        console.log(productCartCount.textContent)
+    }
 }
 
 function visibleCartCount() {
     productCartCount.display = "inline-block"
 }
+function addToLocalStorage(componentId) {
+    const localStorageProducts = localStorage.getItem("products")
+    let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
+    products.push(componentId)
+    localStorage.setItem("products", JSON.stringify(products));
+}
 
-const productCartCount = document.getElementById("product-count")
-const localStorageProducts = localStorage.getItem("products")
+function removeCartFromLocalStorage() {
+    localStorage.removeItem("products")
+    totalProductPrice.textContent = ""
+    cartProducts.style.display = "none";
+    console.log(totalProductPrice.textContent)
+}
 
+function calculateTotalPrice() {
+    totalProductPrice.textContent = "Total: " + Math.round(totalPrice) + " $"
+}
 
+deleteCartButton.addEventListener('click', () => resetCart())
 
+function resetCart() {
+    cartCount = 0;
+    totalPrice = 0
+    productCartCount.textContent = ""
+    productCartCount.style.display = "none"
+    cartDropdown.style.display = "none"
+    deleteCartButton.style.display = "none";
+    totalProductPrice.textContent = "Total: ";
+    removeCartFromLocalStorage()
+}
