@@ -431,16 +431,16 @@ body {
     }
 
     .product-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .product-price {
-        font-size: 2rem;
+        font-size: 1.5rem;
         padding: 2%;
     }
 
     .product-description {
-        font-size: 2rem;
+        font-size: 1rem;
     }
 
     .categories-heading {
