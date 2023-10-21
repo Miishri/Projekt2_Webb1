@@ -32,16 +32,17 @@ body {
 
 #product-count {
     position: absolute;
-    margin-top: -0.9vh;
-    margin-left: -4.9vw;
+    margin-top: -0.5vh;
+    margin-left: -6.5vw;
 
     border-radius: 10vw;
 
-    width: 3vw;
+    width: 5vw;
+
 
     background: darkorange;
 
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 1000;
     text-align: center;
 
@@ -65,8 +66,6 @@ body {
     display: none;
 }
 
-
-
 .cart-products {
     display: flex;
     flex-direction: column;
@@ -84,8 +83,25 @@ body {
 
 #delete-cart {
     display: none;
+    all: unset;
+
+    background: black;
+
+    font-size: 1.2rem;
 
     padding: 1%;
+
+    cursor: pointer;
+
+    border-radius: 5px;
+}
+
+
+#delete-cart:hover {
+    border: 1px solid red;
+}
+#delete-cart:active {
+    box-shadow: 0 1px 5px red;
 }
 
 #slider {
@@ -224,11 +240,11 @@ body {
 }
 
 .product-title {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 
 .product-description {
-    font-size: 0.7rem;
+    font-size: 1.2rem;
 }
 
 .product-image {
@@ -336,7 +352,7 @@ body {
     #cart-dropdown {
         top: 8vh;
         right: 25vw;
-        height: 70vh;
+        height: 77vh;
         width: 30vw;
 
         text-align: center;
@@ -347,7 +363,10 @@ body {
     }
 
     #product-count {
-        font-size: 2.2rem;
+        margin-top: -0.9vh;
+        margin-left: -4.9vw;
+
+        font-size: 2rem;
 
         width: 1.25vw;
     }
@@ -358,13 +377,14 @@ body {
     .cart-product {
         display: flex;
         justify-content: space-evenly;
+    ;
     }
     .cart-product-image {
-        width: 5vw;
+        width: 4vw;
         height: auto;
     }
     .cart-product-name {
-        font-size: 3em;
+        font-size: 2em;
     }
     .cart-product-price {
         font-size: 3rem;
@@ -423,12 +443,16 @@ body {
     }
 
     .product-title {
-        font-size: 1.5em;
+        font-size: 3rem;
     }
 
     .product-price {
-        font-size: 1.5rem;
+        font-size: 2rem;
         padding: 2%;
+    }
+
+    .product-description {
+        font-size: 1.75rem;
     }
 
     .categories-heading {
@@ -468,5 +492,15 @@ body {
     .products {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-paging {
+        font-size: 2rem;
+
+        gap: 1%;
+    }
+
+    .next, .back {
+        font-size: 3rem;
     }
 }

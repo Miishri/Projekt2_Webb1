@@ -121,7 +121,7 @@ function loadPageEvent(i) {
 }
 
 document.querySelector(".next").addEventListener('click', () => endOfNextPage())
-function endOfNextPage(){if (currentPage <= 4) showPage(++currentPage)}
+function endOfNextPage(){if (currentPage <= 4 && currentPage + 1 !== 5) showPage(++currentPage)}
 document.querySelector(".back").addEventListener('click', () => endOfBackPage())
 function endOfBackPage() {
     if (currentPage > 1) showPage(--currentPage)
@@ -181,7 +181,6 @@ function createDropdownProductElement(component) {
     const cartProductName = document.createElement("div")
     cartProductName.classList.add("cart-product-name")
     cartProductName.textContent = component["title"]
-    cartProductName.style.fontSize = "1rem"
     cartProduct.appendChild(cartProductName)
 
     const cartProductPrice = document.createElement("div")
@@ -204,11 +203,11 @@ if (document.readyState !== 'loading') {
         cartCount = products.length
         productCartCount.style.display = "inline-block";
         productCartCount.textContent = cartCount
+
         products.forEach((productId) => {
             createDropdownProductElement(fetchComponentWithId(productId))
         })
         calculateTotalPrice()
-        console.log(productCartCount.textContent)
     }
 }
 
@@ -218,15 +217,14 @@ function visibleCartCount() {
 function addToLocalStorage(componentId) {
     const localStorageProducts = localStorage.getItem("products")
     let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
-    products.push(componentId)
+    if (products.length < 6) {
+        products.push(componentId)
+    }
     localStorage.setItem("products", JSON.stringify(products));
 }
 
 function removeCartFromLocalStorage() {
     localStorage.removeItem("products")
-    totalProductPrice.textContent = ""
-    cartProducts.style.display = "none";
-    console.log(totalProductPrice.textContent)
 }
 
 function calculateTotalPrice() {
@@ -239,9 +237,8 @@ function resetCart() {
     cartCount = 0;
     totalPrice = 0
     productCartCount.textContent = ""
-    productCartCount.style.display = "none"
+    totalProductPrice.textContent = "Total: "
     cartDropdown.style.display = "none"
-    deleteCartButton.style.display = "none";
-    totalProductPrice.textContent = "Total: ";
+    cartProducts.innerHTML = ""
     removeCartFromLocalStorage()
 }
