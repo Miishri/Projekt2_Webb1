@@ -57,7 +57,7 @@ body {
     background-color: #0000007F;
     backdrop-filter: blur(50px);
 
-    height: 45vh;
+    height: auto;
     width: 55vw;
     border-radius: 5px;
 
@@ -71,10 +71,11 @@ body {
     flex-direction: column;
 
     gap: 1vh;
+
+    margin-bottom: 1vh;
 }
 .cart-product {
     display: flex;
-    justify-content: space-evenly;
 
     background: rgba(0, 0, 0, 0.5);
 
@@ -236,6 +237,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    height: 100%;
     align-items: center;
 }
 
@@ -327,19 +329,6 @@ body {
     .main-logo {
         height: 8vh;
     }
-
-    .product-title {
-        font-size: 1.5rem;
-    }
-
-    .product-description {
-        font-size: 1.2rem;
-    }
-
-    .product-price {
-        font-size: 1.5rem;
-        padding: 2%;
-    }
 }
 
 @media (min-width: 1025px) {
@@ -389,7 +378,6 @@ body {
     .cart-product-price {
         font-size: 3rem;
     }
-
 
     #slider {
         padding-top: 2%;
@@ -443,7 +431,7 @@ body {
     }
 
     .product-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .product-price {
@@ -452,7 +440,7 @@ body {
     }
 
     .product-description {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .categories-heading {
