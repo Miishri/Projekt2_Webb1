@@ -3,144 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="https://github.com/Miishri">
-    <meta name="description"
-          content="Halloween themed website for
-          buying computer parts,
-          all types of parts with
-          the best quality">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=5, minimum-scale=1.0"
-    >
-    <link rel="shortcut icon"
-          href="https://i.ibb.co/tbM3kf9/favicon-min.png"
-          type="image/png"
-    >
-    <title>HyperMachina | Powering the future</title>
+    <meta name="description" content="website for buying computer parts and all types of parts with the best quality">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, minimum-scale=1.0">
 
-    <link rel="stylesheet"
-          href="css/style.css"
-    >
-    <script src="script.js"
-            type="module"
-            defer>
-    </script>
+    <link rel="shortcut icon" href="https://i.imgur.com/iDV5PzF.png" type="image/png">
+    <title>HyperMachina - Powering the future</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js" type="module" defer></script>
 </head>
 <body>
 <nav class="nav-bar">
-    <img class="main-logo"
-         src="https://i.ibb.co/FJZ70md/main-logo-pumpkin2-min.png"
-         alt="main hyper machina logo"
-    >
-    <div class="cart">
-        <img class="cart-logo"
-             src="Images/logos/shopping-cart.svg"
-             alt="Shopping cart logo svg"
-        >
-        <span id="product-count"></span>
-        <div id="cart-dropdown">
-            <div style="display: flex; justify-content: space-around; align-items: center; padding: 2%">
-                <span id="total"></span>
-                <button id="delete-cart">Empty Cart</button>
-            </div>
-            <div class="cart-products">
-
-            </div>
-        </div>
-    </div>
+    <img class="main-logo" src="https://i.imgur.com/79kVaor.png" alt="hyper machina logo">
+    <img class="cart-logo" src="Images/logos/shopping_cart.svg" alt="shopping cart">
 </nav>
-<main>
-    <div id="slider">
-        <img class="slider-images"
-             src="https://imgur.com/R8UOzfV.jpeg"
-             alt="computer dream build fast delivery banner"
-             rel="preload"
-        >
-        <img class="slider-images"
-             src="https://imgur.com/bpWu1Y8.jpeg"
-             alt="halloween upto 50% off sale banner"
-        >
-        <img class="slider-images"
-             src="https://i.ibb.co/9h6p1Tq/banner-1.webp"
-             alt="halloween upto 80% banner"
-             rel="preload"
-        >
-        <img class="slider-images"
-             src="https://imgur.com/tWu0Zhr.jpeg"
-             alt="nvidia 3060 series rtx banner"
-        >
-        <img class="slider-images"
-             src="https://imgur.com/MaJr7Yu.jpeg"
-             alt="trick or treat halloween discount banner"
-        >
+<header class="main-description">
+    <h1 class="detail-title">Hyper Machina</h1>
+    <h5 class="detail-description">Your Trusted Hub for PC Enthusiasts</h5>
+</header>
+<div class="accessories">
+    <div class="accessory">
+        <img src="https://i.imgur.com/ta6niJI.png" alt="headset & mouse bundle" width="125px" height="125px">
+        <h3 class="accessory-header">Accessories</h3>
     </div>
-    <div class="slider-dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
+    <div class="accessory">
+        <img src="https://i.ibb.co/Xz2z4hm/prebuilt-pc.webp" alt="prebuilt pc nzxt" width="125px" height="125px">
+        <h3 class="accessory-header">Prebuilt PCs</h3>
     </div>
-</main>
-<div class="top-suggestions">
-    <h5 class="top-suggestions-title">Our Top Products</h5>
-    <div class="top-products">
-        <img class="top-product-1"
-             src="https://i.imgur.com/EDhImwS.jpg"
-             alt="amd 7900 product image">
-        <img class="top-product-2"
-             src="https://i.imgur.com/rxxsl1U.jpg"
-             alt="new amd cpu image">
-        <img class="top-product-3"
-             src="https://i.ibb.co/cvsHtJt/4090.webp"
-             alt="nvidia gpu 4090 image">
+    <div class="accessory">
+        <img src="https://i.ibb.co/Xz2z4hm/prebuilt-pc.webp" alt="prebuilt pc nzxt" width="125px" height="125px">
+        <h3 class="accessory-header">Components</h3>
     </div>
 </div>
-<div id="recommended">
-    <h2 class="recommended-products-title">Most Bought Product</h2>
-    <div class="recommended-products"></div>
-</div>
-<div>
-    <h2 class="categories-heading">Categories</h2>
-    <div class="categories">
-        <div class="category" id="gpu">
-            <img  src="Images/logos/gpu.svg"
-                  alt="orange gpu svg">
-            <h6>Graphic Cards</h6>
-        </div>
-        <div class="category" id="ssd">
-            <img src="Images/logos/ssd.svg"
-                 alt="orange sdd svg">
-            <h6>Solid State Drives</h6>
-        </div>
-        <div class="category" id="monitor">
-            <img src="Images/logos/monitor.svg"
-                 alt="orange monitor svg">
-            <h6>Monitors</h6>
-        </div>
-        <div class="category" id="cpu">
-            <img src="Images/logos/cpu.svg"
-                 alt="orange cpu svg">
-            <h6>Processors</h6>
-        </div>
+<div class="products">
+    <div class="gaming-accessories">
+        <h2>Gaming Accessories</h2>
+        <div class="accessories-products"></div>
+    </div>
+    <div class="prebuilt-pcs">
+        <h2>Prebuilt PCs</h2>
+        <div class="accessories-products"></div>
+    </div>
+    <div class="components">
+        <h2>Components</h2>
+        <div class="accessories-products"></div>
     </div>
 </div>
-<div>
-    <h2 class="products-title">All Products</h2>
-    <div class="products"></div>
-</div>
-<div class="products-paging" id="products-paginator">
-    <div class="back">|<</div>
-    <div class="page-1">1</div>
-    <div class="page-2">2</div>
-    <div class="page-3">3</div>
-    <div class="page-4">4</div>
-    <div class="next">>|</div>
-</div>
-<footer class="footer">
-    <div class="partners">Partners</div>
-    <div class="partners">Contact</div>
-    <div class="partners">Policy</div>
-    <div class="partners">Payment Options</div>
-</footer>
+<div class="contacts"></div>
+<footer></footer>
 </body>
 </html>
