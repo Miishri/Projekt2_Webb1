@@ -31,6 +31,15 @@ function fetchSsd(){
         })
 }
 
+function fetchGamingBundles(){
+    return fetch("Databases/accessories/gaming_bundles_products.json")
+        .then(res => res.json())
+        .then(bundles => {
+            return bundles
+        })
+}
+
+
 
 async function getAllComponents() {
     let components = []
@@ -49,9 +58,11 @@ function compPutAndReturn(components, component) {
     return components
 }
 
-export {fetchCpu,
+export {
+    fetchCpu,
     fetchSsd,
     fetchDisplay,
     fetchGpu,
+    fetchGamingBundles,
     getAllComponents
 }
