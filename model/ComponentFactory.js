@@ -1,6 +1,6 @@
 
 function fetchCpu(){
-    return fetch("Databases/cpus_database.json")
+    return fetch("Databases/components/cpus_database.json")
         .then(res => res.json())
         .then(cpus => {
             return cpus
@@ -8,7 +8,7 @@ function fetchCpu(){
 }
 
 function fetchGpu(){
-    return fetch("Databases/gpus_database.json")
+    return fetch("Databases/components/gpus_database.json")
         .then(res => res.json())
         .then(gpus => {
             return gpus
@@ -16,7 +16,7 @@ function fetchGpu(){
 }
 
 function fetchDisplay(){
-    return fetch("Databases/displays_database.json")
+    return fetch("Databases/components/displays_database.json")
         .then(res => res.json())
         .then(displays => {
             return displays
@@ -24,7 +24,7 @@ function fetchDisplay(){
 }
 
 function fetchSsd(){
-    return fetch("Databases/ssds_database.json")
+    return fetch("Databases/components/ssds_database.json")
         .then(res => res.json())
         .then(ssds => {
             return ssds
@@ -40,6 +40,13 @@ function fetchGamingBundles(){
 }
 
 
+function fetchPrebuiltPcs(){
+    return fetch("Databases/accessories/prebuilt_pcs_products.json")
+        .then(res => res.json())
+        .then(pcs => {
+            return pcs
+        })
+}
 
 async function getAllComponents() {
     let components = []
@@ -47,7 +54,6 @@ async function getAllComponents() {
     components = compPutAndReturn(await fetchCpu(), components)
     components = compPutAndReturn(await fetchSsd(), components)
     components = compPutAndReturn(await fetchDisplay(), components)
-
     return components
 }
 
@@ -64,5 +70,6 @@ export {
     fetchDisplay,
     fetchGpu,
     fetchGamingBundles,
-    getAllComponents
+    getAllComponents,
+    fetchPrebuiltPcs
 }

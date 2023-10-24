@@ -6,9 +6,6 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-d88f65d2-7aa7-4e3b-b0ca-040a7f9f03b1.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-4a0105d6-b6de-4f37-8d4d-4932a5b24489.webp"
     ],
-    "description": "The AMD Ryzen 5 5600X has 6 cores and 12 threads. Its base clock is at 3.7 GHz, its turbo clock goes up to 4.6 GHz. Its multiplier is unlocked, making it possible to overclock the processor easily.",
-    "producer": "AMD",
-    "rating": "Based on 148 benchmarks we rate its gaming performance level at 7.67/10. We think it is a reasonable strong processor for current games.",
     "price": "159.99"
   },
   {
@@ -18,9 +15,6 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-8bd3c0a6-2282-4cb7-9377-8526cff53d2d.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-4e23d4d9-5fb1-4439-92ac-52146a19bf0a.webp"
     ],
-    "description": "The AMD Athlon 3000G has 2 cores and 4 threads. Its base clock is at 3.5 GHz. Its multiplier is unlocked, making it possible to overclock the processor easily.",
-    "producer": "AMD",
-    "rating": "Based on 18 benchmarks we rate its gaming performance level at 3.3/10. Compared to the alternatives it is a rather weak processor for games.",
     "price": "49.00"
   },
   {
@@ -30,9 +24,6 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-ea53133e-daee-41f6-9886-61308fd1ad1f.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-0c444e58-9e8a-45df-b76c-a202b2961904.webp"
     ],
-    "description": "The AMD Ryzen 3 3300X has 4 cores and 8 threads. Its base clock is at 3.8 GHz, its turbo clock goes up to 4.3 GHz. Its multiplier is unlocked, making it possible to overclock the processor easily.",
-    "producer": "AMD",
-    "rating": "Based on 67 benchmarks we rate its gaming performance level at 7.3/10. We think it is a reasonable strong processor for current games.",
     "price": "120.00"
   },
   {
@@ -42,57 +33,6 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-1aa5673a-94a9-4c55-b8a5-56c35ce3a5bb.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-9dcaa82f-d93b-4866-adc9-6b63e9d5cfa7.webp"
     ],
-    "description": "The AMD Ryzen 5 5500 has 6 cores and 12 threads. Its base clock is at 3.6 GHz, its turbo clock goes up to 4.2 GHz. Its multiplier is unlocked, making it possible to overclock the processor easily.",
-    "producer": "AMD",
-    "rating": "Based on 9 benchmarks we rate its gaming performance level at 7.48/10. We think it is a reasonable strong processor for current games.",
     "price": "98.01"
-  },
-  {
-    "id": "bf6eac73-8069-41b0-8b07-5cdbdc9bd2c3",
-    "title": "AMD Ryzen 5 5600",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-e0d186d7-496e-4abb-bb44-596cfa890e86.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-723c4522-caa6-4922-bfa7-7c3e36736b83.webp"
-    ],
-    "description": "The AMD Ryzen 5 5600 has 6 cores and 12 threads. Its base clock is at 3.5 GHz, its turbo clock goes up to 4.4 GHz. Its multiplier is unlocked, making it possible to overclock the processor easily.",
-    "producer": "AMD",
-    "rating": "Based on 22 benchmarks we rate its gaming performance level at 7.62/10. We think it is a reasonable strong processor for current games.",
-    "price": "134.00"
-  },
-  {
-    "id": "bc18ddd5-e971-4a26-bcf6-3e65aff1338f",
-    "title": "AMD Ryzen 5 5600G",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-5fe86d8c-21e1-41e0-b1aa-022f00464fe6.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-5ee036fd-12eb-470f-8967-2bb0d495f138.webp"
-    ],
-    "description": "The AMD Ryzen 5 5600G has 6 cores and 12 threads. Its base clock is at 3.9 GHz, its turbo clock goes up to 4.4 GHz. Its multiplier is unlocked, making it possible to overclock the processor easily.",
-    "producer": "AMD",
-    "rating": "Based on 18 benchmarks we rate its gaming performance level at 7.34/10. We think it is a reasonable strong processor for current games.",
-    "price": "128.00"
-  },
-  {
-    "id": "749afe12-6c0d-4f2e-a455-575ef043bf25",
-    "title": "AMD Ryzen 5 7600",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-128a396d-06f9-4780-8de6-337030a2b819.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-a424834e-c5fb-44fe-a683-3ea4731aa5ce.webp"
-    ],
-    "description": "The AMD Ryzen 5 7600 has 6 cores and 12 threads. Its base clock is at 3.8 GHz, its turbo clock goes up to 5.1 GHz. Its multiplier is unlocked, making it possible to overclock the processor easily.",
-    "producer": "AMD",
-    "rating": "Based on 14 benchmarks we rate its gaming performance level at 8.19/10. We think it is a reasonable strong processor for current games.",
-    "price": "224.99"
-  },
-  {
-    "id": "3e85198e-9374-4c01-81e4-5483475b3b7d",
-    "title": "AMD Ryzen 5 7600X",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-265dbf1a-cb42-4293-8c59-5de856eb0595.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-c7e381f0-6917-4925-8f39-abdcd90709c9.webp"
-    ],
-    "description": "The AMD Ryzen 5 7600X has 6 cores and 12 threads. Its base clock is at 4.7 GHz, its turbo clock goes up to 5.3 GHz. Its multiplier is unlocked, making it possible to overclock the processor easily.",
-    "producer": "AMD",
-    "rating": "Based on 52 benchmarks we rate its gaming performance level at 8.65/10. We think it is a reasonable strong processor for current games.",
-    "price": "230.00"
   }
 ]

@@ -6,33 +6,24 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-fc225b11-b581-47f9-940d-3c76a36530ec.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-247768c6-653e-4e33-a456-c2ca4043c988.webp"
     ],
-    "description": "The Crucial P2 1000 GB SSD offers reliable and fast storage for your data. With a high capacity and good performance, it's an excellent choice for your storage needs.",
-    "producer": "Crucial",
-    "rating": 4.5,
     "price": "71.99"
   },
   {
     "id": "9c3565ad-9610-44cb-93c7-4c2f088028f5",
-    "title": "ADATA XPG SX8200 Pro Series 2000 GB",
+    "title": "ADATA XPG SX8200 2000 GB",
     "image": [
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-b736b840-906a-4338-b264-38bf0c666e6e.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-31466e3d-6893-4e62-9b5e-86fb148d8985.webp"
     ],
-    "description": "The ADATA XPG SX8200 Pro Series 2000 GB SSD is a high-capacity storage solution that offers fast data access and reliability for your storage needs.",
-    "producer": "ADATA",
-    "rating": 4.7,
     "price": "204.99"
   },
   {
     "id": "632a2c10-dc9b-4cfa-bc99-eb262f4faf2b",
-    "title": "ADATA XPG SX8200 Pro Series 512 GB",
+    "title": "ADATA XPG SX8200 512 GB",
     "image": [
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-fdfcccf5-1189-4c48-9930-2394299a54fb.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-3bd0afd9-a8b1-4c8e-b594-7dcdb1b67e07.webp"
     ],
-    "description": "The ADATA XPG SX8200 Pro Series 512 GB SSD offers a balance between capacity and speed. It's a reliable storage solution for your data.",
-    "producer": "ADATA",
-    "rating": 4.3,
     "price": "64.99"
   },
   {
@@ -42,57 +33,6 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-d1f949e6-a344-4c28-ba39-7c8d0a1c8e02.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-32d5fb48-151c-44a9-a834-377d2b8baaea.webp"
     ],
-    "description": "The ADATA XPG SX8200 Series SSD offers good performance and reliability. It's a cost-effective solution for your storage needs.",
-    "producer": "ADATA",
-    "rating": 4.1,
     "price": "69.32"
-  },
-  {
-    "id": "54d90bb7-925b-4ad4-bac4-4df160786ca5",
-    "title": "ADATA XPG SX8200 Series",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-a8523efe-3d09-4b12-a76a-464d850bc457.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-54685100-bcf0-47b1-b9d4-31e7b93eb04d.webp"
-    ],
-    "description": "The ADATA XPG SX8200 Series SSD is an affordable and reliable storage solution for your data. It offers good performance and ample capacity.",
-    "producer": "ADATA",
-    "rating": 4.0,
-    "price": "167.26"
-  },
-  {
-    "id": "2cc55d5a-ea92-497a-a126-e87219ad5d06",
-    "title": "ADATA XPG SX8200 Series",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-a8523efe-3d09-4b12-a76a-464d850bc457.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-54685100-bcf0-47b1-b9d4-31e7b93eb04d.webp"
-    ],
-    "description": "The ADATA XPG SX8200 Series SSD is a reliable storage solution with good performance. It offers a balance between cost and capacity.",
-    "producer": "ADATA",
-    "rating": 4.2,
-    "price": "184.62"
-  },
-  {
-    "id": "9e904491-019c-4b33-97a3-443db2f0f5ad",
-    "title": "Corsair MP400 1000 GB",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-a7c3ce21-eeed-4330-b416-318b30b5b6cd.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-c4834c01-4c0f-4d92-9e3f-add1a5a7ed67.webp"
-    ],
-    "description": "The Corsair MP400 1000 GB SSD is a high-capacity storage solution with good performance. It's suitable for a wide range of data storage needs.",
-    "producer": "Corsair",
-    "rating": 4.6,
-    "price": "117.99"
-  },
-  {
-    "id": "d51cc2fe-09d5-4e08-9b0b-3e3c28a749af",
-    "title": "Corsair MP400 2000 GB",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-5d438869-863d-4b7d-a601-cc9311503c2f.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-12ecc248-f133-403d-a589-edbf761d9146.webp"
-    ],
-    "description": "The Corsair MP400 2000 GB SSD offers high capacity and excellent performance for your data storage needs. It's a reliable choice for demanding applications.",
-    "producer": "Corsair",
-    "rating": 4.8,
-    "price": "239.99"
   }
 ]

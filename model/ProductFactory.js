@@ -10,13 +10,18 @@ function createAccessory(product) {
 function createImageElement(product) {
     const image = document.createElement("img")
     image.classList.add("accessories-product-image")
-    image.src = product["image"]
+    if (typeof product["image"] === "object") {
+        image.src = product["image"][0]
+    }else {
+        image.src = product["image"]
+    }
+    image.alt = product["title"]
     image.style.width = "35vw"
     return image
 }
 
 function createTitleElement(product) {
-    const title = document.createElement("h5")
+    const title = document.createElement("h4")
     title.classList.add("accessories-product-title")
     title.textContent = product["title"]
     return title
@@ -26,7 +31,7 @@ function createPriceElement(product) {
     const price = document.createElement("div")
     price.classList.add("accessories-product-price")
     price.id = product["id"]
-    price.textContent = product["price"]
+    price.textContent = product["price"] + "$"
     return price
 }
 

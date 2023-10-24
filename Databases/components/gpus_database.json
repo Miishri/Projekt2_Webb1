@@ -1,14 +1,11 @@
 [
   {
     "id": "f44b0509-db71-4647-b438-0e35dc8d2c5d",
-    "title": "Sapphire Pulse Radeon RX 6600 Gaming",
+    "title": "Sapphire Pulse Radeon RX 6600",
     "image": [
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-83299bd6-6ec6-4c7d-b6f7-77fabde7d7b8.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-81a28134-54a0-4dfb-9d6c-ac28a593a41a.webp"
     ],
-    "description": "The Sapphire Pulse Radeon RX 6600 Gaming has 8 GB Vram. Its boost clock is set to 2044 MHz.",
-    "producer": "SAPPHIRE",
-    "rating": "Based on 63 benchmarks we rate the performance level of its Radeon RX 6600 series at 3.17/10.",
     "price": "279.99"
   },
   {
@@ -18,81 +15,24 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-64ac72d9-9111-41ff-ad23-9195aa387ba2.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-67a18d75-0aed-439b-8218-375925f84a3f.webp"
     ],
-    "description": "The Aorus RTX 3070 Master has 8 GB Vram. Its boost clock is set to 1845 MHz, its memory clock is at 14000 MHz.",
-    "producer": "Gigabyte",
-    "rating": "Based on 180 benchmarks we rate the performance level of its GeForce RTX 3070 series at 5.18/10.",
     "price": "629.99"
   },
   {
     "id": "de02a622-fe33-4719-a5f4-a926d3e80cdc",
-    "title": "ASRock Arc A750 Challenger D OC",
+    "title": "Arc A750 Challenger D OC",
     "image": [
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-5f0986b6-4444-44b6-af56-be035823ced0.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-f84e0a2f-9af3-4709-a947-b3098691f6e1.webp"
     ],
-    "description": "The ASRock Arc A750 Challenger D OC has 8 GB Vram. Its boost clock is set to 2250 MHz, its memory clock is at 2000 MHz.",
-    "producer": "ASRock",
-    "rating": "Based on 57 benchmarks we rate the performance level of its Intel Arc A750 series at 3.22/10.",
     "price": "229.99"
   },
   {
     "id": "be3e9ffb-babe-4242-9755-8b7602cc7bb0",
-    "title": "ASRock Radeon RX 7600 Phantom Gaming 8GO",
+    "title": "Radeon RX 7600 Phantom Gaming 8GO",
     "image": [
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-849276ef-b772-442e-beee-ba9d7a38f75d.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-4b544188-ee25-4639-82f6-6791dd8f2ab2.webp"
     ],
-    "description": "The ASRock Radeon RX 7600 Phantom Gaming 8GO has 8 GB Vram. Its boost clock is set to 2755 MHz, its memory clock is at 18000 MHz.",
-    "producer": "ASRock",
-    "rating": "",
     "price": "259.99"
-  },
-  {
-    "id": "56b3ce17-e046-44a3-b48a-6ab496de6244",
-    "title": "ASUS GeForce RTX 3060 Phoenix V2 12G LHR",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-9ff8e3c3-b339-49ed-9d48-12ada7a62020.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-3f85d68d-c8d3-463d-90a8-92ccf9616291.webp"
-    ],
-    "description": "The ASUS GeForce RTX 3060 Phoenix V2 12G LHR has 12 GB Vram. Its boost clock is set to 1807 MHz, its memory clock is at 15000 MHz.",
-    "producer": "ASUS",
-    "rating": "Based on 147 benchmarks we rate the performance level of its GeForce RTX 3060 series at 3.21/10.",
-    "price": "354.60"
-  },
-  {
-    "id": "2964bb3c-27d6-4e00-ac25-ce2b32d501f0",
-    "title": "ASUS GeForce RTX 3060 TUF LHR",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-d8c75939-8ee5-4e5e-a5a8-6ef35373b6fc.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-b79fa83d-b247-4dde-8fa6-c73fc60f3cfc.webp"
-    ],
-    "description": "The ASUS GeForce RTX 3060 TUF LHR has 12 GB Vram. Its boost clock is set to 1882 MHz, its memory clock is at 15000 MHz.",
-    "producer": "ASUS",
-    "rating": "Based on 147 benchmarks we rate the performance level of its GeForce RTX 3060 series at 3.21/10.",
-    "price": "462.59"
-  },
-  {
-    "id": "1d4cbe75-134a-4d10-873e-22485fcb8e92",
-    "title": "ASUS Radeon RX 6600 XT ROG Strix OC",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-27d7bfed-c0b3-4ad6-bf79-bd5674ac7312.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-ff32058f-efa1-475f-b3a6-de3b0795c558.webp"
-    ],
-    "description": "The ASUS Radeon RX 6600 XT ROG Strix OC has 8 GB Vram. Its boost clock is set to MHz, its memory clock is at 16000 MHz.",
-    "producer": "ASUS",
-    "rating": "Based on 95 benchmarks we rate the performance level of its Radeon RX 6600 XT series at 3.36/10.",
-    "price": "629.55"
-  },
-  {
-    "id": "72379a6c-d098-40ee-bfd3-69900b2006a0",
-    "title": "ASUS Radeon RX 6700 XT TUF O12G",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-e58dcc7f-a83f-45e9-8d17-5b9fee903d21.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-ebd36d1b-5a25-4385-a4ef-5795c3c15e7f.webp"
-    ],
-    "description": "The ASUS Radeon RX 6700 XT TUF O12G has 12 GB Vram. Its boost clock is set to 2622 MHz, its memory clock is at 8000 MHz.",
-    "producer": "ASUS",
-    "rating": "Based on 145 benchmarks we rate the performance level of its Radeon RX 6700 XT series at 4.39/10.",
-    "price": "899.99"
   }
 ]

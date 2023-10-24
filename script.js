@@ -1,4 +1,3 @@
-import {loadBundles} from "./model/AccessoriesProducts.js";
+import {loadProducts} from "./model/AccessoriesProducts.js";
+loadProducts()
 
-
-loadBundles()

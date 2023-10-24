@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: "Roboto Thin", sans-serif;
+    font-family: "Roboto Light", sans-serif;
     font-weight: lighter;
 }
 
@@ -34,11 +34,13 @@ body {
     padding: 2vw 0 2vw 0;
 }
 
-.accessories {
+.accessories-nav {
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 1vh;
 }
-.accessory {
+.accessory-nav {
     display: flex;
     flex-direction: column;
     background: rgba(128, 128, 128, 0.08);
@@ -47,9 +49,12 @@ body {
     transition: border 0.2s;
     cursor: pointer;
 }
-.accessory:hover {
+.accessory-nav:hover {
     border: 1px solid black;
  }
+.accessory-nav > img {
+    width: 25vw;
+}
 .accessory-header {
     font-size: 0.8rem;
 }
@@ -68,10 +73,43 @@ body {
 .accessories-product {
     display: flex;
     flex-direction: column;
+    text-align: center;
     align-items: center;
     justify-content: space-between;
+
+    height: 30vh;
+}
+.products > h2 {
+    padding: 4vw;
 }
 .accessories-product-price {
+    background: rgba(128, 128, 128, 0.08);
+    border-radius: 1vw 0 0 1vw;
+    padding: 2vw;
+
     justify-self: flex-end;
     align-self: center;
+
+    font-weight: 500;
+}
+#page-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    gap: 3vw;
+
+    margin: 3vh;
+}
+#page-count > * {
+    cursor: pointer;
+}
+.contacts {
+    margin-top: 4vh;
+
+    display: flex;
+
+    padding: 4vw;
+    background: rgba(128, 128, 128, 0.15);
+    height: 20vh;
 }
