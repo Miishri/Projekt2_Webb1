@@ -10,10 +10,8 @@ function slideCart() {
     cartButton.addEventListener('click', () => {
         if (shoppingCart.classList.contains("open")) {
             hideCart()
-            enableScroll()
         }else {
             showCart()
-            disableScroll()
         }
     })
 }

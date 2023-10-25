@@ -73,7 +73,7 @@ body {
     font-size: 0.8rem;
 }
 .cart-products {
-    height: 90vh;
+    height: 90%;
 }
 .cart-buy {
     border-top: 1px solid rgba(128, 128, 128, 0.7);
@@ -197,6 +197,9 @@ body {
     }
     .cart-logo {
         height: 4vh;
+    }
+    .cart {
+        width: 50vw;
     }
     .main-description {
         font-size: 1em;
