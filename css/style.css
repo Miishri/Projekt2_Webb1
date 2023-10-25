@@ -132,7 +132,7 @@ body {
         height: 50vh;
     }
     .accessories-product-image {
-        width: 10vw;
+        width: 14vw;
     }
     .accessories-products {
         grid-template-columns: repeat(3, 1fr);

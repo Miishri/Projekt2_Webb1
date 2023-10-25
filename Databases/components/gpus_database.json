@@ -1,29 +1,20 @@
 [
   {
     "id": "f44b0509-db71-4647-b438-0e35dc8d2c5d",
-    "title": "Sapphire Pulse Radeon RX 6600",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-83299bd6-6ec6-4c7d-b6f7-77fabde7d7b8.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-81a28134-54a0-4dfb-9d6c-ac28a593a41a.webp"
-    ],
+    "title": "MSI Geforce RTX 4090 24GB",
+    "image": "https://i.ibb.co/8dqdPf4/4090-1.webp",
     "price": "279.99"
   },
   {
     "id": "83d6b82c-fd88-4236-b91a-3df6937eb3a1",
     "title": "Aorus RTX 3070 Master",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-64ac72d9-9111-41ff-ad23-9195aa387ba2.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-67a18d75-0aed-439b-8218-375925f84a3f.webp"
-    ],
+    "image": "https://i.ibb.co/wd2PKSg/aorus-3070-1.webp",
     "price": "629.99"
   },
   {
     "id": "be3e9ffb-babe-4242-9755-8b7602cc7bb0",
-    "title": "Radeon RX 7600 Phantom Gaming 8GO",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-849276ef-b772-442e-beee-ba9d7a38f75d.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-4b544188-ee25-4639-82f6-6791dd8f2ab2.webp"
-    ],
+    "title": "Radeon RX 7600 Phantom Gaming 8GB",
+    "image": "https://i.ibb.co/zFv4mpt/ryzen-phantom-1.webp",
     "price": "259.99"
   }
 ]

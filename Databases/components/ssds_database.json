@@ -1,20 +1,14 @@
 [
   {
     "id": "a5437751-3986-46a0-965f-bab23724f39d",
-    "title": "Crucial P2 1000 GB",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-fc225b11-b581-47f9-940d-3c76a36530ec.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-247768c6-653e-4e33-a456-c2ca4043c988.webp"
-    ],
+    "title": "Corsair Force Gen 5 2TB",
+    "image": "https://i.ibb.co/266JHSP/corsair-force.webp",
     "price": "71.99"
   },
   {
     "id": "bb278a0a-43df-471f-9cc2-a3a8990e2d2d",
-    "title": "ADATA XPG SX8200 Series",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-d1f949e6-a344-4c28-ba39-7c8d0a1c8e02.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-32d5fb48-151c-44a9-a834-377d2b8baaea.webp"
-    ],
+    "title": "Samsung 990 4TB",
+    "image": "https://i.ibb.co/SV4V65G/samsung-990.webp",
     "price": "69.32"
   }
 ]

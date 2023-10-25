@@ -1,20 +1,14 @@
 [
   {
     "id": "3729a4f7-f71d-4ab3-b68c-425fafb53aa9",
-    "title": "AMD Ryzen 5 5600X",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-d88f65d2-7aa7-4e3b-b0ca-040a7f9f03b1.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-4a0105d6-b6de-4f37-8d4d-4932a5b24489.webp"
-    ],
+    "title": "Intel Core i5 13400F",
+    "image": "https://i.ibb.co/mF3X3Yq/intel-5.webp",
     "price": "159.99"
   },
   {
     "id": "7a35f42e-b3f0-41c4-908e-26eb24e24427",
-    "title": "AMD Ryzen 5 5500",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-1aa5673a-94a9-4c55-b8a5-56c35ce3a5bb.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-9dcaa82f-d93b-4866-adc9-6b63e9d5cfa7.webp"
-    ],
+    "title": "AMD Ryzen 7 7800X3D",
+    "image": "https://i.ibb.co/25dvz7t/ryzen-7.webp",
     "price": "98.01"
   }
 ]
