@@ -1,4 +1,5 @@
 import {loadProducts} from "./model/AccessoriesProducts.js";
+import {createCartProduct} from "./model/CartProductFactory.js";
 loadProducts()
 slideCart()
 closeCart()
@@ -36,3 +37,57 @@ function disableScroll() {
 function enableScroll() {
     document.body.style.overflow = 'visible';
 }
+
+const productCartCount = document.getElementById("cart-count")
+const cartProducts = document.querySelector(".cart-products")
+const totalProductPrice = document.getElementById("total")
+let totalPrice = 0
+function addToLocalStorage(componentId) {
+    const localStorageProducts = localStorage.getItem("products")
+    let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
+    if (products.length < 10) {
+        products.push(componentId)
+    }
+    localStorage.setItem("products", JSON.stringify(products));
+}
+function removeFromStorage(componentId) {
+    const localStorageProducts = localStorage.getItem("products")
+    let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
+    if (products.length < 10) {
+        products = products.filter(productId => productId !== componentId);
+    }
+    localStorage.setItem("products", JSON.stringify(products));
+}
+
+function showPrice(price) {
+    totalProductPrice.textContent = Math.round(price) + " $"
+}
+function deductPrice(price) {
+    const existingTotal = totalProductPrice.textContent.slice(0, totalProductPrice.textContent.length-1).trim()
+    if (existingTotal) {
+        let total = existingTotal - price
+        totalProductPrice.textContent = Math.round(total) + " $"
+    }else {
+        totalProductPrice.textContent = ""
+    }
+}
+
+
+if (document.readyState !== 'loading') {
+    const localStorageProducts = localStorage.getItem("products")
+    if (localStorageProducts) {
+        let products = JSON.parse(localStorageProducts);
+        productCartCount.textContent = products.length
+        productCartCount.style.display = "inline-block";
+
+        cartProducts.forEach((productId) => {
+            createCartProduct(productId)
+        })
+    }
+}
+
+document.querySelectorAll(".cart-product-delete").forEach((btn) => {
+    btn.addEventListener("click", () => {
+
+    })
+})

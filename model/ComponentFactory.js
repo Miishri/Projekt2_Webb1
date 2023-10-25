@@ -54,6 +54,8 @@ async function getAllComponents() {
     components = compPutAndReturn(await fetchCpu(), components)
     components = compPutAndReturn(await fetchSsd(), components)
     components = compPutAndReturn(await fetchDisplay(), components)
+    components = compPutAndReturn(await fetchGamingBundles(), components)
+    components = compPutAndReturn(await fetchPrebuiltPcs(), components)
     return components
 }
 
@@ -64,7 +66,13 @@ function compPutAndReturn(components, component) {
     return components
 }
 
+async function getProductWithId(productId) {
+    const components = await getAllComponents()
+    return components.filter((components) => components["id"] === productId)[0]
+}
+
 export {
+    getProductWithId,
     fetchCpu,
     fetchSsd,
     fetchDisplay,

@@ -25,6 +25,7 @@ body {
     padding-right: 5vw;
 }
 #cart-count {
+    display: none;
     position: absolute;
     top: 0.2%;
     right: 4%;
@@ -67,6 +68,21 @@ body {
 }
 .cart-review {
     font-size: 0.8rem;
+}
+.cart-products {
+    display: flex;
+    flex-direction: column;
+}
+.cart-product {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.cart-product-image {
+    width: 10vh;
+}
+.cart-product-delete{
+    width: 4vh;
 }
 .cart-shipping {
     font-size: 0.8rem;
