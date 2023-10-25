@@ -25,6 +25,18 @@ body {
     cursor: pointer;
     padding-right: 5vw;
 }
+#shopping-cart {
+    background: rgba(255, 255, 255, 0.95);
+
+    width: 70vw;
+    height: 90vh;
+
+    position: absolute;
+    right: -100%;
+    overflow: hidden;
+    top: 5%;
+    transition: right 0.5s;
+}
 
 .main-description {
     text-align: center;
@@ -43,11 +55,13 @@ body {
 .accessory-nav {
     display: flex;
     flex-direction: column;
-    background: rgba(128, 128, 128, 0.08);
+    background: rgba(128, 128, 128, 0.05);
     text-align: center;
     border: 1px solid transparent;
     transition: border 0.2s;
     cursor: pointer;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 .accessory-nav:hover {
     border: 1px solid black;
@@ -76,9 +90,16 @@ body {
     text-align: center;
     align-items: center;
     justify-content: space-between;
+
+    padding: 2.1vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
 }
 .products > h2 {
     padding: 3vw;
+}
+.accessories-product-title {
+    margin-top: 2vh;
 }
 .accessories-product-image {
     width: 30vw;
@@ -86,12 +107,15 @@ body {
 }
 .accessories-product-price {
     background: rgba(128, 128, 128, 0.08);
-    border-radius: 1vw 0 0 1vw;
+    border-radius: 5px;
+    margin-top: 4vh;
     padding: 2vw;
+    width: 100%;
 
     justify-self: flex-end;
     align-self: center;
 
+    font-size: 1.3rem;
     font-weight: 500;
 }
 .accessories-product-price:hover {
@@ -121,9 +145,22 @@ body {
     .cart-logo {
         height: 4vh;
     }
+    .main-description {
+        font-size: 1em;
+        padding: 3vw 0 2vw 0;
+    }
+    .detail-description {
+        padding: 0.5vw 0 1vw 0;
+    }
     .accessories-nav {
         justify-content: center;
         gap: 3vw;
+    }
+    .accessory-header {
+        font-size: 1.2em;
+    }
+    .products > h2 {
+        font-size: 2rem;
     }
     .accessories-image{
         width: 16vw;
