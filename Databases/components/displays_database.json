@@ -1,21 +1,12 @@
 [
   {
     "id": "9e18e26d-7d89-4c72-a17d-458f3d4bb77e",
-    "title": "Acer CB242Y bir",
+    "title": "Acer CB242Y",
     "image": [
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-8f1762ed-cdc5-4da7-9d19-3f7a99a4bb3b.webp",
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-2a6fc2f1-5e48-43f1-b4b2-14f06ca4feb1.webp"
     ],
     "price": "109.99"
-  },
-  {
-    "id": "0eb7eaf9-44bf-4e9f-b9cd-a604b7ecc72a",
-    "title": "Gigabyte G27QC",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-a7d704ab-648d-4076-b6d2-5e3513d343e1.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-c1d37db2-9897-47b6-802a-d71971d0b4cb.webp"
-    ],
-    "price": "329.99"
   },
   {
     "id": "a2e1b5ec-2b63-45bd-9c6f-9db239057c0c",
@@ -25,14 +16,5 @@
       "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-7015fe27-017b-4292-8c90-f947bfcf07a7.webp"
     ],
     "price": "319.99"
-  },
-  {
-    "id": "6e13e858-1257-4c3d-9c6f-6db7d4559863",
-    "title": "Viewsonic VX2758-2KP-MHD",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-ae3d224d-63e7-4c97-9e72-2a2111032e0e.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-462ceb94-d4ad-4f83-886f-b900a126703d.webp"
-    ],
-    "price": "299.99"
   }
 ]

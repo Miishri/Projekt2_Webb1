@@ -9,24 +9,6 @@
     "price": "71.99"
   },
   {
-    "id": "9c3565ad-9610-44cb-93c7-4c2f088028f5",
-    "title": "ADATA XPG SX8200 2000 GB",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-b736b840-906a-4338-b264-38bf0c666e6e.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-31466e3d-6893-4e62-9b5e-86fb148d8985.webp"
-    ],
-    "price": "204.99"
-  },
-  {
-    "id": "632a2c10-dc9b-4cfa-bc99-eb262f4faf2b",
-    "title": "ADATA XPG SX8200 512 GB",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-fdfcccf5-1189-4c48-9930-2394299a54fb.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-3bd0afd9-a8b1-4c8e-b594-7dcdb1b67e07.webp"
-    ],
-    "price": "64.99"
-  },
-  {
     "id": "bb278a0a-43df-471f-9cc2-a3a8990e2d2d",
     "title": "ADATA XPG SX8200 Series",
     "image": [

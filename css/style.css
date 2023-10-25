@@ -52,8 +52,9 @@ body {
 .accessory-nav:hover {
     border: 1px solid black;
  }
-.accessory-nav > img {
+.accessories-image {
     width: 25vw;
+    height: auto;
 }
 .accessory-header {
     font-size: 0.8rem;
@@ -68,7 +69,6 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 5vw;
-    margin-top: 2vh;
 }
 .accessories-product {
     display: flex;
@@ -76,11 +76,13 @@ body {
     text-align: center;
     align-items: center;
     justify-content: space-between;
-
-    height: 30vh;
 }
 .products > h2 {
     padding: 4vw;
+}
+.accessories-product-image {
+    width: 30vw;
+    height: auto;
 }
 .accessories-product-price {
     background: rgba(128, 128, 128, 0.08);
@@ -92,24 +94,50 @@ body {
 
     font-weight: 500;
 }
-#page-count {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    gap: 3vw;
-
-    margin: 3vh;
-}
-#page-count > * {
+.accessories-product-price:hover {
     cursor: pointer;
+    background: rgba(128, 128, 128, 0.2);
 }
+.accessories-product-price:active {
+    box-shadow: 0 1px 5px rgba(128, 128, 128, 0.2);
+}
+
 .contacts {
     margin-top: 4vh;
-
     display: flex;
 
-    padding: 4vw;
     background: rgba(128, 128, 128, 0.15);
     height: 20vh;
+}
+
+
+@media (min-width: 1025px) {
+    .nav-bar {
+        justify-content: space-around;
+    }
+    .main-logo {
+        height: 4.5vh;
+    }
+    .cart-logo {
+        height: 4vh;
+    }
+    .accessories-nav {
+        justify-content: center;
+        gap: 3vw;
+    }
+    .accessories-image{
+        width: 16vw;
+    }
+    .accessories-product {
+        height: 50vh;
+    }
+    .accessories-product-image {
+        width: 16vw;
+    }
+    .accessories-products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .accessories-product-price {
+        padding: 0.8vw;
+    }
 }

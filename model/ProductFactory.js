@@ -16,7 +16,6 @@ function createImageElement(product) {
         image.src = product["image"]
     }
     image.alt = product["title"]
-    image.style.width = "35vw"
     return image
 }
 

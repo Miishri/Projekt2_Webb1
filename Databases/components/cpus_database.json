@@ -9,24 +9,6 @@
     "price": "159.99"
   },
   {
-    "id": "b582b3c8-dc05-445b-ac16-9a564b311fe0",
-    "title": "AMD Athlon 3000G",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-8bd3c0a6-2282-4cb7-9377-8526cff53d2d.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-4e23d4d9-5fb1-4439-92ac-52146a19bf0a.webp"
-    ],
-    "price": "49.00"
-  },
-  {
-    "id": "290db834-fb26-412a-9fd3-d3f6ea2dd118",
-    "title": "AMD Ryzen 3 3300X",
-    "image": [
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-original-ea53133e-daee-41f6-9886-61308fd1ad1f.webp",
-      "https://mydatastoragebucket.s3.amazonaws.com/componentImages/Component-resized-0c444e58-9e8a-45df-b76c-a202b2961904.webp"
-    ],
-    "price": "120.00"
-  },
-  {
     "id": "7a35f42e-b3f0-41c4-908e-26eb24e24427",
     "title": "AMD Ryzen 5 5500",
     "image": [
