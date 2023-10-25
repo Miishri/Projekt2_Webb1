@@ -11,7 +11,7 @@ function createImageElement(product) {
     const image = document.createElement("img")
     image.classList.add("accessories-product-image")
     if (typeof product["image"] === "object") {
-        image.src = product["image"][0]
+        image.src = product["image"][1]
     }else {
         image.src = product["image"]
     }

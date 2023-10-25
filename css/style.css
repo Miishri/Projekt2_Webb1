@@ -78,7 +78,7 @@ body {
     justify-content: space-between;
 }
 .products > h2 {
-    padding: 4vw;
+    padding: 3vw;
 }
 .accessories-product-image {
     width: 30vw;
@@ -132,10 +132,11 @@ body {
         height: 50vh;
     }
     .accessories-product-image {
-        width: 16vw;
+        width: 10vw;
     }
     .accessories-products {
         grid-template-columns: repeat(3, 1fr);
+        grid-gap: 3vw;
     }
     .accessories-product-price {
         padding: 0.8vw;
