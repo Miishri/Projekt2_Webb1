@@ -42,7 +42,6 @@ body {
     position: fixed;
     top: 0;
     right: -100vmax;
-    overflow: hidden;
     transition: right 0.3s;
 }
 #cart-background.close{
@@ -71,9 +70,6 @@ body {
 }
 .cart-shipping {
     font-size: 0.8rem;
-}
-.cart-products {
-    height: 90%;
 }
 .cart-buy {
     border-top: 1px solid rgba(128, 128, 128, 0.7);
