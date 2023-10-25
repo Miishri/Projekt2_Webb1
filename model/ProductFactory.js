@@ -20,7 +20,7 @@ function createImageElement(product) {
 }
 
 function createTitleElement(product) {
-    const title = document.createElement("h4")
+    const title = document.createElement("p")
     title.classList.add("accessories-product-title")
     title.textContent = product["title"]
     return title
