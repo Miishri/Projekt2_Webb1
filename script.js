@@ -1,16 +1,38 @@
 import {loadProducts} from "./model/AccessoriesProducts.js";
 loadProducts()
 slideCart()
+closeCart()
 
+const shoppingCart = document.getElementById("cart-background")
 
 function slideCart() {
     const cartButton = document.querySelector(".cart-logo")
-    const shoppingCart = document.getElementById("shopping-cart")
     cartButton.addEventListener('click', () => {
-        if (shoppingCart.style.right === "0px") {
-            shoppingCart.style.right = "-100%"
+        if (shoppingCart.classList.contains("open")) {
+            hideCart()
+            enableScroll()
         }else {
-            shoppingCart.style.right = "0"
+            showCart()
+            disableScroll()
         }
     })
+}
+function closeCart() {
+    const closeCart = document.getElementById("cart-close")
+    closeCart.addEventListener('click', () => {
+        hideCart()
+        enableScroll()
+    })
+}
+function hideCart() {
+    shoppingCart.classList.remove('open')
+}
+function showCart() {
+    shoppingCart.classList.add('open');
+}
+function disableScroll() {
+    document.body.style.overflow = 'hidden';
+}
+function enableScroll() {
+    document.body.style.overflow = 'visible';
 }
