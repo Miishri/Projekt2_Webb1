@@ -45,7 +45,7 @@ let totalPrice = 0
 function addToLocalStorage(componentId) {
     const localStorageProducts = localStorage.getItem("products")
     let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
-    if (products.length < 10) {
+    if (products.length < 9) {
         products.push(componentId)
     }
     localStorage.setItem("products", JSON.stringify(products));
