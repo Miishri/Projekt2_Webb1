@@ -54,7 +54,7 @@ function addToLocalStorage(componentId) {
 function removeFromStorage(componentId) {
     const localStorageProducts = localStorage.getItem("products")
     let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
-    if (products.length < 8) {
+    if (products.length < 9) {
         products = products.filter(productId => productId !== componentId);
     }
     localStorage.setItem("products", JSON.stringify(products));
