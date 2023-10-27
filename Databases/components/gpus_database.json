@@ -1,7 +1,7 @@
 [
   {
     "id": "3",
-    "title": "MSI Geforce RTX 4090 24GB",
+    "title": "MSI RTX 4090 24GB",
     "image": "https://i.ibb.co/8dqdPf4/4090-1.webp",
     "price": "279.99"
   },
@@ -13,7 +13,7 @@
   },
   {
     "id": "5",
-    "title": "Radeon RX 7600 Phantom Gaming 8GB",
+    "title": "AMD RX 7600 8GB",
     "image": "https://i.ibb.co/zFv4mpt/ryzen-phantom-1.webp",
     "price": "259.99"
   }

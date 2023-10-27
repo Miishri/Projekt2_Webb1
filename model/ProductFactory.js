@@ -51,7 +51,10 @@ function createPriceElement(product) {
     price.textContent = product["price"] + "$"
 
     price.addEventListener('click', () => {
-        createCartProduct(product["id"])
+        const cartProducts = document.querySelectorAll(".cart-product")
+        if (cartProducts.length < 9) {
+            createCartProduct(product["id"])
+        }
     })
     return price
 }
