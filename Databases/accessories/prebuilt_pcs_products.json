@@ -1,36 +1,36 @@
 [
   {
-    "id": "9",
+    "id": "16",
     "title": "Player:One Extreme",
     "image": "https://i.ibb.co/YPNdXqh/playerone-prebuilt.webp",
     "price": "749.00"
   },
   {
-    "id": "10",
+    "id": "17",
     "title": "Player:Two Turbo",
     "image": "https://i.ibb.co/HrbFMgB/playertwo-prebuilt.webp",
     "price": "1599.00"
   },
   {
-    "id": "11",
+    "id": "18",
     "title": "Player:Three Ultra",
     "image": "https://i.ibb.co/KrcXpXH/playerthree-prebuilt.webp",
     "price": "2399.00"
   },
   {
-    "id": "12",
+    "id": "19",
     "title": "Gladiator Glacier",
     "image": "https://i.ibb.co/mvBTR9z/gladiator-glacier.webp",
     "price": "2599.99"
   },
   {
-    "id": "13",
+    "id": "20",
     "title": "Gladiator Vortex",
     "image": "https://i.ibb.co/RvLwVvg/gladiator-vortex-1.webp",
     "price": "2899.99"
   },
   {
-    "id": "14",
+    "id": "21",
     "title": "Gladiator Infinite",
     "image": "https://i.ibb.co/HKrSHb7/gladiator-infinite-1.webp",
     "price": "3999.00"

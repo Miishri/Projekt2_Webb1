@@ -1,36 +1,36 @@
 [
   {
-    "id": "f44b0509-db71-4647-b438-0echerd8d2c5d",
+    "id": "10",
     "title": "Corsair Gaming Bundle",
     "image": "https://i.ibb.co/QYFcnkN/corsair-bundle.webp",
     "price": "279.99"
   },
   {
-    "id": "83d6b82c-fd88-4236-basa-3df6937eb3a1",
+    "id": "11",
     "title": "Fourze Gaming Bundle",
     "image": "https://i.ibb.co/MgWrKPg/fourze-bundle.webp",
     "price": "629.99"
   },
   {
-    "id": "de02a622-fe33-4719-a5f4-a926d12412dc",
+    "id": "12",
     "title": "LeetGaming Bundle",
     "image": "https://i.ibb.co/hHsmHkS/leetgaming-bundle.webp",
     "price": "229.99"
   },
   {
-    "id": "be3e9ffb-babe-4242-9755-8bq1234xcc7bb0",
+    "id": "13",
     "title": "Legion Gaming Bundle",
     "image": "https://i.ibb.co/QQCj4WM/legion-bundle.webp",
     "price": "259.99"
   },
   {
-    "id": "15",
+    "id": "14",
     "title": "Logitech Gaming Bundle",
     "image": "https://i.ibb.co/BfkkJJH/logitech-bundle.webp",
     "price": "354.60"
   },
   {
-    "id": "16",
+    "id": "15",
     "title": "SteelSeries Gaming Bundle",
     "image": "https://i.ibb.co/z6PsLtV/steelseries-bundle.webp",
     "price": "462.59"

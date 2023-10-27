@@ -46,7 +46,7 @@ let totalPrice = 0
 function addToLocalStorage(componentId) {
     const localStorageProducts = localStorage.getItem("products")
     let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
-    if (products.length < 9) {
+    if (products.length < 8) {
         products.push(componentId)
     }
     localStorage.setItem("products", JSON.stringify(products));
@@ -54,7 +54,7 @@ function addToLocalStorage(componentId) {
 function removeFromStorage(componentId) {
     const localStorageProducts = localStorage.getItem("products")
     let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
-    if (products.length < 9) {
+    if (products.length < 8) {
         products = products.filter(productId => productId !== componentId);
     }
     localStorage.setItem("products", JSON.stringify(products));

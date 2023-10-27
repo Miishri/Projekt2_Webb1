@@ -52,9 +52,10 @@ function createPriceElement(product) {
 
     price.addEventListener('click', () => {
         const cartProducts = document.querySelectorAll(".cart-product")
-        if (cartProducts.length < 9) {
+        if (cartProducts.length < 8) {
             createCartProduct(product["id"])
         }
+        
     })
     return price
 }
