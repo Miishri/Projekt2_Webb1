@@ -1,12 +1,12 @@
-import {loadProducts} from "./model/AccessoriesProducts.js";
+import {loadProducts} from "./model/AccessoryProductsApi.js";
 import {createCartProduct} from "./model/CartProductFactory.js";
+import {findProductById} from "./model/ProductApi.js";
 
 loadProducts()
 slideCart()
 closeCart()
 
 const shoppingCart = document.getElementById("cart-background")
-
 function slideCart() {
     const cartButton = document.querySelector(".cart-logo")
     cartButton.addEventListener('click', () => {
@@ -38,43 +38,3 @@ function disableScroll() {
 function enableScroll() {
     document.body.style.overflow = 'visible';
 }
-
-const productCartCount = document.getElementById("cart-count")
-const cartProducts = document.querySelector(".cart-products")
-const totalProductPrice = document.getElementById("total")
-let totalPrice = 0
-function addToLocalStorage(componentId) {
-    const localStorageProducts = localStorage.getItem("products")
-    let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
-    if (products.length < 8) {
-        products.push(componentId)
-    }
-    localStorage.setItem("products", JSON.stringify(products));
-}
-function removeFromStorage(componentId) {
-    const localStorageProducts = localStorage.getItem("products")
-    let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
-    if (products.length < 8) {
-        products = products.filter(productId => productId !== componentId);
-    }
-    localStorage.setItem("products", JSON.stringify(products));
-}
-
-function showPrice(price) {
-    totalProductPrice.textContent = Math.round(price) + " $"
-}
-
-if (document.readyState !== 'loading') {
-    const localStorageProducts = localStorage.getItem("products")
-    if (localStorageProducts) {
-        let products = JSON.parse(localStorageProducts);
-        productCartCount.textContent = products.length
-        productCartCount.style.display = "inline-block";
-
-        cartProducts.forEach((productId) => {
-            createCartProduct(productId)
-        })
-    }
-}
-
-export {showPrice}

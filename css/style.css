@@ -84,9 +84,7 @@ body {
 }
 .cart-product-delete{
     width: 4vh;
-}
-.cart-shipping {
-    font-size: 0.8rem;
+    cursor: pointer;
 }
 .cart-buy {
     border-top: 1px solid rgba(128, 128, 128, 0.7);
@@ -96,6 +94,8 @@ body {
     width: 100%;
     height: 8vh;
     padding: 1vh;
+
+    display: none;
 }
 .cart-buy:hover {
     cursor: pointer;
@@ -139,6 +139,7 @@ body {
 }
 .accessory-header {
     font-size: 0.7rem;
+    padding-bottom: 0.5rem;
 }
 .products {
     display: flex;
@@ -157,6 +158,9 @@ body {
     align-items: center;
     justify-content: space-between;
 
+    height: 30vh;
+    width: 40vw;
+
     padding: 2.1vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     border-radius: 3px;
@@ -167,6 +171,7 @@ body {
 .accessories-product-title {
     margin-top: 2vh;
     font-size: 0.8rem;
+    font-weight: lighter;
 }
 .accessories-product-image {
     width: 30vw;
@@ -200,7 +205,35 @@ body {
     background: rgba(128, 128, 128, 0.15);
     height: 20vh;
 }
-
+@media (min-width: 499px) {
+    .accessories-product {
+        height: 40vh;
+        width: 35vw;
+    }
+    .accessories-product-title {
+        margin-top: 2vh;
+        font-size: 1rem;
+    }
+    .accessories-product-price {
+        font-size: 1.2rem;
+    }
+}
+@media (min-width: 750px) {
+    .accessories-product {
+        height: 45vh;
+        width: 40vw;
+    }
+    .accessories-product-image {
+        width: 25vw;
+    }
+    .accessories-product-title {
+        margin-top: 2vh;
+        font-size: 1.2rem;
+    }
+    .accessories-product-price {
+        font-size: 1.4rem;
+    }
+}
 @media (min-width: 1025px) {
     .nav-bar {
         justify-content: space-around;
@@ -213,6 +246,12 @@ body {
     }
     .cart {
         width: 50vw;
+    }
+    #cart-count {
+        top: 0.4%;
+        right: 24.8%;
+        color: white;
+        font-size: 0.7rem;
     }
     .main-description {
         font-size: 1em;
@@ -237,8 +276,12 @@ body {
     .accessories-product {
         height: 50vh;
     }
+    .accessories-product {
+        height: auto;
+        width: 18vw;
+    }
     .accessories-product-image {
-        width: 14vw;
+        width: 11vw;
     }
     .accessories-products {
         grid-template-columns: repeat(3, 1fr);
@@ -246,5 +289,6 @@ body {
     }
     .accessories-product-price {
         padding: 0.8vw;
+        font-size: 1.3rem;
     }
 }

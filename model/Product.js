@@ -1,5 +1,3 @@
-import {createCartProduct} from "./CartProductFactory.js";
-
 function createAccessory(product) {
     const accessories = document.createElement("div")
     accessories.classList.add("accessories-product")
@@ -49,14 +47,7 @@ function createPriceElement(product) {
     price.classList.add("accessories-product-price")
     price.id = product["id"]
     price.textContent = product["price"] + "$"
-
-    price.addEventListener('click', () => {
-        const cartProducts = document.querySelectorAll(".cart-product")
-        if (cartProducts.length < 8) {
-            createCartProduct(product["id"])
-        }
-        
-    })
+    
     return price
 }
 

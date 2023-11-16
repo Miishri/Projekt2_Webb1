@@ -1,16 +1,17 @@
-import {getProductWithId} from "./ComponentFactory.js";
+import {findProductById} from "./ProductApi.js";
 
 async function createCartProduct(productId) {
-    const uniqueId = productId + "-" + Date.now()
-    const product = await getProductWithId(productId)
+    displayBuy()
+    displayCount()
+    
+    const product = await findProductById(productId)
     const cartProducts = document.querySelector(".cart-products")
-    const cartProduct = document.createElement("div")
-    cartProduct.id = uniqueId
-    cartProduct.classList.add("cart-product")
+
+    const cartProduct = createCart(productId)
     cartProduct.appendChild(createImageElement(product))
     cartProduct.appendChild(createTitleElement(product))
     cartProduct.appendChild(createPriceElement(product))
-    cartProduct.appendChild(createDeleteElement(product, uniqueId))
+    cartProduct.appendChild(createDeleteElement(product, productId))
     cartProducts.appendChild(cartProduct)
 }
 
@@ -32,21 +33,31 @@ function createDeleteElement(product, productId) {
     const deleteButton = document.createElement("img")
     deleteButton.classList.add("cart-product-delete")
     deleteButton.id = productId
-    deleteButton.style.cursor = "pointer"
-    deleteButton.src = "Images/logos/delete.svg"
-
-    console.log(deleteButton.id)
+    deleteButton.src = "https://svgshare.com/i/zdP.svg"
     
-    deleteButton.addEventListener('click', () => {
-        const cartProductElements = document.querySelectorAll(".cart-product")
-        cartProductElements.forEach((cartProduct) => {
-            if (cartProduct.id === deleteButton.id) {
-                cartProduct.remove()
-            }
-        })
-    })
-
+    
     return deleteButton
+}
+
+function displayBuy() {
+    document.querySelector(".cart-buy").classList.toggle("show")
+}
+function hideBuy() {
+    document.querySelector(".cart-buy").classList.toggle("hide")
+}
+
+function displayCount() {
+    document.getElementById("cart-count").classList.toggle("show")
+}
+function hideCount() {
+    document.getElementById("cart-count").classList.toggle("hide")
+}
+
+function createCart(uniqueId) {
+    const cartProduct = document.createElement("div")
+    cartProduct.classList.add("cart-product")
+    cartProduct.id = uniqueId
+    return cartProduct
 }
 
 function createPriceElement(product) {
@@ -55,6 +66,5 @@ function createPriceElement(product) {
     price.textContent = product["price"] + "$"
     return price
 }
-
 
 export {createCartProduct}

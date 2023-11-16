@@ -1,5 +1,5 @@
-import {fetchGamingBundles, fetchPrebuiltPcs, getAllComponents} from "./ComponentFactory.js";
-import {createAccessory} from "./ProductFactory.js";
+import {fetchBundles, fetchPrebuiltComputers, getAllProducts} from "./ProductApi.js";
+import {createAccessory} from "./Product.js";
 
 function loadProducts() {
     loadBundles()
@@ -8,20 +8,20 @@ function loadProducts() {
 }
 
 async function loadBundles() {
-    const gamingBundlesJson = await fetchGamingBundles()
+    const gamingBundlesJson = await fetchBundles()
     gamingBundlesJson.forEach((bundle) => {
         createBundleElement(bundle)
     })
 }
 async function loadPrebuiltPcs() {
-    const prebuiltPcs = await fetchPrebuiltPcs()
+    const prebuiltPcs = await fetchPrebuiltComputers()
     prebuiltPcs.forEach((pc) => {
         createPrebuiltElement(pc)
     })
 }
 
 async function loadComponents() {
-    const components = await getAllComponents()
+    const components = await getAllProducts()
     components.forEach((component) => {
         createComponentElement(component)
     })
