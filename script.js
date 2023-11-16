@@ -38,3 +38,8 @@ function disableScroll() {
 function enableScroll() {
     document.body.style.overflow = 'visible';
 }
+
+function loadCart() {
+
+}
+

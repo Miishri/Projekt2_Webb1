@@ -1,3 +1,5 @@
+import {addToCart} from "./ProductApi.js";
+
 function createAccessory(product) {
     const accessories = document.createElement("div")
     accessories.classList.add("accessories-product")
@@ -47,6 +49,10 @@ function createPriceElement(product) {
     price.classList.add("accessories-product-price")
     price.id = product["id"]
     price.textContent = product["price"] + "$"
+
+    price.addEventListener('click', () => {
+        addToCart(product)
+    })
     
     return price
 }

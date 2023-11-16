@@ -65,7 +65,31 @@ function pushProduct(components, component) {
     return components
 }
 
+function addToCart(product) {
+    const localStorageProducts = localStorage.getItem("products")
+    let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
+    if (products.length < 8) {
+        products.push(generateUniqueId(product))
+    }
+    localStorage.setItem("products", JSON.stringify(products));
+}
+
+function removeFromCart(priceElement, product) {
+    const localStorageProducts = localStorage.getItem("products")
+    let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
+    if (products.length < 8) {
+        products = products.filter(productId => productId !== productId);
+    }
+    localStorage.setItem("products", JSON.stringify(products));
+}
+
+function generateUniqueId(product) {
+    return product["id"] + ":" + Date.now()
+}
+
 export {
+    addToCart,
+    removeFromCart,
     findProductById,
     fetchBundles,
     getAllProducts,
