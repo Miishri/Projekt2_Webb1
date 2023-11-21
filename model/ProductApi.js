@@ -99,6 +99,7 @@ function count(products) {
 
     if (productCartCount.textContent === "0") {
         productCartCount.style.display = "none"
+        document.querySelector(".cart-buy").style.display = "none"
     }
 }
 

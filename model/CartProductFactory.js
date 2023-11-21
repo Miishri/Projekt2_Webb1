@@ -47,10 +47,7 @@ function createDeleteElement(product, productId) {
 }
 
 function displayBuy() {
-    document.querySelector(".cart-buy").classList.toggle("show")
-}
-function hideBuy() {
-    document.querySelector(".cart-buy").classList.toggle("hide")
+    document.querySelector(".cart-buy").style.display = "inline-block"
 }
 
 
