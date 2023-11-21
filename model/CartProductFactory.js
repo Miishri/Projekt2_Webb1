@@ -1,18 +1,23 @@
-import {findProductById} from "./ProductApi.js";
+import {addToCart, findProductById, removeFromCart} from "./ProductApi.js";
 
-async function createCartProduct(productId) {
+async function createCartProduct(product) {
     displayBuy()
     displayCount()
+
+    const fetchedProduct = await findProductById(product)
+
     
-    const product = await findProductById(productId)
+    const productId = generateUniqueId(product)
     const cartProducts = document.querySelector(".cart-products")
 
-    const cartProduct = createCart(productId)
-    cartProduct.appendChild(createImageElement(product))
-    cartProduct.appendChild(createTitleElement(product))
-    cartProduct.appendChild(createPriceElement(product))
-    cartProduct.appendChild(createDeleteElement(product, productId))
-    cartProducts.appendChild(cartProduct)
+    const cart = createCart(productId)
+    cart.appendChild(createImageElement(product))
+    cart.appendChild(createTitleElement(product))
+    cart.appendChild(createPriceElement(product))
+    cart.appendChild(createDeleteElement(product, productId))
+    cartProducts.appendChild(cart)
+
+    addToCart(productId)
 }
 
 function createImageElement(product) {
@@ -34,8 +39,11 @@ function createDeleteElement(product, productId) {
     deleteButton.classList.add("cart-product-delete")
     deleteButton.id = productId
     deleteButton.src = "https://svgshare.com/i/zdP.svg"
-    
-    
+
+    deleteButton.addEventListener("click", () => {
+        removeFromCart(productId)
+    })
+
     return deleteButton
 }
 
@@ -65,6 +73,11 @@ function createPriceElement(product) {
     price.classList.add("cart-product-price")
     price.textContent = product["price"] + "$"
     return price
+}
+
+
+function generateUniqueId(product) {
+    return product["id"] + ":" + Date.now()
 }
 
 export {createCartProduct}

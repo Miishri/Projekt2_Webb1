@@ -65,26 +65,45 @@ function pushProduct(components, component) {
     return components
 }
 
-function addToCart(product) {
+function addToCart(productId) {
     const localStorageProducts = localStorage.getItem("products")
     let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
     if (products.length < 8) {
-        products.push(generateUniqueId(product))
+        products.push(productId)
     }
     localStorage.setItem("products", JSON.stringify(products));
+    increaseCount(products)
 }
 
-function removeFromCart(priceElement, product) {
+function removeFromCart(productId) {
     const localStorageProducts = localStorage.getItem("products")
     let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
     if (products.length < 8) {
-        products = products.filter(productId => productId !== productId);
+        products = products.filter(id => {
+            if (id !== productId) {
+                return true
+            }else {
+                const cart = document.getElementById(`${productId}`)
+                cart.remove()
+                return false;
+            }
+        });
     }
-    localStorage.setItem("products", JSON.stringify(products));
+    localStorage.setItem("products", JSON.stringify(products))
+    minusCount(products)
 }
 
-function generateUniqueId(product) {
-    return product["id"] + ":" + Date.now()
+function minusCount(products) {
+    const productCartCount = document.getElementById("cart-count")
+    productCartCount.textContent = `${products.length - 1}`
+}
+function increaseCount(products) {
+    const productCartCount = document.getElementById("cart-count")
+    productCartCount.textContent = `${products.length + 1}`
+}
+
+function sliceProductId(product) {
+    return product.split(":")[0]
 }
 
 export {
