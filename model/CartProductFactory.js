@@ -6,7 +6,6 @@ async function createCartProduct(product) {
 
     const fetchedProduct = await findProductById(product)
 
-    
     const productId = generateUniqueId(product)
     const cartProducts = document.querySelector(".cart-products")
 
@@ -54,12 +53,6 @@ function hideBuy() {
     document.querySelector(".cart-buy").classList.toggle("hide")
 }
 
-function displayCount() {
-    document.getElementById("cart-count").classList.toggle("show")
-}
-function hideCount() {
-    document.getElementById("cart-count").classList.toggle("hide")
-}
 
 function createCart(uniqueId) {
     const cartProduct = document.createElement("div")
@@ -74,10 +67,12 @@ function createPriceElement(product) {
     price.textContent = product["price"] + "$"
     return price
 }
-
+function displayCount() {
+    document.getElementById("cart-count").style.display = "inline-block"
+}
 
 function generateUniqueId(product) {
     return product["id"] + ":" + Date.now()
 }
 
-export {createCartProduct}
+export {createCartProduct, displayCount}

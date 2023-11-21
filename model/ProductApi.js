@@ -72,7 +72,7 @@ function addToCart(productId) {
         products.push(productId)
     }
     localStorage.setItem("products", JSON.stringify(products));
-    increaseCount(products)
+    count(products)
 }
 
 function removeFromCart(productId) {
@@ -90,20 +90,30 @@ function removeFromCart(productId) {
         });
     }
     localStorage.setItem("products", JSON.stringify(products))
-    minusCount(products)
+    count(products)
 }
 
-function minusCount(products) {
+function count(products) {
     const productCartCount = document.getElementById("cart-count")
-    productCartCount.textContent = `${products.length - 1}`
-}
-function increaseCount(products) {
-    const productCartCount = document.getElementById("cart-count")
-    productCartCount.textContent = `${products.length + 1}`
+    productCartCount.textContent = `${products.length}`
+
+    if (productCartCount.textContent === "0") {
+        productCartCount.style.display = "none"
+    }
 }
 
 function sliceProductId(product) {
     return product.split(":")[0]
+}
+
+function countPrice(price) {
+    let count = price
+    const totalProductPrice = document.getElementById("total")
+    totalProductPrice.textContent = `${price + splitSign(price)}$`
+}
+
+function splitSign(priceTag) {
+    return priceTag.splice(0, priceTag.length)
 }
 
 export {

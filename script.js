@@ -1,6 +1,5 @@
 import {loadProducts} from "./model/AccessoryProductsApi.js";
-import {createCartProduct} from "./model/CartProductFactory.js";
-import {findProductById} from "./model/ProductApi.js";
+import {createCartProduct, displayCount} from "./model/CartProductFactory.js";
 
 const shoppingCart = document.getElementById("cart-background")
 function slideCart() {
@@ -38,7 +37,6 @@ function enableScroll() {
 
 const productCartCount = document.getElementById("cart-count")
 const cartProducts = document.querySelectorAll(".cart-products")
-const totalProductPrice = document.getElementById("total")
 async function loadCart() {
     localStorage.clear()//testing
     if (document.readyState !== 'loading') {
@@ -46,7 +44,7 @@ async function loadCart() {
         if (localStorageProducts) {
             let products = JSON.parse(localStorageProducts);
             productCartCount.textContent = products.length
-            productCartCount.style.display = "inline-block";
+            displayCount()
             localStorage.clear()
 
             for (const productId of products) {
