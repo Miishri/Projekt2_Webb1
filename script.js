@@ -34,9 +34,7 @@ function enableScroll() {
     document.body.style.overflow = 'visible';
 }
 
-
 const productCartCount = document.getElementById("cart-count")
-const cartProducts = document.querySelectorAll(".cart-products")
 async function loadCart() {
     if (document.readyState !== 'loading') {
         const localStorageProducts = localStorage.getItem("products")
@@ -52,6 +50,8 @@ async function loadCart() {
         }
     }
 }
+
+
 
 loadProducts()
 slideCart()

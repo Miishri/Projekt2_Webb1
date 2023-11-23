@@ -67,17 +67,18 @@ function pushProduct(components, component) {
     return components
 }
 
-function addToCart(productId) {
+function addToCart(productId, price) {
     const localStorageProducts = localStorage.getItem("products")
     let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
     if (products.length < 8) {
         products.push(productId)
+        count(products)
+        increasePrice(price)
     }
     localStorage.setItem("products", JSON.stringify(products));
-    count(products)
 }
 
-function removeFromCart(productId) {
+function removeFromCart(productId, price) {
     const localStorageProducts = localStorage.getItem("products")
     let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
     if (products.length < 8) {
@@ -86,13 +87,18 @@ function removeFromCart(productId) {
                 return true
             }else {
                 const cart = document.getElementById(`${productId}`)
+                count(products)
+                decreasePrice(price)
                 cart.remove()
                 return false;
             }
         });
     }
+    
+    if (products.length === 0) {
+        hideBuy()
+    }
     localStorage.setItem("products", JSON.stringify(products))
-    count(products)
 }
 
 function count(products) {
@@ -105,18 +111,18 @@ function count(products) {
     }
 }
 
-function sliceProductId(product) {
-    return product.split(":")[0]
+function increasePrice(price) {
+    const totalProductPrice = document.getElementById("total");
+    const currentTotal = totalProductPrice.textContent
+    totalProductPrice.textContent = price
+}
+function decreasePrice(price) {
+    const totalProductPrice = document.getElementById("total");
+    const currentTotal = totalProductPrice.textContent
 }
 
-function countPrice(price) {
-    let count = price
-    const totalProductPrice = document.getElementById("total")
-    totalProductPrice.textContent = `${price + splitSign(price)}$`
-}
-
-function splitSign(priceTag) {
-    return priceTag.splice(0, priceTag.length)
+function hideBuy(){
+    document.querySelector(".cart-buy").style.display = "none"
 }
 
 export {
