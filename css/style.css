@@ -207,6 +207,22 @@ body {
     background: rgba(128, 128, 128, 0.15);
     height: 20vh;
 }
+
+.footer {
+    height: 8vh;
+    width: 100vw;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 3vh;
+}
+
+.contact-us:hover {
+    cursor: pointer;
+}
+.contact-us:active {
+    scale: 0.99;
+    transition: scale 0.5s;
+}
 @media (min-width: 499px) {
     .accessories-product {
         height: 40vh;
