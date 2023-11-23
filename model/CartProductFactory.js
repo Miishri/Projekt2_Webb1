@@ -3,8 +3,12 @@ import {addToCart, findProductById, removeFromCart} from "./ProductApi.js";
 async function createCartProduct(product) {
     displayBuy()
     displayCount()
-
+    
     const fetchedProduct = await findProductById(product)
+    
+    if (fetchedProduct) {
+        product = fetchedProduct
+    }
 
     const productId = generateUniqueId(product)
     const cartProducts = document.querySelector(".cart-products")
@@ -69,7 +73,10 @@ function displayCount() {
 }
 
 function generateUniqueId(product) {
-    return product["id"] + ":" + Date.now()
+    if (product["id"]) {
+        return product["id"] + ":" + Date.now()
+    }
+    return product + ":" + Date.now()
 }
 
 export {createCartProduct, displayCount}

@@ -38,7 +38,6 @@ function enableScroll() {
 const productCartCount = document.getElementById("cart-count")
 const cartProducts = document.querySelectorAll(".cart-products")
 async function loadCart() {
-    localStorage.clear()//testing
     if (document.readyState !== 'loading') {
         const localStorageProducts = localStorage.getItem("products")
         if (localStorageProducts) {
@@ -48,7 +47,7 @@ async function loadCart() {
             localStorage.clear()
 
             for (const productId of products) {
-                await createCartProduct(productId)
+                await createCartProduct(productId.slice(0, 2))
             }
         }
     }

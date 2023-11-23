@@ -56,6 +56,8 @@ async function getAllProducts() {
     components = pushProduct(await fetchProcessors(), components)
     components = pushProduct(await fetchStorageDevices(), components)
     components = pushProduct(await fetchMonitors(), components)
+    components = pushProduct(await fetchPrebuiltComputers(), components)
+    components = pushProduct(await fetchBundles(), components)
     return components
 }
 function pushProduct(components, component) {
