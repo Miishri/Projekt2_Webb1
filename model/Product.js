@@ -51,7 +51,9 @@ function createPriceElement(product) {
     price.textContent = product["price"] + "$"
 
     price.addEventListener('click', () => {
-        createCartProduct(product)
+        setTimeout(() => {
+            createCartProduct(product)
+        }, 100)
     })
     
     return price

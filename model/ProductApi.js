@@ -81,14 +81,12 @@ function addToCart(productId, price) {
 function removeFromCart(productId, price) {
     const localStorageProducts = localStorage.getItem("products")
     let products = localStorageProducts ? JSON.parse(localStorageProducts) : [];
-    if (products.length < 8) {
+    if (products.length < 9) {
         products = products.filter(id => {
             if (id !== productId) {
                 return true
             }else {
                 const cart = document.getElementById(`${productId}`)
-                count(products)
-                decreasePrice(price)
                 cart.remove()
                 return false;
             }
@@ -98,6 +96,8 @@ function removeFromCart(productId, price) {
     if (products.length === 0) {
         hideBuy()
     }
+    count(products)
+    decreasePrice(price)
     localStorage.setItem("products", JSON.stringify(products))
 }
 
@@ -113,12 +113,23 @@ function count(products) {
 
 function increasePrice(price) {
     const totalProductPrice = document.getElementById("total");
-    const currentTotal = totalProductPrice.textContent
-    totalProductPrice.textContent = price
+    let currentTotal = Number(totalProductPrice.textContent)
+    if (isNaN(currentTotal)) {
+        currentTotal = 0
+    }
+    const productPrice = Number(price)
+    const total = currentTotal + productPrice
+    totalProductPrice.textContent = `${total}`
 }
 function decreasePrice(price) {
     const totalProductPrice = document.getElementById("total");
-    const currentTotal = totalProductPrice.textContent
+    let currentTotal = Number(totalProductPrice.textContent)
+    if (isNaN(currentTotal)) {
+        currentTotal = 0
+    }
+    const productPrice = Number(price)
+    const total = currentTotal - productPrice
+    totalProductPrice.textContent = `${total}`
 }
 
 function hideBuy(){

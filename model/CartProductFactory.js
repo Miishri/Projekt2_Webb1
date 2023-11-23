@@ -18,7 +18,6 @@ async function createCartProduct(product) {
     cart.appendChild(createTitleElement(product))
     cart.appendChild(createPriceElement(product))
     cart.appendChild(createDeleteElement(product, productId))
-    cartProducts.appendChild(cart)
 
     addToCart(productId, product["price"])
 }
@@ -44,7 +43,7 @@ function createDeleteElement(product, productId) {
     deleteButton.src = "https://svgshare.com/i/zdP.svg"
 
     deleteButton.addEventListener("click", () => {
-        removeFromCart(productId)
+        removeFromCart(productId, product["price"])
     })
 
     return deleteButton
@@ -76,7 +75,7 @@ function generateUniqueId(product) {
     if (product["id"]) {
         return product["id"] + ":" + Date.now()
     }
-    return product + ":" + Date.now()
+    return product + ":" + Date.now() + Math.random()
 }
 
 export {createCartProduct, displayCount}
