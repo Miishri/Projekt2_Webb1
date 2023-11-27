@@ -60,6 +60,15 @@ async function getAllProducts() {
     components = pushProduct(await fetchBundles(), components)
     return components
 }
+
+async function getAllComponents() {
+    let components = []
+    components = pushProduct(await fetchGraphicCards(), components)
+    components = pushProduct(await fetchProcessors(), components)
+    components = pushProduct(await fetchStorageDevices(), components)
+    components = pushProduct(await fetchMonitors(), components)
+    return components
+}
 function pushProduct(components, component) {
     component.forEach((component) => {
         components.push(component)
@@ -142,5 +151,6 @@ export {
     findProductById,
     fetchBundles,
     getAllProducts,
-    fetchPrebuiltComputers
+    fetchPrebuiltComputers,
+    getAllComponents
 }

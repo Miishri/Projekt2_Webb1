@@ -1,4 +1,4 @@
-import {fetchBundles, fetchPrebuiltComputers, getAllProducts} from "./ProductApi.js";
+import {fetchBundles, fetchPrebuiltComputers, getAllComponents} from "./ProductApi.js";
 import {createAccessory} from "./Product.js";
 
 function loadProducts() {
@@ -21,7 +21,7 @@ async function loadPrebuiltPcs() {
 }
 
 async function loadComponents() {
-    const components = await getAllProducts()
+    const components = await getAllComponents()
     components.forEach((component) => {
         createComponentElement(component)
     })
