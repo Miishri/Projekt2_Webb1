@@ -20,6 +20,8 @@ async function createCartProduct(product) {
     cart.appendChild(createDeleteElement(product, productId))
 
     addToCart(productId, product["price"])
+
+    cartProducts.appendChild(cart)
 }
 
 function createImageElement(product) {
