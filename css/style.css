@@ -150,7 +150,7 @@ body {
 }
 .accessories-products {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 5vw;
 }
 .accessories-product {
@@ -160,8 +160,8 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    height: 30vh;
-    width: 40vw;
+    height: 45vh;
+    width: 65vw;
 
     padding: 2.1vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -172,11 +172,11 @@ body {
 }
 .accessories-product-title {
     margin-top: 2vh;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: lighter;
 }
 .accessories-product-image {
-    width: 30vw;
+    width: 60vw;
     height: auto;
 }
 .accessories-product-price {
